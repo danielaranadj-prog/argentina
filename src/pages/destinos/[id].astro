@@ -1,0 +1,282 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import Navbar from '../../components/Navbar.astro';
+
+export function getStaticPaths() {
+  return [
+    { 
+      params: { id: 'buenos-aires' }, 
+      props: { 
+        title: 'Buenos Aires', 
+        img: '/destinos_argentina/buenosaires.jpg',
+        // El gancho corto para el header
+        desc: 'La París de Sudamérica, con ese caos hermoso y pasional.',
+        
+        // Aquí puse la INTRODUCCIÓN y la MÍSTICA de tu texto
+        historia: '¡Bienvenido a la Reina del Plata! Ponete cómodo y preparate unos mates, que te voy a contar la posta. Acá el tango no se baila, se siente; el fútbol es una religión y el asado es sagrado. Es la mezcla perfecta entre la elegancia europea y la pasión latina. Una ciudad que nunca duerme, donde las librerías abren de madrugada y los cafés son templos para arreglar el mundo.',
+        
+        // Aquí distribuí tus consejos de BARRIOS, DÍAS, CLIMA y CULTURA
+        secciones: [
+          { 
+            icon: 'fa-calendar-check', 
+            label: 'Días Ideales', 
+            text: 'Recomendado: 5 días ("El Ideal"). Te da tiempo para San Telmo, La Boca, perderte en los Bosques de Palermo y un café en el Tortoni sin apuro.' 
+          },
+          { 
+            icon: 'fa-tree', 
+            label: 'Mejor Época', 
+            text: 'Octubre/Noviembre (Primavera). La ciudad explota de violeta por los jacarandás y el clima es un placer. Ni muy frío ni muy caliente.' 
+          },
+          { 
+            icon: 'fa-futbol', 
+            label: 'La Pasión', 
+            text: 'Tenés que pisar Caminito y La Bombonera. Entrar ahí te pone la piel de gallina. El fútbol acá se vive con una intensidad que asusta y enamora.' 
+          },
+          { 
+            icon: 'fa-wine-glass', 
+            label: 'Cultura y Sabor', 
+            text: 'Te espera un bife de chorizo, un Malbec y el Teatro Colón (la mejor acústica del mundo). Cerrá la noche con una milonga.' 
+          }
+        ]
+      }
+    },
+    { 
+      params: { id: 'el-calafate' }, 
+      props: { 
+        title: 'El Calafate', 
+        img: '/destinos_argentina/calafate.jpg',
+        desc: 'Tierra de glaciares milenarios y hielo azul.',
+        historia: 'Ubicada a orillas del Lago Argentino, es la puerta de entrada al imponente Glaciar Perito Moreno y a la inmensidad de la estepa patagónica.',
+        secciones: [
+          { icon: 'fa-mountain', label: 'Aventura', text: 'Minitrekking con grampones sobre el hielo azul del glaciar.' },
+          { icon: 'fa-camera', label: 'Spot Fotográfico', text: 'Pasarelas del Perito Moreno durante la "Golden Hour".' },
+          { icon: 'fa-drumstick-bite', label: 'Sabor Local', text: 'Cordero patagónico al asador, el plato insignia de la región.' },
+          { icon: 'fa-snowflake', label: 'Experiencia', text: 'Navegación entre témpanos de hielo en el brazo norte del lago.' }
+        ]
+      },
+    },
+    { 
+      params: { id: 'el-chalten' }, 
+      props: { 
+        title: 'El Chaltén', 
+        img: '/destinos_argentina/chalten.jpg',
+        desc: 'Capital Nacional del Trekking.',
+        historia: 'Un pequeño pueblo de montaña rodeado de picos legendarios como el Fitz Roy y el Cerro Torre.',
+        secciones: [
+          { icon: 'fa-hiking', label: 'Trekking', text: 'Sendero a Laguna de los Tres.' },
+          { icon: 'fa-camera', label: 'Foto', text: 'Amanecer en el Mirador de los Cóndores.' },
+          { icon: 'fa-beer', label: 'Relax', text: 'Cervecerías artesanales post-trekking.' },
+          { icon: 'fa-map-signs', label: 'Dato', text: 'Senderos gratuitos y bien señalizados.' }
+        ]
+      }
+    },
+    { 
+      params: { id: 'iguazu' }, 
+      props: { 
+        title: 'Iguazú', 
+        img: '/destinos_argentina/iguazu.jpg',
+        desc: 'Donde el agua ruge en la selva.',
+        historia: 'Hogar de las Cataratas del Iguazú, una de las 7 maravillas naturales del mundo.',
+        secciones: [
+          { icon: 'fa-water', label: 'Imperdible', text: 'Garganta del Diablo.' },
+          { icon: 'fa-camera', label: 'Foto', text: 'Arcoíris en el Circuito Superior.' },
+          { icon: 'fa-ship', label: 'Aventura', text: 'Lanchas bajo las caídas de agua.' },
+          { icon: 'fa-leaf', label: 'Fauna', text: 'Observación de tucanes y coatíes.' }
+        ]
+      }
+    },
+    { 
+      params: { id: 'mendoza' }, 
+      props: { 
+        title: 'Mendoza', 
+        img: '/destinos_argentina/mendoza.jpg',
+        desc: 'Vinos de altura y Andes.',
+        historia: 'Tierra del Malbec y cuna de la libertad a los pies del Aconcagua.',
+        secciones: [
+          { icon: 'fa-wine-bottle', label: 'Bodegas', text: 'Degustaciones en Valle de Uco.' },
+          { icon: 'fa-camera', label: 'Foto', text: 'Viñedos con montañas nevadas.' },
+          { icon: 'fa-bicycle', label: 'Actividad', text: 'Caminos del vino en bici.' },
+          { icon: 'fa-mountain', label: 'Andes', text: 'Vista al cerro Aconcagua.' }
+        ]
+      }
+    },
+    { 
+      params: { id: 'ushuaia' }, 
+      props: { 
+        title: 'Ushuaia', 
+        img: '/destinos_argentina/ushuaia.jpg',
+        desc: 'El fin del mundo.',
+        historia: 'La ciudad más austral del planeta, entre los Andes y el Canal Beagle.',
+        secciones: [
+          { icon: 'fa-ship', label: 'Navegación', text: 'Canal Beagle y Faro Les Éclaireurs.' },
+          { icon: 'fa-camera', label: 'Foto', text: 'Cartel del Fin del Mundo.' },
+          { icon: 'fa-train', label: 'Historia', text: 'Tren del Fin del Mundo.' },
+          { icon: 'fa-fish', label: 'Sabor', text: 'Centolla fueguina fresca.' }
+        ]
+      }
+    }
+  ];
+}
+
+const { title, img, desc, historia, secciones } = Astro.props;
+---
+
+<Layout title={`${title} | Destinos Argentinos`}>
+  <Navbar />
+  
+  <header class="dest-hero" style={`background-image: url(${img})`}>
+    <div class="overlay"></div>
+    <div class="hero-text">
+      <h1>{title}</h1>
+      <p class="slogan">{desc}</p>
+    </div>
+  </header>
+
+  <main class="container">
+    <div class="nav-back">
+      <a href="/destinos_argentina/#destinos" class="back-link">
+        <i class="fas fa-chevron-left"></i> VOLVER A DESTINOS
+      </a>
+    </div>
+
+    <article class="main-info">
+      <div class="text-block">
+        <h2>La Experiencia</h2>
+        <p>{historia}</p>
+      </div>
+
+      <div class="icon-grid">
+        {secciones.map(sec => (
+          <div class="icon-item">
+            <div class="icon-wrapper">
+              <i class={`fas ${sec.icon}`}></i>
+            </div>
+            <div class="icon-content">
+              <h3>{sec.label}</h3>
+              <p>{sec.text}</p>
+            </div>
+          </div>
+        ))}
+      </div>
+    </article>
+  </main>
+</Layout>
+
+<style>
+  /* Estilos específicos para la página de destino */
+  .dest-hero {
+    height: 45vh;
+    background-size: cover;
+    background-position: center;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: white;
+  }
+  .overlay { position: absolute; inset: 0; background: rgba(0,0,0,0.45); }
+  .hero-text { position: relative; z-index: 2; padding: 0 20px; }
+  
+  /* --- CAMBIOS EN EL TÍTULO (H1) --- */
+  .hero-text h1 { 
+      font-size: clamp(2.5rem, 6vw, 4rem); 
+      font-style: normal; /* No Italic */
+      margin: 15px 0; 
+      font-weight: 700; /* Extra Bold */
+      letter-spacing: -1px; 
+      text-transform: uppercase; /* Mayúsculas para impacto */
+      text-shadow: 0 2px 10px rgba(0,0,0,0.3);
+  }
+
+ /* --- REEMPLAZA ESTO EN TU CSS --- */
+  .slogan { 
+      font-size: 0.rem;      /* Más pequeño (antes 1.1rem) */
+      font-weight: 300;        /* Letra más fina (Light) */
+      letter-spacing: 1px;     /* Espaciado elegante */
+      text-transform: uppercase; /* Opcional: le da un toque 'premium' discreto */
+      opacity: 0.8;            /* Un poco más transparente para que no compita */
+      margin-top: 10px;         /* Pegadito al título */
+  }
+  
+
+  .container { max-width: 900px; margin: 0 auto; padding: 40px 20px; }
+  .nav-back { margin-bottom: 40px; }
+  .back-link { font-size: 0.75rem; color: var(--gold); letter-spacing: 2px; font-weight: 700; display: flex; align-items: center; gap: 8px; text-decoration: none; }
+
+  .text-block { margin-bottom: 50px; }
+  
+  /* --- CAMBIOS EN EL SUBTÍTULO (H2) --- */
+  .text-block h2 { 
+      font-size: 2rem; 
+      margin-bottom: 15px; 
+      font-weight: 600; /* Bold */
+      font-style: normal; /* No Italic */
+      letter-spacing: -0.5px; 
+      color: var(--title);
+  }
+  
+  .text-block p { font-weight: 400; color: var(--text-secondary); line-height: 1.8; font-size: 1rem; }
+
+  .icon-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 35px;
+    margin-top: 40px;
+  }
+  .icon-item {
+    display: flex;
+    gap: 18px;
+    align-items: flex-start;
+  }
+  .icon-wrapper {
+    width: 45px;
+    height: 45px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid var(--border);
+    border-radius: 12px; /* Cambiado de círculo a cuadrado redondeado para modernizar */
+    flex-shrink: 0;
+    background: var(--bg-secondary);
+  }
+  .icon-wrapper i { color: var(--gold); font-size: 1.1rem; }
+  
+  /* --- CAMBIOS EN LOS TÍTULOS DE ÍCONOS (H3) --- */
+  .icon-content h3 { 
+      font-size: 0.85rem; 
+      letter-spacing: 1px; 
+      text-transform: uppercase; 
+      margin-bottom: 6px; 
+      font-weight: 700; /* Bold */
+      color: var(--title);
+  }
+  
+  .icon-content p { font-size: 0.9rem; font-weight: 400; color: var(--text-secondary); margin: 0; line-height: 1.6; }
+
+  @media (max-width: 600px) {
+    .icon-grid { grid-template-columns: 1fr; gap: 25px; }
+/* --- BUSCA ESTA CLASE Y AGREGA EL PADDING --- */
+  .dest-hero {
+    height: 45vh;
+    background-size: cover;
+    background-position: center;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: white;
+    
+    /* AGREGA ESTA LÍNEA PARA BAJAR EL TEXTO */
+    padding-top: 60px; /* Esto empuja el contenido hacia abajo */
+  }
+    .hero-text h1 { font-size: 2.8rem; }
+  }
+  .hero-text h1, 
+.slogan {
+    color: #ffffff !important; /* Fuerza el blanco siempre */
+    text-shadow: 0 2px 10px rgba(0,0,0,0.5); /* Sombra para que se lea perfecto sobre cualquier foto */
+
+  
+</style>

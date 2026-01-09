@@ -10,7 +10,7 @@
   </div>
 
   <div class="hero-content">
-    <span class="welcome">INSTANTE TRIPS PRESENTA</span>
+    <span class="welcome">Tu próximo destino</span>
     <h1 class="hero-title">ARGENTINA</h1>
     <p class="hero-slogan">Del fuego del asado al hielo eterno.</p>
   </div>
@@ -103,7 +103,7 @@
   }
 
   .hero-slogan {
-    font-size: 1.1rem;
+    font-size: 1rem;
     color: rgba(255, 255, 255, 0.9);
     max-width: 500px;
     margin: 0 auto;
@@ -114,4 +114,13 @@
     .hero-title { font-size: 3rem; }
     /* Desactivar parallax en móviles si prefieres ahorrar batería */
   }
+  
+  /* Forzamos que el contenedor del texto siempre sea blanco, 
+     sin importar si el sitio está en modo claro u oscuro */
+  .hero-content, 
+  .hero-content h1, 
+  .hero-content p {
+      color: #ffffff !important; 
+      text-shadow: 0 2px 4px rgba(0,0,0,0.5); /* Sombra para que se lea mejor si el video es claro */
+
 </style>
