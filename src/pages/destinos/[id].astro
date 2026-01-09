@@ -45,13 +45,34 @@ export function getStaticPaths() {
       props: { 
         title: 'El Calafate', 
         img: '/destinos_argentina/calafate.jpg',
-        desc: 'Tierra de glaciares milenarios y hielo azul.',
-        historia: 'Ubicada a orillas del Lago Argentino, es la puerta de entrada al imponente Glaciar Perito Moreno y a la inmensidad de la estepa patagónica.',
+        
+        // El gancho corto (Short hook)
+        desc: 'Donde el hielo ruge y la naturaleza manda.',
+        
+        // Historia con emoción y datos sensoriales
+        historia: 'Abrigate bien, che, porque estás entrando a una de las postales más imponentes del planeta. Aquí uno se siente chiquitito de verdad. Tener enfrente al Perito Moreno te cambia la perspectiva de la vida: una pared de 60 metros que avanza y se rompe frente a tus ojos con un ruido similar a un trueno. No venís solo a ver, venís a escuchar cómo cruje la tierra.',
+        
         secciones: [
-          { icon: 'fa-mountain', label: 'Aventura', text: 'Minitrekking con grampones sobre el hielo azul del glaciar.' },
-          { icon: 'fa-camera', label: 'Spot Fotográfico', text: 'Pasarelas del Perito Moreno durante la "Golden Hour".' },
-          { icon: 'fa-drumstick-bite', label: 'Sabor Local', text: 'Cordero patagónico al asador, el plato insignia de la región.' },
-          { icon: 'fa-snowflake', label: 'Experiencia', text: 'Navegación entre témpanos de hielo en el brazo norte del lago.' }
+          { 
+            icon: 'fa-snowflake', 
+            label: 'El Hielo Azul', 
+            text: 'El imperdible es el Minitrekking: ponete grampones y caminá sobre el glaciar. Vas a ver grietas azules y terminar con un whisky con hielo milenario. ¡La posta!' 
+          },
+          { 
+            icon: 'fa-wind', // Icono de Viento
+            label: 'Efecto Cebolla', 
+            text: 'El viento es el dueño del lugar. Vestite por capas: térmica, polar y cortavientos. El clima cambia cada 15 minutos, así que tenés que estar listo para todo.' 
+          },
+          { 
+            icon: 'fa-drumstick-bite', // Icono de Comida/Carne
+            label: 'Sabor y Leyenda', 
+            text: 'Obligatorio comer Cordero Patagónico al asador. Y de postre, probá el fruto del Calafate: dicen que el que lo come, siempre vuelve.' 
+          },
+          { 
+            icon: 'fa-calendar-alt', 
+            label: 'Itinerario Ideal', 
+            text: 'Recomendado: 3 días. Día 1: Perito Moreno (Pasarelas). Día 2: Navegación entre témpanos (Upsala). Día 3: Escapada a una Estancia o relax.' 
+          }
         ]
       },
     },
@@ -60,13 +81,34 @@ export function getStaticPaths() {
       props: { 
         title: 'El Chaltén', 
         img: '/destinos_argentina/chalten.jpg',
-        desc: 'Capital Nacional del Trekking.',
-        historia: 'Un pequeño pueblo de montaña rodeado de picos legendarios como el Fitz Roy y el Cerro Torre.',
+        
+        // Gancho corto
+        desc: 'Capital Nacional del Trekking: Donde la montaña manda.',
+        
+        // Historia con la vibra del pueblo joven y mochilero
+        historia: 'Ajustate los cordones, che, que llegaste al paraíso. Este es un pueblo joven, sin semáforos ni apuro, donde el ritmo lo marcan las montañas y el viento. Venís a buscar la figurita difícil: el Fitz Roy. Verlo despejado es como ganar un mundial. Acá la onda es mochilera, de fogones, cervecería artesanal y gastar suela.',
+        
         secciones: [
-          { icon: 'fa-hiking', label: 'Trekking', text: 'Sendero a Laguna de los Tres.' },
-          { icon: 'fa-camera', label: 'Foto', text: 'Amanecer en el Mirador de los Cóndores.' },
-          { icon: 'fa-beer', label: 'Relax', text: 'Cervecerías artesanales post-trekking.' },
-          { icon: 'fa-map-signs', label: 'Dato', text: 'Senderos gratuitos y bien señalizados.' }
+          { 
+            icon: 'fa-hiking', 
+            label: 'El Desafío', 
+            text: 'Laguna de los Tres (Fitz Roy). Son 20km. El último kilómetro es "la muerte", pero arriba, con la laguna turquesa, sentís que tocás el cielo. ¡Vale la pena cada gota de sudor!' 
+          },
+          { 
+            icon: 'fa-wifi', // Icono de WiFi / Señal
+            label: 'Modo Detox', 
+            text: 'El WiFi es malo y la señal va y viene. Aprovechá para desconectar de verdad. Tu única conexión acá tiene que ser con la naturaleza (y con la gente en los bares).' 
+          },
+          { 
+            icon: 'fa-money-bill-wave', 
+            label: 'Cash is King', 
+            text: 'Llevá efectivo siempre. Los cajeros del pueblo suelen quedarse sin billetes y los posnet fallan por la señal. No te quedes sin tu hamburguesa post-trekking.' 
+          },
+          { 
+            icon: 'fa-cloud-sun', 
+            label: 'Ventana de Tiempo', 
+            text: 'Recomendado: 3 a 4 días. El clima manda y necesitás un "día colchón" por si llueve o está nublado, para esperar a que las montañas se despejen.' 
+          }
         ]
       }
     },
@@ -75,13 +117,34 @@ export function getStaticPaths() {
       props: { 
         title: 'Iguazú', 
         img: '/destinos_argentina/iguazu.jpg',
-        desc: 'Donde el agua ruge en la selva.',
-        historia: 'Hogar de las Cataratas del Iguazú, una de las 7 maravillas naturales del mundo.',
+        
+        // Gancho corto
+        desc: 'Donde la tierra se abre y la naturaleza explota.',
+        
+        // Historia sensorial: Humedad, ruido y las 7 maravillas
+        historia: 'Sacate el abrigo y ponete repelente, porque aterrizaste en el corazón de la selva. No te vendo humo: estas son una de las 7 Maravillas Naturales del Mundo. Acá la tierra se abre y el agua cae con una furia que te deja mudo. No es solo mirar, es sentir el rocío en la cara y escuchar el rugido constante. Es una película de aventuras en la vida real.',
+        
         secciones: [
-          { icon: 'fa-water', label: 'Imperdible', text: 'Garganta del Diablo.' },
-          { icon: 'fa-camera', label: 'Foto', text: 'Arcoíris en el Circuito Superior.' },
-          { icon: 'fa-ship', label: 'Aventura', text: 'Lanchas bajo las caídas de agua.' },
-          { icon: 'fa-leaf', label: 'Fauna', text: 'Observación de tucanes y coatíes.' }
+          { 
+            icon: 'fa-water', 
+            label: 'La Joya: Garganta', 
+            text: 'Caminás por pasarelas tranquilas hasta que... ¡BUM! Llegás al abismo. Una herradura de agua gigante que levanta vapor y te deja hipnotizado. La energía ahí es brutal.' 
+          },
+          { 
+            icon: 'fa-ship', 
+            label: 'El Bautismo', 
+            text: 'Si te animás, hacé la "Gran Aventura": un gomón te mete debajo de los saltos. Salís empapado pero con una adrenalina única. Es la mejor ducha de tu vida.' 
+          },
+          { 
+            icon: 'fa-paw', // Icono de animal (pata) para los Coatíes
+            label: 'Alerta Coatíes', 
+            text: 'Son lindos pero son chorros profesionales. ¡No saques comida frente a ellos! Y el otro tip de supervivencia: bañate en repelente, los mosquitos no perdonan.' 
+          },
+          { 
+            icon: 'fa-passport', // Icono de pasaporte para cruzar la frontera
+            label: 'Los Dos Lados', 
+            text: 'Ideal: 3 días. En Argentina las vivís desde adentro (caminás entre ellas) y en Brasil tenés la vista panorámica para la foto perfecta. Hacé los dos.' 
+          }
         ]
       }
     },
@@ -90,13 +153,34 @@ export function getStaticPaths() {
       props: { 
         title: 'Mendoza', 
         img: '/destinos_argentina/mendoza.jpg',
-        desc: 'Vinos de altura y Andes.',
-        historia: 'Tierra del Malbec y cuna de la libertad a los pies del Aconcagua.',
+        
+        // Gancho corto
+        desc: 'Tierra del sol, del buen vino y los Andes gigantes.',
+        
+        // Historia: El "Buen Vivir", el oasis y el Aconcagua
+        historia: '¡Levantá la copa, che! Llegaste al oasis donde el tiempo pasa más lento. Mendoza es la capital del "buen vivir": acá no se corre, se disfruta. Es el único lugar donde podés almorzar un asado gourmet mirando al Aconcagua (el techo de América) y brindar con un Malbec que nació a metros de tu mesa. Relax, lujo y naturaleza salvaje.',
+        
         secciones: [
-          { icon: 'fa-wine-bottle', label: 'Bodegas', text: 'Degustaciones en Valle de Uco.' },
-          { icon: 'fa-camera', label: 'Foto', text: 'Viñedos con montañas nevadas.' },
-          { icon: 'fa-bicycle', label: 'Actividad', text: 'Caminos del vino en bici.' },
-          { icon: 'fa-mountain', label: 'Andes', text: 'Vista al cerro Aconcagua.' }
+          { 
+            icon: 'fa-wine-glass-alt', 
+            label: 'Capital del Vino', 
+            text: 'Tenés dos mundos: Luján de Cuyo (histórico) y Valle de Uco (bodegas que parecen naves espaciales). Si te animás, alquilá bici en Maipú y andá de copa en copa.' 
+          },
+          { 
+            icon: 'fa-mountain', 
+            label: 'Alta Montaña', 
+            text: 'El Aconcagua vigila todo desde sus casi 7.000 metros. Hacé la excursión hasta el mirador para sentirte una hormiga, o tirate a hacer rafting en el agua helada del río.' 
+          },
+          { 
+            icon: 'fa-sun', // Icono de Sol (Clave en el desierto)
+            label: 'Sol y Zonda', 
+            text: 'Esto es un desierto. El sol de altura quema fuerte (usá gorra). Y ojo con el Zonda: un viento caliente que baja de la montaña y lo despeina todo. ¡Es parte de la experiencia!' 
+          },
+          { 
+            icon: 'fa-calendar-check', 
+            label: 'La Vendimia', 
+            text: 'Recomendado: 3 o 4 días. Dedicale un día entero a un almuerzo de pasos en bodega. La mejor época es Marzo (cosecha) o el Otoño, cuando las viñas se ponen rojas.' 
+          }
         ]
       }
     },
@@ -105,13 +189,34 @@ export function getStaticPaths() {
       props: { 
         title: 'Ushuaia', 
         img: '/destinos_argentina/ushuaia.jpg',
-        desc: 'El fin del mundo.',
-        historia: 'La ciudad más austral del planeta, entre los Andes y el Canal Beagle.',
+        
+        // Gancho corto
+        desc: 'El Fin del Mundo: Donde los Andes se hunden en el mar.',
+        
+        // Historia: La mística del límite, los presos y la energía densa
+        historia: 'Abrigate hasta las orejas, porque acá termina el mapa. Ushuaia tiene una energía densa y misteriosa; es el último bastión antes de la Antártida. Venir acá es tachar un pendiente de la vida, caminar por donde anduvieron presos históricos y navegantes valientes, y poder decir: "Llegué, estoy donde termina todo".',
+        
         secciones: [
-          { icon: 'fa-ship', label: 'Navegación', text: 'Canal Beagle y Faro Les Éclaireurs.' },
-          { icon: 'fa-camera', label: 'Foto', text: 'Cartel del Fin del Mundo.' },
-          { icon: 'fa-train', label: 'Historia', text: 'Tren del Fin del Mundo.' },
-          { icon: 'fa-fish', label: 'Sabor', text: 'Centolla fueguina fresca.' }
+          { 
+            icon: 'fa-anchor', // Icono de ancla/barco
+            label: 'La Foto Sagrada', 
+            text: 'Navegación por el Canal Beagle hasta el Faro Les Éclaireurs (el de la postal). Ver lobos marinos y cormoranes con la cordillera de fondo es obligatorio.' 
+          },
+          { 
+            icon: 'fa-train', // Icono de tren
+            label: 'Tren y Cárcel', 
+            text: 'Subite al Tren del Fin del Mundo (el que usaban los presos) y visitá el Museo del Presidio. Caminar por esas celdas frías te da escalofríos reales.' 
+          },
+          { 
+            icon: 'fa-fish', // Icono de pescado/centolla
+            label: 'Plato Estrella', 
+            text: 'La Centolla Fueguina es el rey. Es un cangrejo gigante y fresquísimo. También probá la Merluza Negra, un manjar que se deshace en la boca.' 
+          },
+          { 
+            icon: 'fa-clock', // Icono de reloj/tiempo
+            label: 'Luz y Clima', 
+            text: 'Ojo: En verano hay luz hasta las 11 PM, pero en invierno a las 5 PM ya es noche cerrada. Y preparate: podés vivir las 4 estaciones en un solo día.' 
+          }
         ]
       }
     }
