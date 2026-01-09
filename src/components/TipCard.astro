@@ -1,0 +1,76 @@
+---
+interface Props {
+  icon: string;
+  title: string;
+  text: string;
+}
+
+const { icon, title, text } = Astro.props;
+---
+
+<div class="tip-card">
+  <div class="tip-icon">
+    <span>{icon}</span>
+  </div>
+  <div class="tip-info">
+    <h4 class="tip-title">{title}</h4>
+    <p class="tip-text">{text}</p>
+  </div>
+</div>
+
+<style>
+  .tip-card {
+    background: var(--card-bg); /* */
+    border-radius: 18px; /* Redondeado suave tipo iOS */
+    padding: 20px;
+    display: flex;
+    align-items: flex-start;
+    gap: 15px;
+    border: 1px solid var(--border); /* */
+    box-shadow: 0 2px 8px rgba(0,0,0,0.02);
+    transition: transform 0.2s ease;
+  }
+
+  .tip-card:hover {
+    transform: translateY(-3px);
+  }
+
+  .tip-icon {
+    background: var(--bg); /* Fondo ligeramente distinto */
+    width: 45px;
+    height: 45px;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.5rem;
+    flex-shrink: 0;
+  }
+
+  .tip-info {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+  }
+
+  .tip-title {
+    margin: 0;
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: var(--title); /* */
+  }
+
+  .tip-text {
+    margin: 0;
+    font-size: 0.9rem;
+    color: var(--text-secondary); /* */
+    line-height: 1.5;
+  }
+
+  /* Optimización para el modo oscuro automático */
+  @media (prefers-color-scheme: dark) {
+    .tip-card {
+      background: #1C1C1E; /* Refuerzo del color de tarjeta en modo oscuro */
+    }
+  }
+</style>

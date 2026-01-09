@@ -1,0 +1,111 @@
+---
+interface Props {
+    title: string;
+}
+
+const { title } = Astro.props;
+---
+
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="description" content="Guía de viaje personalizada para Argentina 2026" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover" />
+        <title>{title}</title>
+
+        <meta name="apple-mobile-web-app-capable" content="yes" />
+        <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+        <meta name="apple-mobile-web-app-title" content="Argentina 26" />
+        
+        <link rel="manifest" href="/destinos_argentina/manifest.json" />
+        <link rel="apple-touch-icon" href="/destinos_argentina/logo-ios.png" />
+        <link rel="icon" type="image/svg+xml" href="/destinos_argentina/logo.svg" />
+
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;600;800&family=Inter:wght@300;400&display=swap" rel="stylesheet">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    </head>
+    <body>
+        <slot />
+    </body>
+</html>
+
+<style is:global>
+    /* --- VARIABLES DE DISEÑO iOS (ADAPTABLES) --- */
+    :root {
+        --bg: #F2F2F7;             
+        --card-bg: #FFFFFF;        
+        --text: #1C1C1E;           
+        --text-secondary: #8E8E93; 
+        --title: #000000;          
+        --border: #E5E5EA;         
+        
+        --gold: #C5A059;           
+        --nav-bg: rgba(255, 255, 255, 0.8); 
+    }
+
+    @media (prefers-color-scheme: dark) {
+        :root {
+            --bg: #000000;         
+            --card-bg: #1C1C1E;    
+            --text: #FFFFFF;       
+            --text-secondary: #98989D;
+            --title: #FFFFFF;      
+            --border: #38383A;
+            --nav-bg: rgba(28, 28, 30, 0.8);
+        }
+    }
+
+    html {
+        scroll-behavior: smooth;
+        -webkit-text-size-adjust: 100%;
+    }
+
+    body {
+        /* Inter es la evolución de Helvética para la web moderna */
+        font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+        background-color: var(--bg);
+        color: var(--text);
+        margin: 0;
+        padding: 0;
+        /* Tamaño reducido y tracking ligero para elegancia */
+        font-size: 13px;
+        letter-spacing: -0.01em;
+        padding-top: env(safe-area-inset-top);
+        padding-bottom: env(safe-area-inset-bottom);
+        transition: background-color 0.3s, color 0.3s;
+        overflow-x: hidden;
+    }
+
+    /* Montserrat para un look geométrico tipo Avenir */
+    h1, h2, h3, h4, h5, h6 {
+        font-family: 'Montserrat', sans-serif;
+        font-weight: 800;
+        color: var(--title);
+        letter-spacing: -0.03em; /* Títulos más compactos y modernos */
+        text-transform: none;
+    }
+
+    .adaptive-logo, .menu-btn {
+        transition: filter 0.3s ease;
+    }
+
+    @media (prefers-color-scheme: light) {
+        .adaptive-logo, .menu-btn {
+            filter: brightness(0);
+        }
+    }
+
+    @media (prefers-color-scheme: dark) {
+        .adaptive-logo, .menu-btn {
+            filter: brightness(0) invert(1);
+        }
+    }
+
+    a {
+        color: inherit;
+        text-decoration: none;
+    }
+</style>

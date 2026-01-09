@@ -1,0 +1,131 @@
+---
+/* Navbar estilo iOS con desenfoque y secciones actualizadas */
+---
+<nav class="navbar">
+  <div class="nav-container">
+   <a href="https://www.instantetrips.com" class="nav-logo">
+      <img src="/destinos_argentina/logo.svg" alt="Instante Trips Logo" class="adaptive-logo" />
+    </a>
+
+    <button id="menu-toggle" class="menu-btn" aria-label="Abrir menú">
+      <i class="fas fa-bars"></i>
+    </button>
+  </div>
+
+  <div id="mobile-menu" class="mobile-nav">
+    <div class="menu-header">
+      <span class="menu-title">GUÍA ARGENTINA</span>
+    </div>
+    <div class="menu-links">
+      <a href="#destinos" class="menu-link"><i class="fas fa-map-marked-alt"></i> Destinos</a>
+      <a href="#planifica" class="menu-link"><i class="fas fa-passport"></i> Planifica</a>
+      <a href="#eventos" class="menu-link"><i class="fas fa-calendar-star"></i> Eventos</a>
+    </div>
+  </div>
+</nav>
+
+<style>
+  .navbar {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    height: 70px;
+    background: var(--nav-bg); /* */
+    backdrop-filter: blur(15px);
+    -webkit-backdrop-filter: blur(15px);
+    z-index: 2000; /* Prioridad máxima sobre el Hero */
+    display: flex;
+    align-items: center;
+    border-bottom: 1px solid var(--border);
+    padding-top: env(safe-area-inset-top); /* Soporte para Notch */
+  }
+
+  .nav-container {
+    width: 100%;
+    max-width: 1100px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 20px;
+  }
+
+  .nav-logo img { 
+    height: 30px; 
+    transition: filter 0.3s ease;
+  }
+
+  .menu-btn {
+    background: none;
+    border: none;
+    font-size: 1.5rem;
+    cursor: pointer;
+    color: var(--title); /* */
+    padding: 5px;
+  }
+
+  /* PANEL LATERAL DEL MENÚ (iOS SLIDE) */
+  .mobile-nav {
+    position: fixed;
+    top: 0;
+    right: -100%; /* Escondido por defecto */
+    width: 30%;
+    height: 100vh;
+    background: var(--card-bg); /* */
+    transition: right 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+    padding: 120px 30px;
+    z-index: 1999;
+    box-shadow: -10px 0 30px rgba(0,0,0,0.1);
+    display: flex;
+    flex-direction: column;
+  }
+
+  .mobile-nav.active { 
+    right: 0; /* Aparece al activarse por JS */
+  }
+
+  .menu-header { 
+    margin-bottom: 30px; 
+    border-bottom: 1px solid var(--border); 
+    padding-bottom: 10px; 
+  }
+
+  .menu-title { 
+    font-size: 0.7rem; 
+    color: var(--gold); /* */
+    font-weight: 800; 
+    letter-spacing: 2px; 
+    text-transform: uppercase;
+  }
+
+  .menu-links { 
+    display: flex; 
+    flex-direction: column; 
+    gap: 25px; 
+  }
+
+  .menu-link { 
+    font-size: 1.3rem; 
+    font-weight: 700; 
+    color: var(--text); /* */
+    display: flex; 
+    align-items: center; 
+    gap: 15px; 
+    text-decoration: none;
+    transition: color 0.2s;
+  }
+
+  .menu-link i { 
+    color: var(--gold); 
+    width: 25px; 
+    text-align: center; 
+  }
+
+  /* Ajustes de color para el modo claro/oscuro automático */
+  @media (prefers-color-scheme: light) {
+    .menu-btn { filter: brightness(0); }
+  }
+  @media (prefers-color-scheme: dark) {
+    .menu-btn { filter: brightness(0) invert(1); }
+  }
+</style>

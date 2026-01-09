@@ -1,0 +1,144 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Navbar from '../components/Navbar.astro';
+import Hero from '../components/Hero.astro';
+import Card from '../components/Card.astro';
+import TipCard from '../components/TipCard.astro';
+
+// Destinos Argentinos Locales
+const destinos = [
+    { title: "Buenos Aires", tag: "Capital", activity: "Tango, asado y pasión futbolera.", img: "/destinos_argentina/buenosaires.jpg" },
+    { title: "El Calafate", tag: "Glaciares", activity: "Caminatas sobre el Perito Moreno.", img: "/destinos_argentina/calafate.jpg" },
+    { title: "El Chaltén", tag: "Trekking", activity: "Capital nacional del senderismo.", img: "/destinos_argentina/chalten.jpg" },
+    { title: "Iguazú", tag: "Maravilla", activity: "Cataratas en medio de la selva.", img: "/destinos_argentina/iguazu.jpg" },
+    { title: "Mendoza", tag: "Vinos", activity: "Bodegas y alta montaña.", img: "/destinos_argentina/mendoza.jpg" },
+    { title: "Ushuaia", tag: "Fin del Mundo", activity: "Naturaleza pura en el extremo sur.", img: "/destinos_argentina/ushuaia.jpg" }
+];
+
+const feriados = [
+    { fecha: "01 Ene", nombre: "Año Nuevo" },
+    { fecha: "May 25", nombre: "Revolución de Mayo" },
+    { fecha: "Jul 09", nombre: "Día de la Independencia" },
+    { fecha: "Dec 25", nombre: "Navidad" }
+];
+---
+
+<Layout title="Guía Argentina | Instante Trips">
+    <Navbar />
+    
+    <Hero 
+        title="ARGENTINA" 
+        slogan="Del fuego del asado al hielo eterno."
+        videoSrc="/destinos_argentina/intro.mp4" 
+    />
+
+    <main class="container">
+        
+        <section id="destinos" class="mb-section scroll-offset">
+            <div class="section-header">
+                <span class="pill">DESCUBRE</span>
+                <h2>Ciudades Turísticas</h2>
+            </div>
+            <div class="grid">
+                {destinos.map((d) => (
+                    <Card title={d.title} tag={d.tag} activity={d.activity} img={d.img} />
+                ))}
+            </div>
+        </section>
+
+        <section id="planifica" class="mb-section scroll-offset">
+            <div class="section-header">
+                <span class="pill">LOGÍSTICA</span>
+                <h2>Planifica tu Viaje</h2>
+            </div>
+            <div class="tips-grid">
+                <TipCard icon="💵" title="Moneda" text="Usa el 'Dólar Blue' para obtener el mejor cambio en efectivo." />
+                <TipCard icon="🛂" title="Visas" text="Turismo libre por 90 días para la mayoría de países." />
+                <TipCard icon="✈️" title="Transporte" text="Vuelos internos para distancias largas y tarjeta SUBE para ciudad." />
+                <TipCard icon="☀️" title="Clima" text="Primavera (Sep-Nov) y Otoño son las mejores épocas." />
+            </div>
+        </section>
+
+        <section id="eventos" class="mb-section scroll-offset">
+            <div class="section-header">
+                <span class="pill">CALENDARIO</span>
+                <h2>Eventos y Feriados</h2>
+            </div>
+            <div class="event-container">
+                <div class="event-card">
+                    <h4>Festivales Anuales</h4>
+                    <ul class="fest-list">
+                        <li><i class="fas fa-music"></i> <strong>Lollapalooza:</strong> Marzo (BA).</li>
+                        <li><i class="fas fa-wine-glass"></i> <strong>Vendimia:</strong> Marzo (Mendoza).</li>
+                        <li><i class="fas fa-star"></i> <strong>Mundial de Tango:</strong> Agosto (BA).</li>
+                    </ul>
+                </div>
+                <div class="event-card">
+                    <h4>Feriados Nacionales</h4>
+                    <div class="holiday-list">
+                        {feriados.map(f => (
+                            <div class="holiday-item">
+                                <span class="h-date">{f.fecha}</span>
+                                <span class="h-name">{f.nombre}</span>
+                            </div>
+                        ))}
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="faq" class="mb-section scroll-offset">
+            <div class="section-header">
+                <span class="pill">AYUDA</span>
+                <h2>Preguntas Frecuentes</h2>
+            </div>
+            <div class="faq-container">
+                <details class="faq-item">
+                    <summary>¿Es seguro viajar a Argentina?</summary>
+                    <p>Sí, es un país muy acogedor para el turista. Se recomienda precaución normal en zonas concurridas de Buenos Aires.</p>
+                </details>
+                <details class="faq-item">
+                    <summary>¿Qué moneda debo llevar?</summary>
+                    <p>Se recomienda llevar Dólares o Euros en efectivo para aprovechar el cambio favorable en el mercado informal (Dólar Blue).</p>
+                </details>
+            </div>
+        </section>
+
+    </main>
+
+    <script>
+        const initMenu = () => {
+            const btn = document.getElementById('menu-toggle');
+            const menu = document.getElementById('mobile-menu');
+            const icon = btn?.querySelector('i');
+            btn?.addEventListener('click', () => {
+                menu?.classList.toggle('active');
+                if (icon) { icon.classList.toggle('fa-bars'); icon.classList.toggle('fa-times'); }
+            });
+            document.querySelectorAll('.menu-link').forEach(link => {
+                link.addEventListener('click', () => menu?.classList.remove('active'));
+            });
+        };
+        initMenu();
+        document.addEventListener('astro:after-swap', initMenu);
+    </script>
+</Layout>
+
+<style>
+    .container { max-width: 1100px; margin: 0 auto; padding: 0 20px; }
+    .mb-section { margin-bottom: 80px; }
+    .scroll-offset { scroll-margin-top: 100px; }
+    .section-header { border-left: 4px solid var(--gold); padding-left: 15px; margin-bottom: 30px; }
+    .section-header h2 { font-size: 2.2rem; font-weight: 800; color: var(--title); }
+    .pill { font-size: 0.7rem; color: var(--gold); border: 1px solid var(--gold); padding: 4px 12px; border-radius: 20px; font-weight: 700; text-transform: uppercase; }
+    .grid, .tips-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px; }
+    .event-container { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 25px; }
+    .event-card { background: var(--card-bg); padding: 25px; border-radius: 24px; border: 1px solid var(--border); }
+    .fest-list { list-style: none; padding: 0; }
+    .fest-list li { margin-bottom: 12px; display: flex; gap: 10px; font-size: 0.95rem; }
+    .holiday-list { display: flex; flex-direction: column; gap: 10px; }
+    .holiday-item { display: flex; justify-content: space-between; border-bottom: 1px dashed var(--border); padding-bottom: 5px; font-size: 0.9rem; }
+    .faq-item { background: var(--card-bg); border-radius: 16px; border: 1px solid var(--border); padding: 15px 20px; margin-bottom: 10px; }
+    .faq-item summary { font-weight: 700; cursor: pointer; display: flex; justify-content: space-between; align-items: center; }
+    .faq-item p { padding-top: 15px; margin-top: 15px; border-top: 1px solid var(--border); color: var(--text-secondary); font-size: 0.95rem; }
+</style>

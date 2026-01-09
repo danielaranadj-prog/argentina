@@ -1,0 +1,117 @@
+---
+/* Hero con efecto Parallax y altura optimizada */
+---
+<header class="hero">
+  <div class="video-background" id="parallax-bg">
+    <video autoplay muted loop playsinline class="hero-video">
+      <source src="/destinos_argentina/intro.mp4" type="video/mp4" />
+    </video>
+    <div class="overlay"></div>
+  </div>
+
+  <div class="hero-content">
+    <span class="welcome">INSTANTE TRIPS PRESENTA</span>
+    <h1 class="hero-title">ARGENTINA</h1>
+    <p class="hero-slogan">Del fuego del asado al hielo eterno.</p>
+  </div>
+</header>
+
+<script>
+  // Lógica de Parallax suave
+  const initParallax = () => {
+    const bg = document.getElementById('parallax-bg');
+    
+    window.addEventListener('scroll', () => {
+      const scrollValue = window.scrollY;
+      if (bg && scrollValue < window.innerHeight) {
+        // El video se mueve al 30% de la velocidad del scroll hacia abajo
+        bg.style.transform = `translateY(${scrollValue * 0.3}px)`;
+      }
+    });
+  };
+
+  initParallax();
+  // Reiniciar si usas transiciones de Astro
+  document.addEventListener('astro:after-swap', initParallax);
+</script>
+
+<style>
+  .hero {
+    position: relative;
+    width: 100%;
+    height: 55vh; /* Altura compacta */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden; /* Mantiene el efecto dentro del Hero */
+    background-color: #000;
+  }
+
+  .video-background {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    /* Altura extra para que el parallax tenga margen de movimiento */
+    height: 120%; 
+    z-index: 1;
+    will-change: transform; /* Optimización de rendimiento */
+  }
+
+  .hero-video {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(
+      to bottom,
+      rgba(0, 0, 0, 0.3),
+      rgba(0, 0, 0, 0.6)
+    ); /* Degradado para mayor legibilidad */
+    z-index: 2;
+  }
+
+  .hero-content {
+    position: relative;
+    z-index: 3;
+    color: #FFFFFF;
+    text-align: center;
+    padding: 0 20px;
+  }
+
+  .welcome {
+    font-size: 0.7rem;
+    font-weight: 800;
+    letter-spacing: 3px;
+    color: var(--gold); /* */
+    text-transform: uppercase;
+  }
+
+  .hero-title {
+    font-size: clamp(2.5rem, 8vw, 4.5rem);
+    font-weight: 900;
+    margin: 5px 0;
+    line-height: 1;
+    text-shadow: 0 4px 10px rgba(0,0,0,0.3); /* Sombra para resaltar */
+  }
+
+  .hero-slogan {
+    font-size: 1.1rem;
+    color: rgba(255, 255, 255, 0.9);
+    max-width: 500px;
+    margin: 0 auto;
+  }
+
+  @media (max-width: 600px) {
+    .hero { height: 45vh; }
+    .hero-title { font-size: 3rem; }
+    /* Desactivar parallax en móviles si prefieres ahorrar batería */
+  }
+</style>
