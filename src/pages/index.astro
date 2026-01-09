@@ -5,7 +5,7 @@ import Hero from '../components/Hero.astro';
 import Card from '../components/Card.astro';
 import TipCard from '../components/TipCard.astro';
 
-// Destinos Argentinos (Con IDs agregados para los enlaces)
+// Destinos Argentinos
 const destinos = [
     { 
         id: "buenos-aires", 
@@ -87,6 +87,22 @@ const feriados = [
             <div class="section-header">
                 <h2>Planifica tu Viaje</h2>
             </div>
+            
+            <a href="/destinos_argentina/tours" class="tours-banner-link">
+                <div class="tours-banner">
+                    <div class="banner-icon">
+                        <i class="fas fa-ticket-alt"></i>
+                    </div>
+                    <div class="banner-info">
+                        <h3>Reservar Tours y Actividades</h3>
+                        <p>Busca excursiones en todas las ciudades y arma tu itinerario.</p>
+                    </div>
+                    <div class="banner-arrow">
+                        <i class="fas fa-chevron-right"></i>
+                    </div>
+                </div>
+            </a>
+
             <div class="tips-grid">
                 <TipCard icon="💵" title="Moneda" text="Usa el 'Dólar Blue' para obtener el mejor cambio en efectivo." />
                 <TipCard icon="🛂" title="Visas" text="Turismo libre por 90 días para la mayoría de países." />
@@ -123,88 +139,106 @@ const feriados = [
         </section>
 
         <section id="faq" class="mb-section scroll-offset">
+            <div class="section-header">
+                <h2>Preguntas Frecuentes</h2>
+            </div>
             <div class="faq-container">
-    <details class="faq-item" name="faq-group">
-        <summary>¿Es seguro viajar a Argentina?</summary>
-        <p>Sí, es muy acogedor. Solo tené "cuidado de ciudad grande" en Buenos Aires...</p>
-    </details>
+                <details class="faq-item" name="faq-group">
+                    <summary>¿Es seguro viajar a Argentina?</summary>
+                    <p>Sí, es muy acogedor. Solo tené "cuidado de ciudad grande" en Buenos Aires y evita zonas turísticas de noche sin compañía.</p>
+                </details>
 
-    <details class="faq-item" name="faq-group">
-        <summary>¿Qué moneda debo llevar?</summary>
-        <p>El efectivo es rey. Traé Dólares o Euros nuevos...</p>
-    </details>
+                <details class="faq-item" name="faq-group">
+                    <summary>¿Qué moneda debo llevar?</summary>
+                    <p>El efectivo es rey. Traé Dólares o Euros nuevos (sin marcas) para cambiar al valor "Blue". Las tarjetas extranjeras ahora tienen buen cambio, pero el efectivo sigue siendo útil.</p>
+                </details>
 
-    <details class="faq-item" name="faq-group">
-        <summary>¿A qué hora se cena?</summary>
-        <p>¡Tarde! Los restaurantes se llenan a las 21:30 o 22:00 hs...</p>
-    </details>
+                <details class="faq-item" name="faq-group">
+                    <summary>¿A qué hora se cena?</summary>
+                    <p>¡Tarde! Los restaurantes se llenan a las 21:30 o 22:00 hs. Ir a las 19:00 es merendar para nosotros.</p>
+                </details>
 
-    <details class="faq-item" name="faq-group">
-        <summary>¿Se deja propina?</summary>
-        <p>No es obligatoria, pero se acostumbra dejar el 10%...</p>
-    </details>
+                <details class="faq-item" name="faq-group">
+                    <summary>¿Se deja propina?</summary>
+                    <p>No es obligatoria por ley, pero se acostumbra dejar el 10% si el servicio fue bueno.</p>
+                </details>
 
-    <details class="faq-item" name="faq-group">
-        <summary>¿Necesito adaptador?</summary>
-        <p>Sí, usamos el Tipo I (patas oblicuas). Voltaje 220V...</p>
-    </details>
-    
-    <details class="faq-item" name="faq-group">
-        <summary>¿Cómo tengo internet?</summary>
-        <p>Lo más práctico hoy es comprar una eSIM internacional...</p>
-    </details>
-</div>
+                <details class="faq-item" name="faq-group">
+                    <summary>¿Necesito adaptador?</summary>
+                    <p>Sí, usamos el Tipo I (patas oblicuas, como en Australia). El voltaje es 220V.</p>
+                </details>
+                
+                <details class="faq-item" name="faq-group">
+                    <summary>¿Cómo tengo internet?</summary>
+                    <p>Lo más práctico hoy es comprar una eSIM internacional o un chip prepago de Claro/Personal/Movistar al llegar (necesitas pasaporte).</p>
+                </details>
+            </div>
         </section>
 
     </main>
-
-    <script>
-        const initMenu = () => {
-            const btn = document.getElementById('menu-toggle');
-            const menu = document.getElementById('mobile-menu');
-            const icon = btn?.querySelector('i');
-            btn?.addEventListener('click', () => {
-                menu?.classList.toggle('active');
-                if (icon) { icon.classList.toggle('fa-bars'); icon.classList.toggle('fa-times'); }
-            });
-            document.querySelectorAll('.menu-link').forEach(link => {
-                link.addEventListener('click', () => menu?.classList.remove('active'));
-            });
-        };
-        initMenu();
-        document.addEventListener('astro:after-swap', initMenu);
-    </script>
 </Layout>
 
 <style>
-    .container { max-width: 1100px; margin: 0 auto; padding: 0 20px; }
+    /* PADDING CORREGIDO PARA SEPARAR DEL HERO */
+    .container { 
+        max-width: 1100px; 
+        margin: 0 auto; 
+        padding: 60px 20px 0 20px; 
+    }
+
     .mb-section { margin-bottom: 80px; }
     .scroll-offset { scroll-margin-top: 100px; }
-    .section-header { border-left: 9px solid var(--gold); padding-left: 15px; margin-bottom: 30px; }
-    .section-header h2 { font-size: 2rem; font-weight: 800; color: var(--title); }
+    
+    .section-header { 
+        border-left: 6px solid var(--gold); 
+        padding-left: 15px; 
+        margin-bottom: 30px; 
+    }
+    
+    /* TITULO DE SECCION MAS PEQUEÑO */
+    .section-header h2 { 
+        font-size: 1.5rem; 
+        font-weight: 800; 
+        color: var(--title); 
+        margin: 0; 
+        text-transform: uppercase;
+        letter-spacing: -0.5px;
+    }
     
     .grid, .tips-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px; }
     
-    /* ESTILO PARA EL ENLACE DE LAS TARJETAS */
+    /* BANNER TOURS */
+    .tours-banner-link { text-decoration: none; display: block; margin-bottom: 25px; }
+    .tours-banner {
+        background: linear-gradient(135deg, var(--card-bg) 0%, rgba(197, 160, 89, 0.1) 100%);
+        border: 1px solid var(--gold);
+        border-radius: 20px;
+        padding: 25px;
+        display: flex; align-items: center; gap: 20px;
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+        box-shadow: 0 4px 20px rgba(0,0,0,0.05);
+    }
+    .tours-banner:hover { transform: translateY(-3px); box-shadow: 0 10px 30px rgba(197, 160, 89, 0.15); }
+    .banner-icon { background: var(--gold); color: white; width: 50px; height: 50px; border-radius: 12px; display: flex; align-items: center; justify-content: center; font-size: 1.5rem; flex-shrink: 0; }
+    .banner-info h3 { margin: 0 0 5px 0; color: var(--title); font-size: 1.2rem; font-weight: 800; }
+    .banner-info p { margin: 0; color: var(--text-secondary); font-size: 0.95rem; }
+    .banner-arrow { margin-left: auto; color: var(--gold); font-size: 1.2rem; }
+    
+    /* TARJETAS */
     .card-link { display: block; text-decoration: none; transition: transform 0.3s ease; }
     .card-link:hover { transform: translateY(-5px); }
+    .card-link :global(h3), .card-link :global(h4), .card-link :global(.card-title) { font-weight: 700 !important; font-style: normal !important; }
 
-    /* CAMBIO 2: Forzar estilos en los títulos dentro del componente CARD importado */
-    /* Usamos :global porque el h3/h4 está dentro de Card.astro, no aquí */
-    .card-link :global(h3), 
-    .card-link :global(h4), 
-    .card-link :global(.card-title) {
-        font-weight: 700 !important; /* Bold */
-        font-style: normal !important; /* No Italic */
-    }
-
+    /* EVENTOS Y FAQ */
     .event-container { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 25px; }
     .event-card { background: var(--card-bg); padding: 25px; border-radius: 24px; border: 1px solid var(--border); }
     .fest-list { list-style: none; padding: 0; }
     .fest-list li { margin-bottom: 12px; display: flex; gap: 10px; font-size: 0.95rem; }
     .holiday-list { display: flex; flex-direction: column; gap: 10px; }
     .holiday-item { display: flex; justify-content: space-between; border-bottom: 1px dashed var(--border); padding-bottom: 5px; font-size: 0.9rem; }
-    .faq-item { background: var(--card-bg); border-radius: 16px; border: 1px solid var(--border); padding: 15px 20px; margin-bottom: 10px; }
-    .faq-item summary { font-weight: 700; cursor: pointer; display: flex; justify-content: space-between; align-items: center; }
-    .faq-item p { padding-top: 15px; margin-top: 15px; border-top: 1px solid var(--border); color: var(--text-secondary); font-size: 0.95rem; }
+    
+    .faq-container { display: flex; flex-direction: column; gap: 10px; }
+    .faq-item { background: var(--card-bg); border-radius: 16px; border: 1px solid var(--border); padding: 15px 20px; }
+    .faq-item summary { font-weight: 700; cursor: pointer; display: flex; justify-content: space-between; align-items: center; list-style: none; color: var(--title); }
+    .faq-item p { padding-top: 15px; margin-top: 15px; border-top: 1px solid var(--border); color: var(--text-secondary); font-size: 0.95rem; line-height: 1.6; }
 </style>

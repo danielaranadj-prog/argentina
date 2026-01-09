@@ -1,5 +1,5 @@
 ---
-/* Navbar estilo iOS con desenfoque y secciones actualizadas */
+/* Navbar con secciones de Venta y Ayuda */
 ---
 <nav class="navbar">
   <div class="nav-container">
@@ -14,16 +14,53 @@
 
   <div id="mobile-menu" class="mobile-nav">
     <div class="menu-header">
-      <span class="menu-title">GUÍA ARGENTINA</span>
+      <span class="menu-title">MENÚ PRINCIPAL</span>
     </div>
     <div class="menu-links">
-      <a href="#destinos" class="menu-link"><i class="fas fa-map-marked-alt"></i> Destinos</a>
-      <a href="#planifica" class="menu-link"><i class="fas fa-passport"></i> Planifica</a>
-      <a href="#eventos" class="menu-link"><i class="fa-glass-cheers"></i>Fiestas</a>
-      <a href="#eventos" class="menu-link"><i class="fa-life-ring"></i>Ayuda</a>
+      <a href="/destinos_argentina/#destinos" class="menu-link">
+        <i class="fas fa-map-marked-alt"></i> Destinos
+      </a>
+      
+      <a href="/destinos_argentina/tours" class="menu-link">
+        <i class="fas fa-ticket-alt"></i> Experiencias
+      </a>
+
+      <a href="/destinos_argentina/planifica" class="menu-link">
+         <i class="fas fa-question-circle"></i> Planifica tu viaje
+      </a>
     </div>
   </div>
 </nav>
+
+<script>
+  // Script necesario para que el botón abra/cierre el menú
+  const menuBtn = document.getElementById('menu-toggle');
+  const mobileMenu = document.getElementById('mobile-menu');
+  const icon = menuBtn?.querySelector('i');
+
+  const toggleMenu = () => {
+    mobileMenu?.classList.toggle('active');
+    if (mobileMenu?.classList.contains('active')) {
+      icon?.classList.remove('fa-bars');
+      icon?.classList.add('fa-times');
+    } else {
+      icon?.classList.remove('fa-times');
+      icon?.classList.add('fa-bars');
+    }
+  };
+
+  menuBtn?.addEventListener('click', (e) => {
+    e.stopPropagation();
+    toggleMenu();
+  });
+
+  document.addEventListener('click', (e) => {
+    const target = e.target as HTMLElement;
+    if (mobileMenu?.classList.contains('active') && !mobileMenu.contains(target) && !menuBtn?.contains(target)) {
+      toggleMenu();
+    }
+  });
+</script>
 
 <style>
   .navbar {
@@ -31,14 +68,14 @@
     top: 0;
     width: 100%;
     height: 70px;
-    background: var(--nav-bg); /* */
+    background: var(--nav-bg);
     backdrop-filter: blur(15px);
     -webkit-backdrop-filter: blur(15px);
-    z-index: 2000; /* Prioridad máxima sobre el Hero */
+    z-index: 2000;
     display: flex;
     align-items: center;
     border-bottom: 1px solid var(--border);
-    padding-top: env(safe-area-inset-top); /* Soporte para Notch */
+    padding-top: env(safe-area-inset-top);
   }
 
   .nav-container {
@@ -61,20 +98,22 @@
     border: none;
     font-size: 1.5rem;
     cursor: pointer;
-    color: var(--title); /* */
+    color: var(--title);
     padding: 5px;
   }
 
-  /* PANEL LATERAL DEL MENÚ (iOS SLIDE) */
+  /* PANEL LATERAL DEL MENÚ */
   .mobile-nav {
     position: fixed;
     top: 0;
-    right: -100%; /* Escondido por defecto */
-    width: 30%;
+    right: -100%;
+    /* AJUSTE: 30% es muy poco para móvil, lo subí a 70% con un máximo de 300px */
+    width: 70%; 
+    max-width: 300px;
     height: 100vh;
-    background: var(--card-bg); /* */
+    background: var(--card-bg);
     transition: right 0.4s cubic-bezier(0.16, 1, 0.3, 1);
-    padding: 120px 30px;
+    padding: 100px 30px; /* Ajusté el padding superior */
     z-index: 1999;
     box-shadow: -10px 0 30px rgba(0,0,0,0.1);
     display: flex;
@@ -82,7 +121,7 @@
   }
 
   .mobile-nav.active { 
-    right: 0; /* Aparece al activarse por JS */
+    right: 0;
   }
 
   .menu-header { 
@@ -93,7 +132,7 @@
 
   .menu-title { 
     font-size: 0.7rem; 
-    color: var(--gold); /* */
+    color: var(--gold);
     font-weight: 800; 
     letter-spacing: 2px; 
     text-transform: uppercase;
@@ -108,7 +147,7 @@
   .menu-link { 
     font-size: 1.3rem; 
     font-weight: 700; 
-    color: var(--text); /* */
+    color: var(--text);
     display: flex; 
     align-items: center; 
     gap: 15px; 
@@ -122,7 +161,6 @@
     text-align: center; 
   }
 
-  /* Ajustes de color para el modo claro/oscuro automático */
   @media (prefers-color-scheme: light) {
     .menu-btn { filter: brightness(0); }
   }
