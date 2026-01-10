@@ -1,0 +1,87 @@
+{
+  "$ref": "#/definitions/destinos",
+  "definitions": {
+    "destinos": {
+      "type": "object",
+      "properties": {
+        "title": {
+          "type": "string"
+        },
+        "img": {
+          "type": "string"
+        },
+        "desc": {
+          "type": "string"
+        },
+        "historia": {
+          "type": "string"
+        },
+        "secciones": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "icon": {
+                "type": "string"
+              },
+              "label": {
+                "type": "string"
+              },
+              "text": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "icon",
+              "label",
+              "text"
+            ],
+            "additionalProperties": false
+          }
+        },
+        "tours": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "titulo": {
+                "type": "string"
+              },
+              "precio": {
+                "type": "string"
+              },
+              "duracion": {
+                "type": "string"
+              },
+              "link": {
+                "type": "string"
+              },
+              "imagen": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "titulo",
+              "precio",
+              "duracion",
+              "link"
+            ],
+            "additionalProperties": false
+          }
+        },
+        "$schema": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "title",
+        "img",
+        "desc",
+        "historia",
+        "secciones"
+      ],
+      "additionalProperties": false
+    }
+  },
+  "$schema": "http://json-schema.org/draft-07/schema#"
+}
