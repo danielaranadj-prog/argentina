@@ -1,5 +1,5 @@
 ---
-/* Navbar Final: Logo + Identidad + Blog + Selector de Destinos */
+/* Navbar Final: Blog al final de la lista */
 ---
 <nav class="navbar">
   <div class="nav-container">
@@ -52,14 +52,9 @@
     <div class="menu-header">
       <span class="menu-title">MENÚ PRINCIPAL</span>
     </div>
+    
     <div class="menu-links">
       
-     <a href="/destinos_argentina/blog" class="menu-link highlight-link">
-        <i class="fas fa-newspaper"></i> Blog de Viajes
-      </a>
-
-      <div class="divider"></div>
-
       <a href="/destinos_argentina/#destinos" class="menu-link">
         <i class="fas fa-map-marked-alt"></i> Destinos
       </a>
@@ -71,6 +66,13 @@
       <a href="/destinos_argentina/planifica" class="menu-link">
          <i class="fas fa-question-circle"></i> Planifica tu viaje
       </a>
+
+      <div class="divider"></div>
+
+      <a href="/destinos_argentina/blog" class="menu-link highlight-link">
+        <i class="fas fa-newspaper"></i> Blog de Viajes
+      </a>
+
     </div>
   </div>
 </nav>
@@ -84,10 +86,8 @@
   const destBtn = document.getElementById('dest-toggle');
   const destPopup = document.getElementById('dest-popup');
 
-  // Función Toggle Menú Principal
   const toggleMenu = () => {
     mobileMenu?.classList.toggle('active');
-    // Cerrar popup de destinos si abrimos el menú
     destPopup?.classList.remove('active');
     
     if (mobileMenu?.classList.contains('active')) {
@@ -99,10 +99,8 @@
     }
   };
 
-  // Función Toggle Popup Destinos
   const toggleDest = () => {
     destPopup?.classList.toggle('active');
-    // Cerrar menú principal si abrimos el popup
     if (mobileMenu?.classList.contains('active')) toggleMenu();
   };
 
@@ -116,16 +114,13 @@
     toggleDest();
   });
 
-  // Cerrar todo al hacer click fuera
   document.addEventListener('click', (e) => {
     const target = e.target as HTMLElement;
     
-    // Cerrar menú móvil
     if (mobileMenu?.classList.contains('active') && !mobileMenu.contains(target) && !menuBtn?.contains(target)) {
       toggleMenu();
     }
     
-    // Cerrar popup destinos
     if (destPopup?.classList.contains('active') && !destPopup.contains(target) && !destBtn?.contains(target)) {
       destPopup.classList.remove('active');
     }
@@ -199,11 +194,11 @@
     letter-spacing: 0.5px;
   }
 
-  /* --- NUEVO: ÁREA DE ACCIONES (Derecha) --- */
+  /* --- ACCIONES --- */
   .nav-actions {
     display: flex;
     align-items: center;
-    gap: 15px; /* Espacio entre el mundo y la hamburguesa */
+    gap: 15px;
   }
 
   .icon-btn, .menu-btn {
@@ -211,7 +206,7 @@
     border: none;
     font-size: 1.4rem;
     cursor: pointer;
-    color: var(--title); /* Usa tu variable de color */
+    color: var(--title);
     padding: 5px;
     transition: transform 0.2s, color 0.2s;
     display: flex;
@@ -224,15 +219,13 @@
     transform: scale(1.1);
   }
 
-  /* --- NUEVO: POPUP DE DESTINOS --- */
-  .destination-wrapper {
-    position: relative;
-  }
+  /* --- POPUP DESTINOS --- */
+  .destination-wrapper { position: relative; }
 
   .dest-popup {
     position: absolute;
     top: 150%;
-    right: -20px; /* Alineado a la derecha */
+    right: -20px;
     width: 200px;
     background: var(--card-bg, rgba(255,255,255,0.95));
     backdrop-filter: blur(20px);
@@ -281,7 +274,7 @@
   }
 
   .dest-item.active {
-    background: rgba(212, 175, 55, 0.1); /* Gold sutil */
+    background: rgba(212, 175, 55, 0.1);
     color: var(--gold, #D4AF37);
     font-weight: 600;
   }
@@ -292,11 +285,7 @@
     filter: grayscale(1);
   }
 
-  .dest-item:not(.disabled):hover {
-    background: rgba(0,0,0,0.05);
-  }
-
-  /* --- MENÚ MÓVIL (Slide-out) --- */
+  /* --- MENÚ MÓVIL --- */
   .mobile-nav {
     position: fixed;
     top: 0;
@@ -346,7 +335,7 @@
     transition: color 0.2s;
   }
 
-  /* Resaltamos el Blog */
+  /* Destacado del Blog */
   .highlight-link {
     color: var(--title);
     font-weight: 700;
@@ -365,7 +354,10 @@
     text-align: center; 
   }
 
-  /* Modo Oscuro / Claro */
   @media (prefers-color-scheme: light) {
     .menu-btn, .icon-btn { filter: brightness(0); }
   }
+  @media (prefers-color-scheme: dark) {
+    .menu-btn, .icon-btn { filter: brightness(0) invert(1); }
+  }
+</style>
