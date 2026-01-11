@@ -1,0 +1,77 @@
+---
+import { getCollection, render } from 'astro:content';
+import Layout from '../../layouts/Layout.astro';
+import SecurityAlert from '../../components/blog/SecurityAlert.astro';
+
+export async function getStaticPaths() {
+  const posts = await getCollection('blog');
+  return posts.map(post => ({
+    params: { slug: post.slug },
+    props: { post },
+  }));
+}
+
+const { post } = Astro.props;
+const { Content } = await render(post);
+---
+
+<Layout title={`${post.data.title} | Instante Trips`}>
+  
+  <header class="relative w-full h-[60vh] flex items-end justify-center pb-12 overflow-hidden">
+    <img 
+      src={post.data.image.url} 
+      alt={post.data.image.alt} 
+      class="absolute inset-0 w-full h-full object-cover z-0" 
+    />
+    <div class="absolute inset-0 z-10" style="background: linear-gradient(to top, var(--bg-color) 0%, rgba(11, 17, 22, 0.6) 50%, rgba(11, 17, 22, 0.3) 100%);"></div>
+    
+    <div class="relative z-20 max-w-4xl mx-4 w-full text-center md:text-left">
+      <div class="flex flex-wrap gap-2 mb-6 justify-center md:justify-start">
+        {post.data.tags.map((tag) => (
+          <span class="text-xs font-bold tracking-widest uppercase text-white/90 border border-white/20 px-3 py-1 rounded-full backdrop-blur-md">
+            {tag}
+          </span>
+        ))}
+      </div>
+
+      <h1 class="text-3xl md:text-6xl font-bold text-white mb-6 text-balance leading-tight font-montserrat">
+        {post.data.title}
+      </h1>
+
+      <div class="flex items-center justify-center md:justify-start gap-6 text-sm font-light border-t border-white/10 pt-6" style="color: var(--text-muted);">
+        <span class="flex items-center gap-2">✍️ {post.data.author}</span>
+        <span class="flex items-center gap-2">📅 {post.data.pubDate.toLocaleDateString()}</span>
+      </div>
+    </div>
+  </header>
+
+  <main class="relative z-10 min-h-screen pb-24" style="background-color: var(--bg-color);">
+    <div class="max-w-3xl mx-auto px-6 py-12">
+      
+      {post.data.isSecurityAlert && (
+        <SecurityAlert title="Logística Crítica">
+          <p>Este artículo contiene consejos de seguridad basados en experiencias reales.</p>
+        </SecurityAlert>
+      )}
+
+      <article class="prose prose-invert prose-lg max-w-none 
+                      prose-headings:font-bold prose-headings:font-montserrat prose-headings:text-white
+                      prose-p:text-justify prose-p:text-pretty prose-p:font-light prose-p:leading-loose 
+                      prose-strong:font-semibold prose-strong:text-[var(--celeste)]
+                      prose-a:text-[var(--sol)] prose-a:no-underline hover:prose-a:underline
+                      prose-blockquote:border-l-[var(--celeste)] prose-blockquote:bg-[var(--card-bg)] prose-blockquote:py-2 prose-blockquote:pr-4"
+               style="color: var(--text-color);">
+        <Content />
+      </article>
+
+      <div class="mt-20 pt-10 border-t border-white/10 flex justify-center">
+        <a href="/destinos_argentina/blog" class="group flex items-center gap-3 px-8 py-3 rounded-full border transition-all hover:scale-105" 
+           style="border-color: var(--celeste); color: var(--text-color);">
+          <span class="group-hover:-translate-x-1 transition-transform">←</span> 
+          Volver a la Bitácora
+        </a>
+      </div>
+    
+    </div>
+  </main>
+</Layout>

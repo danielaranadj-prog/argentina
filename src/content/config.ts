@@ -1,6 +1,6 @@
-// src/content/config.ts
 import { defineCollection, z } from 'astro:content';
 
+// 1. Colección existente: Destinos (Esta se queda igual)
 const destinosCollection = defineCollection({
   type: 'content',
   schema: z.object({
@@ -14,17 +14,37 @@ const destinosCollection = defineCollection({
       label: z.string(),
       text: z.string(),
     })),
-    // Validamos el array de tours (nuevo)
+    // Validamos el array de tours
     tours: z.array(z.object({
       titulo: z.string(),
       precio: z.string(),
       duracion: z.string(),
       link: z.string(),
-      imagen: z.string().optional(), // Opcional por si alguno no tiene foto
-    })).optional(), // Opcional por si un destino aun no tiene tours
+      imagen: z.string().optional(),
+    })).optional(),
   }),
 });
 
+// 2. Nueva Colección: Blog (Aquí configuramos tus requisitos)
+const blogCollection = defineCollection({
+  type: 'content', // Usamos archivos Markdown (.md)
+  schema: z.object({
+    title: z.string(),
+    pubDate: z.date(), // Importante para ordenar por fecha
+    description: z.string().max(160, "La descripción debe ser corta para SEO"),
+    image: z.object({
+      url: z.string(),
+      alt: z.string()
+    }),
+    author: z.string().default('Instante Trips Team'), // Cumple con E-E-A-T (Firma de autor)
+    tags: z.array(z.string()),
+    lang: z.enum(['es', 'en']), // Preparamos para inglés/español
+    isSecurityAlert: z.boolean().default(false).optional(), // Si es true, activará la alerta visual
+  }),
+});
+
+// 3. Exportamos ambas colecciones
 export const collections = {
   'destinos': destinosCollection,
+  'blog': blogCollection, 
 };

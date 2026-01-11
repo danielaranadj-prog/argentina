@@ -39,17 +39,23 @@ tours:
 La eterna pelea: ¿Qué lado es mejor? La respuesta es que necesitás los dos.
 
 #### 1. Lado Argentino (La Vivencia)
+
 Aquí caminas **dentro** de las cataratas. Tenés pasarelas superiores, inferiores y la estrella: la **Garganta del Diablo**.
+
 * **Tiempo:** Te lleva el día entero (6-7 horas).
 * **Imperdible:** La "Gran Aventura". Un camión te lleva por la selva y luego una lancha se mete DEBAJO de los saltos de agua. Vas a salir empapado, llevá ropa de cambio.
 
 #### 2. Lado Brasileño (La Postal)
+
 Aquí tenés la vista panorámica perfecta para Instagram.
+
 * **Tiempo:** Medio día (3-4 horas).
 * **Parque de las Aves:** Está justo enfrente de la entrada del lado brasilero. Es increíble para ver tucanes y guacamayos recuperados.
 
 #### 3. Alerta Fauna: Los Coatíes
+
 Son esos animalitos peludos con cola larga. Parecen tiernos, pero son **una mafia organizada**.
+
 * No saques comida al aire libre. Te la robarán en segundos y pueden morderte.
 * Si te muerden, tenés que ir al hospital por riesgo de infección. ¡Respetalos de lejos!
 

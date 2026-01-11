@@ -1,13 +1,11 @@
 ---
-/* Navbar Final: Tu Logo SVG + Identidad Argentina */
+/* Navbar Final: Logo + Identidad + Blog + Selector de Destinos */
 ---
 <nav class="navbar">
   <div class="nav-container">
     
     <a href="/destinos_argentina" class="logo-wrapper">
-      
       <img src="/destinos_argentina/logo.svg" alt="Instante Trips Logo" class="adaptive-logo" />
-
       <div class="identity-badge">
         <span class="badge-divider"></span>
         <span class="flag">🇦🇷</span>
@@ -15,9 +13,39 @@
       </div>
     </a>
 
-    <button id="menu-toggle" class="menu-btn" aria-label="Abrir menú">
-      <i class="fas fa-bars"></i>
-    </button>
+    <div class="nav-actions">
+      
+      <div class="destination-wrapper">
+        <button id="dest-toggle" class="icon-btn" aria-label="Cambiar Destino">
+          <i class="fas fa-globe-americas"></i>
+        </button>
+        
+        <div id="dest-popup" class="dest-popup">
+          <span class="popup-title">Cambiar Destino</span>
+          <ul class="dest-list">
+            <li>
+              <a href="/destinos_argentina" class="dest-item active">
+                <span>🇦🇷</span> Argentina (Actual)
+              </a>
+            </li>
+            <li>
+              <span class="dest-item disabled">
+                <span>🇲🇽</span> México (Pronto)
+              </span>
+            </li>
+            <li>
+              <span class="dest-item disabled">
+                <span>🇪🇸</span> España (Pronto)
+              </span>
+            </li>
+          </ul>
+        </div>
+      </div>
+
+      <button id="menu-toggle" class="menu-btn" aria-label="Abrir menú">
+        <i class="fas fa-bars"></i>
+      </button>
+    </div>
   </div>
 
   <div id="mobile-menu" class="mobile-nav">
@@ -25,6 +53,13 @@
       <span class="menu-title">MENÚ PRINCIPAL</span>
     </div>
     <div class="menu-links">
+      
+     <a href="/destinos_argentina/blog" class="menu-link highlight-link">
+        <i class="fas fa-newspaper"></i> Blog de Viajes
+      </a>
+
+      <div class="divider"></div>
+
       <a href="/destinos_argentina/#destinos" class="menu-link">
         <i class="fas fa-map-marked-alt"></i> Destinos
       </a>
@@ -41,20 +76,34 @@
 </nav>
 
 <script>
-  // Tu script original intacto
+  // LÓGICA DEL MENÚ Y POPUP
   const menuBtn = document.getElementById('menu-toggle');
   const mobileMenu = document.getElementById('mobile-menu');
-  const icon = menuBtn?.querySelector('i');
+  const menuIcon = menuBtn?.querySelector('i');
+  
+  const destBtn = document.getElementById('dest-toggle');
+  const destPopup = document.getElementById('dest-popup');
 
+  // Función Toggle Menú Principal
   const toggleMenu = () => {
     mobileMenu?.classList.toggle('active');
+    // Cerrar popup de destinos si abrimos el menú
+    destPopup?.classList.remove('active');
+    
     if (mobileMenu?.classList.contains('active')) {
-      icon?.classList.remove('fa-bars');
-      icon?.classList.add('fa-times');
+      menuIcon?.classList.remove('fa-bars');
+      menuIcon?.classList.add('fa-times');
     } else {
-      icon?.classList.remove('fa-times');
-      icon?.classList.add('fa-bars');
+      menuIcon?.classList.remove('fa-times');
+      menuIcon?.classList.add('fa-bars');
     }
+  };
+
+  // Función Toggle Popup Destinos
+  const toggleDest = () => {
+    destPopup?.classList.toggle('active');
+    // Cerrar menú principal si abrimos el popup
+    if (mobileMenu?.classList.contains('active')) toggleMenu();
   };
 
   menuBtn?.addEventListener('click', (e) => {
@@ -62,16 +111,29 @@
     toggleMenu();
   });
 
+  destBtn?.addEventListener('click', (e) => {
+    e.stopPropagation();
+    toggleDest();
+  });
+
+  // Cerrar todo al hacer click fuera
   document.addEventListener('click', (e) => {
     const target = e.target as HTMLElement;
+    
+    // Cerrar menú móvil
     if (mobileMenu?.classList.contains('active') && !mobileMenu.contains(target) && !menuBtn?.contains(target)) {
       toggleMenu();
+    }
+    
+    // Cerrar popup destinos
+    if (destPopup?.classList.contains('active') && !destPopup.contains(target) && !destBtn?.contains(target)) {
+      destPopup.classList.remove('active');
     }
   });
 </script>
 
 <style>
-  /* --- ESTILOS BASE (Tus variables) --- */
+  /* --- ESTILOS BASE --- */
   .navbar {
     position: fixed;
     top: 0;
@@ -97,23 +159,21 @@
     padding: 0 20px;
   }
 
-  /* --- NUEVOS ESTILOS PARA LOGO SVG + BANDERA --- */
+  /* --- LOGO --- */
   .logo-wrapper {
     display: flex;
     align-items: center;
-    gap: 12px; /* Espacio entre tu logo y la bandera */
+    gap: 12px;
     text-decoration: none;
-    color: var(--title, #000); /* Para el color del texto ARG */
+    color: var(--title, #000);
   }
 
-  /* Estilo para tu imagen SVG */
   .adaptive-logo {
-    height: 32px; /* Altura controlada */
+    height: 32px;
     width: auto;
     transition: filter 0.3s ease;
   }
 
-  /* La Insignia de Argentina */
   .identity-badge {
     display: flex;
     align-items: center;
@@ -124,17 +184,13 @@
 
   .badge-divider {
     width: 1px;
-    height: 80%; /* Línea un poco más baja que el logo */
+    height: 80%;
     background-color: var(--border, #ccc);
     margin-right: 4px;
     opacity: 0.7;
   }
 
-  .flag {
-    font-size: 1.2rem;
-    line-height: 1;
-  }
-
+  .flag { font-size: 1.2rem; line-height: 1; }
   .region {
     font-family: 'Montserrat', sans-serif;
     font-size: 0.75rem;
@@ -143,21 +199,109 @@
     letter-spacing: 0.5px;
   }
 
-  /* --- TUS ESTILOS ORIGINALES DEL MENÚ (Intactos) --- */
-  .menu-btn {
-    background: none;
-    border: none;
-    font-size: 1.5rem;
-    cursor: pointer;
-    color: var(--title);
-    padding: 5px;
+  /* --- NUEVO: ÁREA DE ACCIONES (Derecha) --- */
+  .nav-actions {
+    display: flex;
+    align-items: center;
+    gap: 15px; /* Espacio entre el mundo y la hamburguesa */
   }
 
+  .icon-btn, .menu-btn {
+    background: none;
+    border: none;
+    font-size: 1.4rem;
+    cursor: pointer;
+    color: var(--title); /* Usa tu variable de color */
+    padding: 5px;
+    transition: transform 0.2s, color 0.2s;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .icon-btn:hover, .menu-btn:hover {
+    color: var(--gold, #D4AF37);
+    transform: scale(1.1);
+  }
+
+  /* --- NUEVO: POPUP DE DESTINOS --- */
+  .destination-wrapper {
+    position: relative;
+  }
+
+  .dest-popup {
+    position: absolute;
+    top: 150%;
+    right: -20px; /* Alineado a la derecha */
+    width: 200px;
+    background: var(--card-bg, rgba(255,255,255,0.95));
+    backdrop-filter: blur(20px);
+    border: 1px solid var(--border, rgba(0,0,0,0.1));
+    border-radius: 12px;
+    padding: 15px;
+    box-shadow: 0 10px 40px rgba(0,0,0,0.15);
+    opacity: 0;
+    pointer-events: none;
+    transform: translateY(-10px);
+    transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+    z-index: 2001;
+  }
+
+  .dest-popup.active {
+    opacity: 1;
+    pointer-events: all;
+    transform: translateY(0);
+  }
+
+  .popup-title {
+    display: block;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 0.7rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: var(--text-light, #888);
+    margin-bottom: 10px;
+    padding-bottom: 5px;
+    border-bottom: 1px solid var(--border, rgba(0,0,0,0.1));
+  }
+
+  .dest-list { list-style: none; padding: 0; margin: 0; }
+  .dest-list li { margin-bottom: 8px; }
+
+  .dest-item {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    text-decoration: none;
+    color: var(--text, #333);
+    font-size: 0.9rem;
+    padding: 8px;
+    border-radius: 8px;
+    transition: background 0.2s;
+  }
+
+  .dest-item.active {
+    background: rgba(212, 175, 55, 0.1); /* Gold sutil */
+    color: var(--gold, #D4AF37);
+    font-weight: 600;
+  }
+
+  .dest-item.disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+    filter: grayscale(1);
+  }
+
+  .dest-item:not(.disabled):hover {
+    background: rgba(0,0,0,0.05);
+  }
+
+  /* --- MENÚ MÓVIL (Slide-out) --- */
   .mobile-nav {
     position: fixed;
     top: 0;
     right: -100%;
-    width: 70%; 
+    width: 75%; 
     max-width: 300px;
     height: 100vh;
     background: var(--card-bg, #fff);
@@ -169,9 +313,7 @@
     flex-direction: column;
   }
 
-  .mobile-nav.active { 
-    right: 0;
-  }
+  .mobile-nav.active { right: 0; }
 
   .menu-header { 
     margin-bottom: 30px; 
@@ -190,12 +332,12 @@
   .menu-links { 
     display: flex; 
     flex-direction: column; 
-    gap: 25px; 
+    gap: 20px; 
   }
 
   .menu-link { 
-    font-size: 1.3rem; 
-    font-weight: 700; 
+    font-size: 1.2rem; 
+    font-weight: 600; 
     color: var(--text, #333);
     display: flex; 
     align-items: center; 
@@ -204,17 +346,26 @@
     transition: color 0.2s;
   }
 
+  /* Resaltamos el Blog */
+  .highlight-link {
+    color: var(--title);
+    font-weight: 700;
+  }
+
+  .divider {
+    height: 1px;
+    background: var(--border, #ccc);
+    opacity: 0.3;
+    margin: 5px 0;
+  }
+
   .menu-link i { 
     color: var(--gold, #D4AF37); 
     width: 25px; 
     text-align: center; 
   }
 
-  /* Mantiene tu lógica para invertir colores en modo oscuro si usas esas variables */
+  /* Modo Oscuro / Claro */
   @media (prefers-color-scheme: light) {
-    .menu-btn { filter: brightness(0); }
+    .menu-btn, .icon-btn { filter: brightness(0); }
   }
-  @media (prefers-color-scheme: dark) {
-    .menu-btn { filter: brightness(0) invert(1); }
-  }
-</style>
