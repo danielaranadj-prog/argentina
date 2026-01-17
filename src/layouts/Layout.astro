@@ -24,7 +24,7 @@ const { title } = Astro.props;
 
         <link rel="preconnect" href="https://fonts.googleapis.com">
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-        <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;600;800&family=Inter:wght@300;400&display=swap" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;600;800&family=Inter:wght@300;400&family=IBM+Plex+Serif:wght@400;500;600&display=swap" rel="stylesheet">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     </head>
     <body>
@@ -43,44 +43,88 @@ const { title } = Astro.props;
 </html>
 
 <style is:global>
-    /* --- VARIABLES DE DISEÑO iOS (ADAPTABLES) --- */
+    /* --- VARIABLES DE DISEÑO PREMIUM --- */
     :root {
-        --bg: #F2F2F7;             
+        /* Fondos */
+        --bg: #F8F9FA;             
         --card-bg: #FFFFFF;        
-        --text: #1C1C1E;           
-        --text-secondary: #8E8E93; 
-        --title: #000000;          
-        --border: #E5E5EA;         
+        --bg-dark: #0f172a;
+        --card-bg-dark: #1e293b;
         
-        --gold: #C5A059;           
-        --nav-bg: rgba(255, 255, 255, 0.8); 
+        /* Texto */
+        --text: #2D3748;           
+        --text-secondary: #64748b; 
+        --title: #1a202c;          
+        --border: #e2e8f0;         
+        
+        /* Acentos Premium */
+        --gold: #F4B942;           
+        --celeste: #75AADB;
+        --accent: var(--gold);
+        
+        /* Gradientes */
+        --gradient-primary: linear-gradient(135deg, var(--gold), var(--celeste));
+        --gradient-gold: linear-gradient(90deg, var(--gold), #fcd34d, var(--gold));
+        
+        /* Navegación */
+        --nav-bg: rgba(255, 255, 255, 0.85); 
     }
 
     @media (prefers-color-scheme: dark) {
         :root {
-            --bg: #000000;         
-            --card-bg: #1C1C1E;    
-            --text: #FFFFFF;       
-            --text-secondary: #98989D;
-            --title: #FFFFFF;      
-            --border: #38383A;
-            --nav-bg: rgba(28, 28, 30, 0.8);
+            --bg: #0f172a;         
+            --card-bg: #1e293b;    
+            --text: #f1f5f9;       
+            --text-secondary: #94a3b8;
+            --title: #f8fafc;      
+            --border: #334155;
+            --nav-bg: rgba(15, 23, 42, 0.85);
         }
     }
 
+    /* --- KEYFRAMES PREMIUM --- */
+    @keyframes shimmer {
+        0%, 100% { background-position: -200% center; }
+        50% { background-position: 200% center; }
+    }
+
+    @keyframes fadeInUp {
+        from { 
+            opacity: 0; 
+            transform: translateY(20px); 
+        }
+        to { 
+            opacity: 1; 
+            transform: translateY(0); 
+        }
+    }
+
+    @keyframes borderGlow {
+        0% { background-position: 0% 50%; }
+        50% { background-position: 100% 50%; }
+        100% { background-position: 0% 50%; }
+    }
+
+    @keyframes pulse-glow {
+        0%, 100% { box-shadow: 0 0 20px rgba(244, 185, 66, 0.3); }
+        50% { box-shadow: 0 0 30px rgba(244, 185, 66, 0.5); }
+    }
+
+    /* --- ESTILOS BASE --- */
     html {
         scroll-behavior: smooth;
         -webkit-text-size-adjust: 100%;
     }
 
     body {
-        font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+        font-family: 'IBM Plex Serif', Georgia, serif;
         background-color: var(--bg);
         color: var(--text);
         margin: 0;
         padding: 0;
-        font-size: 13px;
+        font-size: 16px;
         letter-spacing: -0.01em;
+        line-height: 1.7;
         padding-top: env(safe-area-inset-top);
         padding-bottom: env(safe-area-inset-bottom);
         transition: background-color 0.3s, color 0.3s;
@@ -93,6 +137,29 @@ const { title } = Astro.props;
         color: var(--title);
         letter-spacing: -0.03em;
         text-transform: none;
+        line-height: 1.2;
+    }
+
+    /* Utility class for shimmer text */
+    .shimmer-text {
+        background: linear-gradient(
+            90deg, 
+            var(--title) 0%, 
+            var(--gold) 25%, 
+            var(--title) 50%,
+            var(--celeste) 75%,
+            var(--title) 100%
+        );
+        background-size: 400% auto;
+        -webkit-background-clip: text;
+        background-clip: text;
+        -webkit-text-fill-color: transparent;
+        animation: shimmer 4s ease-in-out infinite;
+    }
+
+    /* Fade in animation class */
+    .fade-in-up {
+        animation: fadeInUp 0.6s ease-out forwards;
     }
 
     .adaptive-logo, .menu-btn {

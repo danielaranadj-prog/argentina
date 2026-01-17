@@ -2,6 +2,9 @@
 import { getCollection } from 'astro:content';
 import Layout from '../../layouts/Layout.astro'; 
 import Navbar from '../../components/Navbar.astro';
+import FlightSearch from '../../components/FlightSearch.astro';
+import HotelWidget from '../../components/HotelWidget.astro';
+import AdsenseWidget from '../../components/AdsenseWidget.astro';
 
 // 1. Generamos las rutas leyendo la carpeta "content/destinos"
 export async function getStaticPaths() {
@@ -58,6 +61,9 @@ const { title, img, desc, historia, secciones, tours } = destino.data;
       </div>
     </article>
 
+    <!-- Anuncio entre secciones -->
+    <AdsenseWidget slot="inline" />
+
     <section class="destination-content">
         <Content />
     </section>
@@ -93,6 +99,21 @@ const { title, img, desc, historia, secciones, tours } = destino.data;
         </p>
       </section>
     )}
+
+    <!-- Travel Widgets Section -->
+    <section class="travel-widgets-section">
+      <div class="section-header">
+        <h2>Planifica tu Viaje</h2>
+        <span class="badge">Reservar</span>
+      </div>
+      <div class="travel-widgets">
+        <FlightSearch defaultDestination={title} />
+        <HotelWidget defaultDestination={title} />
+      </div>
+      
+      <!-- Anuncio al final de la sección de widgets -->
+      <AdsenseWidget slot="inline" className="mt-ads" />
+    </section>
   </main>
 </Layout>
 
@@ -306,7 +327,6 @@ const { title, img, desc, historia, secciones, tours } = destino.data;
     font-weight: 700;
   }
   
-  /* Estilo para Citas (Blockquotes) */
   .destination-content :global(blockquote) {
     border-left: 4px solid var(--gold);
     padding-left: 20px;
@@ -316,5 +336,30 @@ const { title, img, desc, historia, secciones, tours } = destino.data;
     background: var(--bg-secondary); /* Fondo sutil */
     padding: 15px 20px;
     border-radius: 0 10px 10px 0;
+  }
+
+  /* --- TRAVEL WIDGETS SECTION --- */
+  .travel-widgets-section {
+    border-top: 1px solid var(--border);
+    padding-top: 40px;
+    margin-top: 40px;
+  }
+
+  .travel-widgets {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 1.5rem;
+    margin-top: 1.5rem;
+  }
+
+  @media (max-width: 600px) {
+    .travel-widgets {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  /* Margin for ads */
+  .mt-ads {
+    margin-top: 2rem;
   }
 </style>

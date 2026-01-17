@@ -39,11 +39,11 @@
   .hero {
     position: relative;
     width: 100%;
-    height: 55vh; /* Altura compacta */
+    height: 55vh;
     display: flex;
     align-items: center;
     justify-content: center;
-    overflow: hidden; /* Mantiene el efecto dentro del Hero */
+    overflow: hidden;
     background-color: #000;
   }
 
@@ -52,10 +52,9 @@
     top: 0;
     left: 0;
     width: 100%;
-    /* Altura extra para que el parallax tenga margen de movimiento */
     height: 120%; 
     z-index: 1;
-    will-change: transform; /* Optimización de rendimiento */
+    will-change: transform;
   }
 
   .hero-video {
@@ -72,9 +71,9 @@
     height: 100%;
     background: linear-gradient(
       to bottom,
-      rgba(0, 0, 0, 0.3),
-      rgba(0, 0, 0, 0.6)
-    ); /* Degradado para mayor legibilidad */
+      rgba(0, 0, 0, 0.4),
+      rgba(15, 23, 42, 0.8)
+    );
     z-index: 2;
   }
 
@@ -84,43 +83,67 @@
     color: #FFFFFF;
     text-align: center;
     padding: 0 20px;
+    animation: fadeInUp 0.8s ease-out forwards;
   }
 
   .welcome {
-    font-size: 0.7rem;
-    font-weight: 800;
+    display: inline-block;
+    font-size: 0.75rem;
+    font-weight: 700;
     letter-spacing: 3px;
-    color: var(--gold); /* */
     text-transform: uppercase;
+    background: linear-gradient(135deg, var(--gold), #fcd34d);
+    color: #1a202c;
+    padding: 8px 20px;
+    border-radius: 50px;
+    margin-bottom: 15px;
+    box-shadow: 0 4px 20px rgba(244, 185, 66, 0.4);
   }
 
+  /* Shimmer effect on hero title */
   .hero-title {
-    font-size: clamp(2.5rem, 8vw, 4.5rem);
-    font-weight: 900;
-    margin: 5px 0;
+    font-size: clamp(3rem, 10vw, 5.5rem);
+    font-weight: 800;
+    margin: 10px 0;
     line-height: 1;
-    text-shadow: 0 4px 10px rgba(0,0,0,0.3); /* Sombra para resaltar */
+    background: linear-gradient(
+      90deg, 
+      #ffffff 0%, 
+      var(--gold) 20%, 
+      #ffffff 40%,
+      var(--celeste) 60%,
+      #ffffff 80%,
+      var(--gold) 100%
+    );
+    background-size: 400% auto;
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    animation: shimmer 5s ease-in-out infinite;
+    text-shadow: none;
+    filter: drop-shadow(0 4px 15px rgba(0,0,0,0.3));
   }
 
   .hero-slogan {
-    font-size: 1rem;
-    color: rgba(255, 255, 255, 0.9);
+    font-size: 1.1rem;
+    color: rgba(255, 255, 255, 0.95);
     max-width: 500px;
     margin: 0 auto;
+    font-family: 'IBM Plex Serif', serif;
+    font-weight: 400;
+    line-height: 1.6;
+    animation: fadeInUp 0.8s ease-out 0.2s forwards;
+    opacity: 0;
   }
 
   @media (max-width: 600px) {
-    .hero { height: 45vh; }
-    .hero-title { font-size: 3rem; }
-    /* Desactivar parallax en móviles si prefieres ahorrar batería */
+    .hero { height: 50vh; }
+    .hero-title { font-size: 3.5rem; }
+    .welcome { font-size: 0.65rem; padding: 6px 16px; }
   }
   
-  /* Forzamos que el contenedor del texto siempre sea blanco, 
-     sin importar si el sitio está en modo claro u oscuro */
   .hero-content, 
-  .hero-content h1, 
   .hero-content p {
-      color: #ffffff !important; 
-      text-shadow: 0 2px 4px rgba(0,0,0,0.5); /* Sombra para que se lea mejor si el video es claro */
-
+    color: #ffffff !important; 
+  }
 </style>
