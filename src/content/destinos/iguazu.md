@@ -32,6 +32,22 @@ tours:
     duracion: "3 horas"
     link: "#"
     imagen: "https://images.unsplash.com/photo-1452570053594-1b985d6ea890?auto=format&fit=crop&w=600&q=80"
+faqs:
+  - pregunta: "¿Necesito pasaporte para cruzar al lado brasileño?"
+    respuesta: "Sí, necesitás documento válido (pasaporte o DNI para sudamericanos). Es otro país, así que pasás por migraciones de ambos lados. No olvides los sellos o podrías tener problemas."
+  - pregunta: "¿Cuál es la mejor época para ir a Iguazú?"
+    respuesta: "De marzo a mayo (otoño) y agosto a octubre (primavera). Evitá enero-febrero (mucho calor/humedad y mosquitos) y julio (temporada alta, lleno de turistas)."
+  - pregunta: "¿Cuántos días necesito?"
+    respuesta: "Mínimo 2 días completos: un día entero para el lado argentino (es enorme) y medio día para el lado brasileño. Si querés hacer la Gran Aventura, sumale otro medio día."
+  - pregunta: "¿Cómo evito las multitudes?"
+    respuesta: "Sé el primero en entrar (8 AM). Andá directo al tren de la Garganta del Diablo antes de que lleguen los tours de las 10 AM. Los circuitos inferiores también se vacían a la tarde."
+  - pregunta: "¿Es peligroso el dengue?"
+    respuesta: "Hay riesgo, especialmente en verano. Usá repelente con DEET fuerte, ropa clara y larga. Si tenés fiebre/dolor corporal días después de volver, consultá un médico."
+leadMagnet:
+  titulo: "Mapa de las Cataratas (Ambos Lados)"
+  descripcion: "Descargá el mapa completo con tiempos de caminata, puntos de foto y consejos para cada sendero del lado argentino y brasileño."
+  archivo: "/downloads/mapa-cataratas-iguazu.pdf"
+  imagen: "https://images.unsplash.com/photo-1582234032483-29479b18752c?auto=format&fit=crop&w=600&q=80"
 ---
 
 ### 🌿 Guía de las Cataratas: Los Dos Lados

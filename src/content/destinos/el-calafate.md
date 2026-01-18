@@ -32,6 +32,22 @@ tours:
     duracion: "Día completo"
     link: "#"
     imagen: "https://images.unsplash.com/photo-1476514525535-07fb3b4ae5f1?auto=format&fit=crop&w=600&q=80"
+faqs:
+  - pregunta: "¿Cuál es la mejor época para visitar El Calafate?"
+    respuesta: "De octubre a abril (primavera-verano). Días más largos y temperaturas menos extremas. Julio-agosto es temporada de nieve, lindo pero muy frío (-10°C)."
+  - pregunta: "¿Puedo ir al glaciar por mi cuenta?"
+    respuesta: "Podés ir en auto alquilado, pero las excursiones sobre el hielo (Minitrekking, Big Ice) requieren reserva con operadores autorizados. Las pasarelas se visitan por cuenta propia."
+  - pregunta: "¿Con cuánta anticipación reservo el Minitrekking?"
+    respuesta: "Mínimo 2-3 meses en temporada alta. Es LA excursión más demandada de Argentina y tiene cupos limitados por día. No te arriesgues a quedarte afuera."
+  - pregunta: "¿Qué pasa si llueve el día de mi excursión?"
+    respuesta: "El clima patagónico es impredecible. Las excursiones se suspenden con viento fuerte o nevadas intensas. Por eso siempre recomendamos tener un día extra de margen."
+  - pregunta: "¿Cuánto cuesta la entrada al Parque Nacional?"
+    respuesta: "Es en pesos argentinos y cambia cada año. Se paga aparte de las excursiones. Llevá efectivo porque a veces los posnet fallan. No aceptan dólares."
+leadMagnet:
+  titulo: "Checklist para la Patagonia Glaciar"
+  descripcion: "No sufras el frío: llevá exactamente lo que necesitás. Incluye lista de ropa por capas, accesorios y cosas que la gente olvida."
+  archivo: "/downloads/checklist-patagonia-glaciar.pdf"
+  imagen: "https://images.unsplash.com/photo-1518182170546-0766ce6fec56?auto=format&fit=crop&w=600&q=80"
 ---
 
 ### 🧊 Guía para Domar al Gigante de Hielo

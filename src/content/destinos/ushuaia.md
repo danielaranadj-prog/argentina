@@ -32,6 +32,22 @@ tours:
     duracion: "Día completo"
     link: "#"
     imagen: "https://images.unsplash.com/photo-1533473359331-0135ef1b58bf?auto=format&fit=crop&w=600&q=80"
+faqs:
+  - pregunta: "¿Cuál es la mejor época para visitar Ushuaia?"
+    respuesta: "Verano (Dic-Mar) para trekking, pingüinos y días eternos (luz hasta las 23 hs). Invierno (Jun-Sep) para esquí y nieve. Evitá mayo y octubre (temporada baja, muchas cosas cerradas)."
+  - pregunta: "¿Puedo ver pingüinos todo el año?"
+    respuesta: "No. Los pingüinos de Magallanes están solo de octubre a marzo en la Isla Martillo. Fuera de esa fecha, la pingüinera no opera."
+  - pregunta: "¿Realmente conviene comprar en el Duty Free?"
+    respuesta: "Sí, para electrónica y perfumes hay buenos precios (sin impuestos locales). Pero compará antes. No esperes descuentos enormes, a veces es solo 10-20% menos que en el continente."
+  - pregunta: "¿Qué tan frío hace en Ushuaia?"
+    respuesta: "En verano: 5-15°C. En invierno: -5 a 5°C. Pero el viento es el enemigo real. Siempre llevá campera rompevientos y varias capas."
+  - pregunta: "¿Vale la pena el Tren del Fin del Mundo?"
+    respuesta: "Es lindo pero no imprescindible. Es un paseo turístico corto (1 hora) con historia de los presos. Ideal para niños o gente mayor. Si priorizás, poné el Canal Beagle primero."
+leadMagnet:
+  titulo: "Itinerario de 3 Días en Ushuaia"
+  descripcion: "El plan día por día para aprovechar al máximo el Fin del Mundo: Canal Beagle, Laguna Esmeralda y Parque Nacional Tierra del Fuego."
+  archivo: "/downloads/itinerario-ushuaia-3-dias.pdf"
+  imagen: "https://images.unsplash.com/photo-1548291673-30541797c552?auto=format&fit=crop&w=600&q=80"
 ---
 
 ### ⚓ Bitácora del Fin del Mundo

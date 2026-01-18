@@ -32,6 +32,22 @@ tours:
     duracion: "Día completo"
     link: "#"
     imagen: "https://images.unsplash.com/photo-1500350485906-8c704c7fb335?auto=format&fit=crop&w=600&q=80"
+faqs:
+  - pregunta: "¿Qué nivel físico necesito para hacer trekking en El Chaltén?"
+    respuesta: "Depende del sendero. Laguna Capri o Chorrillo del Salto son fáciles (2-3 horas). Laguna de los Tres es exigente (8-10 horas, 20 km). El último tramo es muy empinado."
+  - pregunta: "¿Hay internet y señal de celular?"
+    respuesta: "Muy poca. El WiFi en los alojamientos es lento y el 4G casi no existe. Descargá mapas offline (Maps.Me o AllTrails) antes de llegar. Avisá a tu familia que estarás incomunicado."
+  - pregunta: "¿Puedo tomar agua de los arroyos?"
+    respuesta: "¡Sí! El agua de deshielo de la montaña es pura y potable. Es uno de los lujos de este lugar. Llevá botella reutilizable y rellenala en los arroyos."
+  - pregunta: "¿Qué pasa si el Fitz Roy está nublado?"
+    respuesta: "Es normal. El Fitz Roy tiene su propio microclima y puede estar cubierto varios días seguidos. Por eso se recomienda quedarse mínimo 3 días para tener más chances de verlo despejado."
+  - pregunta: "¿Hay cajeros automáticos?"
+    respuesta: "Hay UNO y suele quedarse sin dinero los fines de semana largos. Llevá todo el efectivo que necesites desde El Calafate o Buenos Aires. Algunos lugares aceptan dólares."
+leadMagnet:
+  titulo: "Mapa de Senderos de El Chaltén"
+  descripcion: "Todos los trekkings con dificultad, duración y puntos de interés. Incluye qué llevar en la mochila y dónde cargar agua."
+  archivo: "/downloads/mapa-senderos-chalten.pdf"
+  imagen: "https://images.unsplash.com/photo-1589553416260-f586c8f1514f?auto=format&fit=crop&w=600&q=80"
 ---
 
 ### 🏔️ Manual del Mochilero en El Chaltén

@@ -32,6 +32,22 @@ tours:
     duracion: "Medio día"
     link: "#"
     imagen: "https://images.unsplash.com/photo-1530866495561-507c9faab2ed?auto=format&fit=crop&w=600&q=80"
+faqs:
+  - pregunta: "¿Necesito auto para recorrer las bodegas?"
+    respuesta: "No es obligatorio pero es muy recomendable. Las bodegas están lejos entre sí. Opciones: tour con chofer (ideal para beber), remís privado, o bici solo en zona Maipú (la más cercana)."
+  - pregunta: "¿Cuál es la mejor época para ir a Mendoza?"
+    respuesta: "Primavera (Sep-Nov) y otoño (Mar-May) tienen clima perfecto. Marzo es la Vendimia (fiesta de la cosecha). Verano es muy caluroso (38°C) pero ideal para rafting."
+  - pregunta: "¿Cuántas bodegas puedo visitar en un día?"
+    respuesta: "Máximo 3-4. Cada visita dura 1-2 horas y si hacés almuerzo de pasos en una bodega, te lleva 3 horas. No te apures, la idea es disfrutar, no correr."
+  - pregunta: "¿Qué zona de bodegas me conviene?"
+    respuesta: "Maipú para empezar (cerca, tradicional, bici posible). Luján de Cuyo para las grandes marcas. Valle de Uco para experiencias de lujo y arquitectura moderna (1.5 hs de la ciudad)."
+  - pregunta: "¿Puedo subir al Aconcagua sin ser experto?"
+    respuesta: "La cumbre (6962m) requiere experiencia y semanas de aclimatación. Pero podés hacer el trekking a Laguna de Horcones en el Parque Aconcagua, que es fácil y con vistas espectaculares."
+leadMagnet:
+  titulo: "Ruta del Vino: Bodegas Imperdibles"
+  descripcion: "Las 15 mejores bodegas según presupuesto y estilo: desde las boutique hasta las icónicas. Incluye tips de reserva y qué pedir."
+  archivo: "/downloads/ruta-vino-mendoza.pdf"
+  imagen: "https://images.unsplash.com/photo-1516594915697-87eb3b1c14ea?auto=format&fit=crop&w=600&q=80"
 ---
 
 ### 🍷 Guía del Buen Beber en Mendoza
