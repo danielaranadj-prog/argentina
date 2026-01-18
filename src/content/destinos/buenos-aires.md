@@ -1,7 +1,7 @@
 ---
 title: "Buenos Aires"
 img: "/destinos_argentina/buenosaires.jpg"
-desc: "La París de Sudamérica, con ese caos hermoso y pasional."
+desc: "La París de Sudamérica, con ese caos hermoso y pasional. - Test Admin Panel"
 historia: "¡Bienvenido a la Reina del Plata! Ponete cómodo y preparate unos mates, que te voy a contar la posta. Acá el tango no se baila, se siente; el fútbol es una religión y el asado es sagrado. Es la mezcla perfecta entre la elegancia europea y la pasión latina. Una ciudad que nunca duerme, donde las librerías abren de madrugada y los cafés son templos para arreglar el mundo."
 secciones:
   - icon: "fa-calendar-check"
@@ -33,7 +33,6 @@ tours:
     link: "#"
     imagen: "https://images.unsplash.com/photo-1626025437642-0b05076ca301?auto=format&fit=crop&w=600&q=80"
 ---
-
 ### 🗺️ Guía de Supervivencia Porteña
 
 Buenos Aires es una ciudad que intimida si no sabés cómo moverte. No te preocupes, acá tenés la data que los guías turísticos tradicionales no te cuentan.
