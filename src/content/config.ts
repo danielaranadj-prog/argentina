@@ -1,6 +1,6 @@
 import { defineCollection, z } from 'astro:content';
 
-// 1. Colección existente: Destinos (Esta se queda igual)
+// 1. Colección existente: Destinos (con FAQs y Lead Magnet opcionales)
 const destinosCollection = defineCollection({
   type: 'content',
   schema: z.object({
@@ -22,6 +22,18 @@ const destinosCollection = defineCollection({
       link: z.string(),
       imagen: z.string().optional(),
     })).optional(),
+    // FAQs para SEO (opcional)
+    faqs: z.array(z.object({
+      pregunta: z.string(),
+      respuesta: z.string(),
+    })).optional(),
+    // Lead Magnet para captura de emails (opcional)
+    leadMagnet: z.object({
+      titulo: z.string(),
+      descripcion: z.string(),
+      archivo: z.string(),
+      imagen: z.string().optional(),
+    }).optional(),
   }),
 });
 
@@ -46,5 +58,5 @@ const blogCollection = defineCollection({
 // 3. Exportamos ambas colecciones
 export const collections = {
   'destinos': destinosCollection,
-  'blog': blogCollection, 
+  'blog': blogCollection,
 };

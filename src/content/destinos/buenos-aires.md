@@ -32,6 +32,22 @@ tours:
     duracion: "3 horas"
     link: "#"
     imagen: "https://images.unsplash.com/photo-1626025437642-0b05076ca301?auto=format&fit=crop&w=600&q=80"
+faqs:
+  - pregunta: "¿Cuántos días necesito para conocer Buenos Aires?"
+    respuesta: "Mínimo 5 días para ver lo esencial: San Telmo, La Boca, Palermo, Recoleta y Puerto Madero. Si querés hacer una escapada al Tigre o visitar una estancia, sumale 2 días más."
+  - pregunta: "¿Es seguro caminar de noche en Buenos Aires?"
+    respuesta: "En zonas como Palermo, Recoleta y Puerto Madero sí, están muy transitadas. En San Telmo y La Boca es mejor moverse en taxi o Uber después de las 22hs. Evitá zonas alejadas del centro turístico."
+  - pregunta: "¿Cómo consigo pesos argentinos al mejor tipo de cambio?"
+    respuesta: "Llevá dólares o euros en efectivo (billetes de 100, nuevos y sin marcas) y cambialos en casas de cambio por Dólar Blue. También podés usar tarjetas extranjeras que ahora toman un cambio muy similar al blue."
+  - pregunta: "¿Dónde me conviene alojarme en mi primera visita?"
+    respuesta: "Palermo (Soho o Hollywood) es ideal: seguro, lleno de bares y restaurantes, bien conectado. Recoleta es más elegante y tranquilo. San Telmo es bohemio pero requiere más precaución de noche."
+  - pregunta: "¿Necesito visa para entrar a Argentina?"
+    respuesta: "Depende de tu nacionalidad. Si sos de España, México, Chile, Colombia o la mayoría de países latinoamericanos, NO necesitás visa para estancias turísticas de hasta 90 días."
+leadMagnet:
+  titulo: "Checklist de Viaje a Buenos Aires"
+  descripcion: "Todo lo que necesitás preparar antes de tu viaje: documentos, apps, tarjeta SUBE, dinero y más. Imprimilo y llevalo en tu maleta."
+  archivo: "/downloads/checklist-buenos-aires.pdf"
+  imagen: "https://images.unsplash.com/photo-1612294037637-ec328d0e075e?auto=format&fit=crop&w=600&q=80"
 ---
 ### 🗺️ Guía de Supervivencia Porteña
 

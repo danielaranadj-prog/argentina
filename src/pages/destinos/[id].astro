@@ -5,6 +5,8 @@ import Navbar from '../../components/Navbar.astro';
 import FlightSearch from '../../components/FlightSearch.astro';
 import HotelWidget from '../../components/HotelWidget.astro';
 import AdsenseWidget from '../../components/AdsenseWidget.astro';
+import FAQ from '../../components/FAQ.astro';
+import LeadMagnet from '../../components/LeadMagnet.astro';
 
 // 1. Generamos las rutas leyendo la carpeta "content/destinos"
 export async function getStaticPaths() {
@@ -19,7 +21,7 @@ export async function getStaticPaths() {
 // 2. Extraemos los datos y renderizamos el contenido
 const { destino } = Astro.props;
 const { Content } = await destino.render(); // Aquí se procesa el texto largo (Markdown)
-const { title, img, desc, historia, secciones, tours } = destino.data;
+const { title, img, desc, historia, secciones, tours, faqs, leadMagnet } = destino.data;
 ---
 
 <Layout title={`${title} | Destinos Argentinos`}>
@@ -67,6 +69,16 @@ const { title, img, desc, historia, secciones, tours } = destino.data;
     <section class="destination-content">
         <Content />
     </section>
+
+    <!-- Lead Magnet Section (optional) -->
+    {leadMagnet && (
+      <LeadMagnet leadMagnet={leadMagnet} destinoTitle={title} />
+    )}
+
+    <!-- FAQ Section (optional) -->
+    {faqs && faqs.length > 0 && (
+      <FAQ faqs={faqs} destinoTitle={title} />
+    )}
 
     {tours && tours.length > 0 && (
       <section class="tours-section">

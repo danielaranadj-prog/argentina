@@ -69,6 +69,48 @@
             "additionalProperties": false
           }
         },
+        "faqs": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "pregunta": {
+                "type": "string"
+              },
+              "respuesta": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "pregunta",
+              "respuesta"
+            ],
+            "additionalProperties": false
+          }
+        },
+        "leadMagnet": {
+          "type": "object",
+          "properties": {
+            "titulo": {
+              "type": "string"
+            },
+            "descripcion": {
+              "type": "string"
+            },
+            "archivo": {
+              "type": "string"
+            },
+            "imagen": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "titulo",
+            "descripcion",
+            "archivo"
+          ],
+          "additionalProperties": false
+        },
         "$schema": {
           "type": "string"
         }
