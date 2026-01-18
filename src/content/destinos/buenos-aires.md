@@ -1,7 +1,7 @@
 ---
 title: "Buenos Aires"
 img: "/destinos_argentina/buenosaires.jpg"
-desc: "La París de Sudamérica, con ese caos hermoso y pasional. - Test Admin Panel"
+desc: "La París de Sudamérica, con ese caos hermoso y pasional."
 historia: "¡Bienvenido a la Reina del Plata! Ponete cómodo y preparate unos mates, que te voy a contar la posta. Acá el tango no se baila, se siente; el fútbol es una religión y el asado es sagrado. Es la mezcla perfecta entre la elegancia europea y la pasión latina. Una ciudad que nunca duerme, donde las librerías abren de madrugada y los cafés son templos para arreglar el mundo."
 secciones:
   - icon: "fa-calendar-check"
