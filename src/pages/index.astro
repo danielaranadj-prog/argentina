@@ -4,52 +4,19 @@ import Navbar from '../components/Navbar.astro';
 import Hero from '../components/Hero.astro';
 import Card from '../components/Card.astro';
 import TipCard from '../components/TipCard.astro';
+import { getCollection } from 'astro:content';
 
-// Destinos Argentinos
-const destinos = [
-    { 
-        id: "buenos-aires", 
-        title: "Buenos Aires", 
-        tag: "Capital", 
-        activity: "Tango, asado y pasión futbolera.", 
-        img: "/destinos_argentina/buenosaires.jpg" 
-    },
-    { 
-        id: "el-calafate", 
-        title: "El Calafate", 
-        tag: "Glaciares", 
-        activity: "Caminatas sobre el Perito Moreno.", 
-        img: "/destinos_argentina/calafate.jpg" 
-    },
-    { 
-        id: "el-chalten", 
-        title: "El Chaltén", 
-        tag: "Trekking", 
-        activity: "Capital nacional del senderismo.", 
-        img: "/destinos_argentina/chalten.jpg" 
-    },
-    { 
-        id: "iguazu", 
-        title: "Iguazú", 
-        tag: "Maravilla", 
-        activity: "Cataratas en medio de la selva.", 
-        img: "/destinos_argentina/iguazu.jpg" 
-    },
-    { 
-        id: "mendoza", 
-        title: "Mendoza", 
-        tag: "Vinos", 
-        activity: "Bodegas y alta montaña.", 
-        img: "/destinos_argentina/mendoza.jpg" 
-    },
-    { 
-        id: "ushuaia", 
-        title: "Ushuaia", 
-        tag: "Fin del Mundo", 
-        activity: "Naturaleza pura en el extremo sur.", 
-        img: "/destinos_argentina/ushuaia.jpg" 
-    }
-];
+// Cargar destinos dinámicamente desde la colección de contenido
+const destinosCollection = await getCollection('destinos');
+
+// Mapear a formato de tarjeta
+const destinos = destinosCollection.map(destino => ({
+    id: destino.slug,
+    title: destino.data.title,
+    tag: destino.data.secciones?.[0]?.label || 'Destino',
+    activity: destino.data.desc,
+    img: destino.data.img
+}));
 
 const feriados = [
     { fecha: "01 Ene", nombre: "Año Nuevo" },
