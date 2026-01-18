@@ -14,14 +14,14 @@ const destinosCollection = defineCollection({
       label: z.string(),
       text: z.string(),
     })),
-    // Validamos el array de tours
+    // Validamos el array de tours (acepta null o undefined)
     tours: z.array(z.object({
       titulo: z.string(),
       precio: z.string(),
       duracion: z.string(),
       link: z.string(),
       imagen: z.string().optional(),
-    })).optional(),
+    })).nullable().optional().default([]),
     // FAQs para SEO (opcional)
     faqs: z.array(z.object({
       pregunta: z.string(),
