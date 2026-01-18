@@ -40,34 +40,42 @@
           }
         },
         "tours": {
-          "type": "array",
-          "items": {
-            "type": "object",
-            "properties": {
-              "titulo": {
-                "type": "string"
-              },
-              "precio": {
-                "type": "string"
-              },
-              "duracion": {
-                "type": "string"
-              },
-              "link": {
-                "type": "string"
-              },
-              "imagen": {
-                "type": "string"
+          "anyOf": [
+            {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "titulo": {
+                    "type": "string"
+                  },
+                  "precio": {
+                    "type": "string"
+                  },
+                  "duracion": {
+                    "type": "string"
+                  },
+                  "link": {
+                    "type": "string"
+                  },
+                  "imagen": {
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "titulo",
+                  "precio",
+                  "duracion",
+                  "link"
+                ],
+                "additionalProperties": false
               }
             },
-            "required": [
-              "titulo",
-              "precio",
-              "duracion",
-              "link"
-            ],
-            "additionalProperties": false
-          }
+            {
+              "type": "null"
+            }
+          ],
+          "default": []
         },
         "faqs": {
           "type": "array",
