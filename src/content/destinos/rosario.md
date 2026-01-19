@@ -1,6 +1,6 @@
 ---
 title: "Rosario"
-img: "https://images.unsplash.com/photo-1578662996442-48f60103fc96?auto=format&fit=crop&w=1920&q=80"
+img: "/uploads/destino-rosario.jpg"
 desc: "La cuna de la bandera y del fútbol argentino, con una costanera increíble."
 historia: "¡Entraste a la tercera ciudad más grande del país, donde nacieron Messi, el Che Guevara y la Bandera Nacional! Rosario no es un destino turístico clásico, es una experiencia urbana sobre el Río Paraná. Acá la gente vive mirando al agua, los atardeceres pintan de naranja el cielo y los fines de semana se parrillean costillares en la vera del río. Una ciudad que sabe disfrutar sin apuros."
 secciones:
@@ -49,7 +49,6 @@ leadMagnet:
   archivo: "/downloads/guia-rosario-48-horas.pdf"
   imagen: "https://images.unsplash.com/photo-1578662996442-48f60103fc96?auto=format&fit=crop&w=600&q=80"
 ---
-
 ### 🏟️ Guía del Rosarino: La Ciudad que Mira al Río
 
 Rosario es una ciudad que se vive hacia afuera. No vengas buscando museos polvorientos, venís a caminar la costanera con un mate, comerte un sanguche de milanesa en un bar de pórticos y ver el atardecer sobre el Paraná.
