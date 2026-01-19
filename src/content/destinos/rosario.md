@@ -1,6 +1,6 @@
 ---
 title: "Rosario"
-img: "/uploads/destino-rosario.jpg"
+img: "/argentina/uploads/destino-rosario.jpg"
 desc: "La cuna de la bandera y del fútbol argentino, con una costanera increíble."
 historia: "¡Entraste a la tercera ciudad más grande del país, donde nacieron Messi, el Che Guevara y la Bandera Nacional! Rosario no es un destino turístico clásico, es una experiencia urbana sobre el Río Paraná. Acá la gente vive mirando al agua, los atardeceres pintan de naranja el cielo y los fines de semana se parrillean costillares en la vera del río. Una ciudad que sabe disfrutar sin apuros."
 secciones:

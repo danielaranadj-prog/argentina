@@ -1,6 +1,6 @@
 ---
 title: "Ushuaia"
-img: "/destinos_argentina/ushuaia.jpg"
+img: "/argentina/uploads/ushuaia.jpg"
 desc: "El Fin del Mundo: Donde los Andes se hunden en el mar."
 historia: 'Abrigate hasta las orejas, porque acá termina el mapa. Ushuaia tiene una energía densa y misteriosa; es el último bastión antes de la Antártida. Venir acá es tachar un pendiente de la vida, caminar por donde anduvieron presos históricos y navegantes valientes, y poder decir: "Llegué, estoy donde termina todo".'
 secciones:

@@ -1,6 +1,6 @@
 ---
 title: "Iguazú"
-img: "/destinos_argentina/iguazu.jpg"
+img: "/argentina/uploads/iguazu.jpg"
 desc: "Donde la tierra se abre y la naturaleza explota."
 historia: "Sacate el abrigo y ponete repelente, porque aterrizaste en el corazón de la selva. No te vendo humo: estas son una de las 7 Maravillas Naturales del Mundo. Acá la tierra se abre y el agua cae con una furia que te deja mudo. No es solo mirar, es sentir el rocío en la cara y escuchar el rugido constante. Es una película de aventuras en la vida real."
 secciones:
