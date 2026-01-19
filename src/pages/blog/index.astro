@@ -77,7 +77,7 @@ const allPosts = (await getCollection('blog')).sort(
         {allPosts.map((post) => (
           <article class="flex flex-col items-center text-center">
             
-            <a href={`/destinos_argentina/blog/${post.slug}`} class="max-w-2xl w-full aspect-[3/2] overflow-hidden rounded-sm mb-8 group relative block">
+            <a href={`/argentina/blog/${post.slug}`} class="max-w-2xl w-full aspect-[3/2] overflow-hidden rounded-sm mb-8 group relative block">
               <img 
                 src={post.data.image.url} 
                 alt={post.data.image.alt} 
@@ -97,7 +97,7 @@ const allPosts = (await getCollection('blog')).sort(
             </div>
 
             <h2 class="text-3xl md:text-4xl font-bold text-white mb-4 leading-tight hover:text-[#75AADB] transition-colors">
-              <a href={`/destinos_argentina/blog/${post.slug}`}>
+              <a href={`/argentina/blog/${post.slug}`}>
                 {post.data.title}
               </a>
             </h2>
@@ -106,7 +106,7 @@ const allPosts = (await getCollection('blog')).sort(
               {post.data.description}
             </p>
 
-            <a href={`/destinos_argentina/blog/${post.slug}`} class="text-[#F4B942] text-xs font-bold uppercase tracking-[0.2em] border-b border-[#F4B942] pb-1 hover:text-white hover:border-white transition-all">
+            <a href={`/argentina/blog/${post.slug}`} class="text-[#F4B942] text-xs font-bold uppercase tracking-[0.2em] border-b border-[#F4B942] pb-1 hover:text-white hover:border-white transition-all">
               Leer Artículo Completo
             </a>
 

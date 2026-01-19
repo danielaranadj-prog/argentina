@@ -32,7 +32,7 @@ const feriados = [
     <Hero 
         title="ARGENTINA" 
         slogan="Del fuego del asado al hielo eterno."
-        videoSrc="/destinos_argentina/intro.mp4" 
+        videoSrc="/argentina/intro.mp4" 
     />
 
     <main class="container">
@@ -94,7 +94,7 @@ const feriados = [
             </div>
             <div class="grid">
                 {destinos.map((d) => (
-                    <a href={`/destinos_argentina/destinos/${d.id}`} class="card-link">
+                    <a href={`/argentina/destinos/${d.id}`} class="card-link">
                         <Card title={d.title} tag={d.tag} activity={d.activity} img={d.img} />
                     </a>
                 ))}
@@ -107,7 +107,7 @@ const feriados = [
                 <h2>Planifica tu Viaje</h2>
             </div>
             
-            <a href="/destinos_argentina/tours" class="tours-banner-link">
+            <a href="/argentina/tours" class="tours-banner-link">
                 <div class="tours-banner">
                     <div class="banner-icon">
                         <i class="fas fa-ticket-alt"></i>
