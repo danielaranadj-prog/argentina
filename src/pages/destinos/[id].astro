@@ -63,24 +63,7 @@ const ctaColors = {
       </a>
     </div>
 
-    <!-- ========== NUEVO: DASHBOARD ========== -->
-    {dashboard && dashboard.length > 0 && (
-      <section class="dashboard-section">
-        <div class="dashboard-grid">
-          {dashboard.map((item) => (
-            <div class="dashboard-card">
-              <div class="dashboard-icon">
-                <i class={`fas ${item.icon}`}></i>
-              </div>
-              <div class="dashboard-content">
-                <span class="dashboard-value">{item.value}</span>
-                <span class="dashboard-label">{item.label}</span>
-              </div>
-            </div>
-          ))}
-        </div>
-      </section>
-    )}
+    <!-- Dashboard eliminado por redundancia con secciones -->
 
     <article class="main-info">
       <div class="text-block">
@@ -323,46 +306,55 @@ const ctaColors = {
       <FAQ faqs={faqs} destinoTitle={title} />
     )}
 
-    {tours && tours.length > 0 && (
-      <section class="tours-section">
-        <div class="section-header">
-          <h2>Experiencias Imperdibles</h2>
-          <span class="badge">Reservar</span>
-        </div>
+    <!-- Tours/Experiencias Imperdibles eliminado -->
 
-        <div class="scroll-container">
-          {tours.map((tour) => (
-            <a href={tour.link} target="_blank" rel="noopener noreferrer" class="tour-card">
-              <div class="card-image" style={`background-image: url('${tour.imagen}')`}>
-                <div class="card-overlay">
-                  <span class="duration-tag"><i class="far fa-clock"></i> {tour.duracion}</span>
-                </div>
-              </div>
-              <div class="card-info">
-                <h3>{tour.titulo}</h3>
-                <div class="card-footer">
-                  <span class="price">{tour.precio}</span>
-                  <span class="btn-reservar">Ver <i class="fas fa-chevron-right"></i></span>
-                </div>
-              </div>
-            </a>
-          ))}
-        </div>
-        
-        <p class="disclaimer-text">
-          *Actividades operadas por guías locales verificados.
-        </p>
-      </section>
-    )}
-
+    <!-- ========== PLANIFICA TU VIAJE (PREMIUM) ========== -->
     <section class="travel-widgets-section">
       <div class="section-header">
-        <h2>Planifica tu Viaje</h2>
+        <h2>✈️ Planifica tu Viaje</h2>
         <span class="badge">Reservar</span>
       </div>
+      
+      <!-- Widgets de vuelos y hoteles -->
       <div class="travel-widgets">
         <FlightSearch defaultDestination={title} />
         <HotelWidget defaultDestination={title} />
+      </div>
+
+      <!-- CTA GRATUITO: Itinerario 3 días -->
+      <div class="itinerario-cta free-cta">
+        <div class="itinerario-content">
+          <span class="cta-tag gratis">📅 GRATIS</span>
+          <h3>Itinerario de 3 días en {title}</h3>
+          <p>Plan básico día a día con los imprescindibles. Ideal para una primera visita rápida.</p>
+          <ul class="cta-benefits">
+            <li><i class="fas fa-check"></i> Rutas por día optimizadas</li>
+            <li><i class="fas fa-check"></i> Horarios sugeridos</li>
+            <li><i class="fas fa-check"></i> Descarga instantánea</li>
+          </ul>
+        </div>
+        <a href="/downloads/itinerario-3-dias-{title.toLowerCase().replace(/ /g, '-')}.pdf" class="cta-btn free">
+          <i class="fas fa-download"></i> Descargar Gratis
+        </a>
+      </div>
+
+      <!-- CTA PREMIUM: Guía Completa -->
+      <div class="itinerario-cta premium-cta">
+        <div class="itinerario-content">
+          <span class="cta-tag premium">⭐ PREMIUM</span>
+          <h3>Guía Completa de {title} (5-7 días)</h3>
+          <p>Todo lo que necesitas para un viaje perfecto. Contenido exclusivo de expertos locales.</p>
+          <ul class="cta-benefits">
+            <li><i class="fas fa-star"></i> Itinerarios detallados de 5 y 7 días</li>
+            <li><i class="fas fa-star"></i> Mapas offline de cada barrio</li>
+            <li><i class="fas fa-star"></i> Rutas secretas de locales</li>
+            <li><i class="fas fa-star"></i> Restaurantes fuera del circuito turístico</li>
+            <li><i class="fas fa-star"></i> Presupuesto detallado por día</li>
+          </ul>
+        </div>
+        <a href="/planifica/?destino={title.toLowerCase().replace(/ /g, '-')}" class="cta-btn premium">
+          <i class="fas fa-crown"></i> Ver Guía Premium
+        </a>
       </div>
       
       <AdsenseWidget slot="inline" className="mt-ads" />
@@ -965,6 +957,170 @@ const ctaColors = {
 
   .mt-ads {
     margin-top: 2rem;
+  }
+
+  /* ========== ITINERARIO CTAs ========== */
+  .itinerario-cta {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 25px;
+    padding: 30px;
+    border-radius: 20px;
+    margin-top: 25px;
+    transition: all 0.3s ease;
+  }
+
+  .itinerario-cta:hover {
+    transform: translateY(-3px);
+  }
+
+  .free-cta {
+    background: linear-gradient(135deg, rgba(16, 185, 129, 0.08), rgba(16, 185, 129, 0.03));
+    border: 1px solid rgba(16, 185, 129, 0.2);
+  }
+
+  .free-cta:hover {
+    border-color: #10b981;
+    box-shadow: 0 15px 40px rgba(16, 185, 129, 0.15);
+  }
+
+  .premium-cta {
+    background: linear-gradient(135deg, rgba(244, 185, 66, 0.1), rgba(168, 85, 247, 0.05));
+    border: 2px solid var(--gold);
+    position: relative;
+    overflow: hidden;
+  }
+
+  .premium-cta::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 100px;
+    height: 100px;
+    background: linear-gradient(135deg, transparent 50%, rgba(244, 185, 66, 0.15) 50%);
+  }
+
+  .premium-cta:hover {
+    box-shadow: 0 15px 40px rgba(244, 185, 66, 0.25);
+  }
+
+  .itinerario-content {
+    flex: 1;
+  }
+
+  .cta-tag {
+    display: inline-block;
+    padding: 5px 12px;
+    border-radius: 20px;
+    font-size: 0.7rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    margin-bottom: 10px;
+  }
+
+  .cta-tag.gratis {
+    background: #10b981;
+    color: white;
+  }
+
+  .cta-tag.premium {
+    background: linear-gradient(135deg, var(--gold), #d97706);
+    color: white;
+  }
+
+  .itinerario-content h3 {
+    font-size: 1.2rem;
+    font-weight: 700;
+    color: var(--title);
+    margin-bottom: 8px;
+    font-family: 'Montserrat', sans-serif;
+  }
+
+  .itinerario-content p {
+    font-size: 0.9rem;
+    color: var(--text-secondary);
+    margin-bottom: 15px;
+    line-height: 1.5;
+  }
+
+  .cta-benefits {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px 15px;
+  }
+
+  .cta-benefits li {
+    font-size: 0.8rem;
+    color: var(--text);
+    display: flex;
+    align-items: center;
+    gap: 6px;
+  }
+
+  .free-cta .cta-benefits li i {
+    color: #10b981;
+  }
+
+  .premium-cta .cta-benefits li i {
+    color: var(--gold);
+  }
+
+  .cta-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    padding: 14px 28px;
+    border-radius: 30px;
+    font-size: 0.9rem;
+    font-weight: 700;
+    text-decoration: none;
+    white-space: nowrap;
+    transition: all 0.3s ease;
+    flex-shrink: 0;
+  }
+
+  .cta-btn.free {
+    background: #10b981;
+    color: white;
+  }
+
+  .cta-btn.free:hover {
+    background: #059669;
+    transform: scale(1.05);
+  }
+
+  .cta-btn.premium {
+    background: linear-gradient(135deg, var(--gold), #d97706);
+    color: white;
+    box-shadow: 0 5px 20px rgba(244, 185, 66, 0.4);
+  }
+
+  .cta-btn.premium:hover {
+    box-shadow: 0 8px 30px rgba(244, 185, 66, 0.6);
+    transform: scale(1.05);
+  }
+
+  @media (max-width: 768px) {
+    .itinerario-cta {
+      flex-direction: column;
+      text-align: center;
+      padding: 25px 20px;
+    }
+    
+    .cta-benefits {
+      justify-content: center;
+    }
+    
+    .cta-btn {
+      width: 100%;
+      justify-content: center;
+    }
   }
 
   /* ========== SECTION TITLES ========== */
