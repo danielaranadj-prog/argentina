@@ -119,6 +119,83 @@
           ],
           "additionalProperties": false
         },
+        "dashboard": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "label": {
+                "type": "string"
+              },
+              "value": {
+                "type": "string"
+              },
+              "icon": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "label",
+              "value",
+              "icon"
+            ],
+            "additionalProperties": false
+          }
+        },
+        "zonas": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "nombre": {
+                "type": "string"
+              },
+              "tipo": {
+                "type": "string"
+              },
+              "descripcion": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "nombre",
+              "tipo",
+              "descripcion"
+            ],
+            "additionalProperties": false
+          }
+        },
+        "ctas": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "titulo": {
+                "type": "string"
+              },
+              "descripcion": {
+                "type": "string"
+              },
+              "boton": {
+                "type": "string"
+              },
+              "link": {
+                "type": "string"
+              },
+              "color": {
+                "type": "string",
+                "default": "gold"
+              }
+            },
+            "required": [
+              "titulo",
+              "descripcion",
+              "boton",
+              "link"
+            ],
+            "additionalProperties": false
+          }
+        },
         "$schema": {
           "type": "string"
         }
