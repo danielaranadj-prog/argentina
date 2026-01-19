@@ -1,8 +1,8 @@
 ---
 title: "Mendoza"
-img: "/destinos_argentina/mendoza.jpg"
+img: "/uploads/mendoza.jpg"
 desc: "Tierra del sol, del buen vino y los Andes gigantes."
-historia: '¡Levantá la copa, che! Llegaste al oasis donde el tiempo pasa más lento. Mendoza es la capital del "buen vivir": acá no se corre, se disfruta. Es el único lugar donde podés almorzar un asado gourmet mirando al Aconcagua (el techo de América) y brindar con un Malbec que nació a metros de tu mesa. Relax, lujo y naturaleza salvaje.'
+historia: "¡Levantá la copa, che! Llegaste al oasis donde el tiempo pasa más lento. Mendoza es la capital del \"buen vivir\": acá no se corre, se disfruta. Es el único lugar donde podés almorzar un asado gourmet mirando al Aconcagua (el techo de América) y brindar con un Malbec que nació a metros de tu mesa. Relax, lujo y naturaleza salvaje."
 secciones:
   - icon: "fa-wine-glass-alt"
     label: "Bodegas"
@@ -49,7 +49,6 @@ leadMagnet:
   archivo: "/downloads/ruta-vino-mendoza.pdf"
   imagen: "https://images.unsplash.com/photo-1516594915697-87eb3b1c14ea?auto=format&fit=crop&w=600&q=80"
 ---
-
 ### 🍷 Guía del Buen Beber en Mendoza
 
 Mendoza es un desierto transformado en oasis. Aquí la clave es saber elegir qué zona visitar, porque están lejos una de la otra.
