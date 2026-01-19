@@ -1,6 +1,6 @@
 ---
 title: "El Chaltén"
-img: "/destinos_argentina/chalten.jpg"
+img: "/uploads/chalten.jpg"
 desc: "Capital Nacional del Trekking: Donde la montaña manda."
 historia: "Ajustate los cordones, che, que llegaste al paraíso. Este es un pueblo joven, sin semáforos ni apuro, donde el ritmo lo marcan las montañas y el viento. Venís a buscar la figurita difícil: el Fitz Roy. Verlo despejado es como ganar un mundial. Acá la onda es mochilera, de fogones, cervecería artesanal y gastar suela."
 secciones:
@@ -49,7 +49,6 @@ leadMagnet:
   archivo: "/downloads/mapa-senderos-chalten.pdf"
   imagen: "https://images.unsplash.com/photo-1589553416260-f586c8f1514f?auto=format&fit=crop&w=600&q=80"
 ---
-
 ### 🏔️ Manual del Mochilero en El Chaltén
 
 Este no es un destino de lujo, es un destino de aventura. Aquí venís a desconectar del mundo digital y conectar con la montaña.
