@@ -1,6 +1,6 @@
 import { defineCollection, z } from 'astro:content';
 
-// 1. Colección existente: Destinos (con FAQs, Lead Magnet, Dashboard, Zonas y CTAs)
+// 1. Colección: Destinos (Completa con todas las secciones)
 const destinosCollection = defineCollection({
   type: 'content',
   schema: z.object({
@@ -8,15 +8,107 @@ const destinosCollection = defineCollection({
     img: z.string(),
     desc: z.string(),
     historia: z.string(),
-    
-    // Validamos el array de secciones (iconos)
+
+    // Dashboard de datos rápidos
+    dashboard: z.array(z.object({
+      label: z.string(),
+      value: z.string(),
+      icon: z.string(),
+    })).optional(),
+
+    // Secciones básicas (iconos)
     secciones: z.array(z.object({
       icon: z.string(),
       label: z.string(),
       text: z.string(),
     })),
-    
-    // Validamos el array de tours (acepta null o undefined)
+
+    // ========== NUEVO: QUÉ HACER ==========
+    actividades: z.array(z.object({
+      nombre: z.string(),
+      icono: z.string(),
+      descripcion: z.string(),
+      link: z.string().optional(),
+    })).optional(),
+
+    // ========== NUEVO: QUÉ VISITAR ==========
+    atracciones: z.array(z.object({
+      nombre: z.string(),
+      zona: z.string(),
+      descripcion: z.string(),
+      imagen: z.string().optional(),
+      gratis: z.boolean().optional(),
+      precio: z.string().optional(),
+      link: z.string().optional(),
+    })).optional(),
+
+    // ========== NUEVO: BARRIOS ==========
+    barrios: z.array(z.object({
+      nombre: z.string(),
+      tipo: z.string(),
+      descripcion: z.string(),
+      imperdible: z.string(),
+      imagen: z.string().optional(),
+    })).optional(),
+
+    // ========== NUEVO: TRANSPORTE ==========
+    transporte: z.object({
+      aeropuerto: z.object({
+        nombre: z.string(),
+        distancia: z.string(),
+        opciones: z.array(z.object({
+          metodo: z.string(),
+          tiempo: z.string(),
+          precio: z.string(),
+          link: z.string().optional(),
+        })),
+      }),
+    }).optional(),
+
+    // ========== NUEVO: ESCAPADAS ==========
+    escapadas: z.array(z.object({
+      nombre: z.string(),
+      distancia: z.string(),
+      tiempo: z.string(),
+      descripcion: z.string(),
+      imagen: z.string().optional(),
+      link: z.string().optional(),
+    })).optional(),
+
+    // ========== NUEVO: GASTRONOMÍA ==========
+    gastronomia: z.array(z.object({
+      categoria: z.string(),
+      lugares: z.array(z.object({
+        nombre: z.string(),
+        zona: z.string(),
+        precio: z.string(),
+        link: z.string().optional(),
+      })),
+    })).optional(),
+
+    // ========== NUEVO: MAPA ==========
+    mapa: z.object({
+      centro: z.string(),
+      zoom: z.number(),
+    }).optional(),
+
+    // Zonas recomendadas (existente)
+    zonas: z.array(z.object({
+      nombre: z.string(),
+      tipo: z.string(),
+      descripcion: z.string(),
+    })).optional(),
+
+    // CTAs de afiliados (existente)
+    ctas: z.array(z.object({
+      titulo: z.string(),
+      descripcion: z.string(),
+      boton: z.string(),
+      link: z.string(),
+      color: z.string().optional().default('gold'),
+    })).optional(),
+
+    // Tours (existente)
     tours: z.array(z.object({
       titulo: z.string(),
       precio: z.string(),
@@ -24,49 +116,24 @@ const destinosCollection = defineCollection({
       link: z.string(),
       imagen: z.string().optional(),
     })).nullable().optional().default([]),
-    
-    // FAQs para SEO (opcional)
+
+    // FAQs (existente)
     faqs: z.array(z.object({
       pregunta: z.string(),
       respuesta: z.string(),
     })).optional(),
-    
-    // Lead Magnet para captura de emails (opcional)
+
+    // Lead Magnet (existente)
     leadMagnet: z.object({
       titulo: z.string(),
       descripcion: z.string(),
       archivo: z.string(),
       imagen: z.string().optional(),
     }).optional(),
-
-    // ========== NUEVOS CAMPOS ==========
-    
-    // Dashboard de datos rápidos (opcional)
-    dashboard: z.array(z.object({
-      label: z.string(),
-      value: z.string(),
-      icon: z.string(),
-    })).optional(),
-    
-    // Zonas recomendadas (opcional)
-    zonas: z.array(z.object({
-      nombre: z.string(),
-      tipo: z.string(), // trendy, elegante, bohemio, moderno
-      descripcion: z.string(),
-    })).optional(),
-    
-    // CTAs de afiliados (opcional)
-    ctas: z.array(z.object({
-      titulo: z.string(),
-      descripcion: z.string(),
-      boton: z.string(),
-      link: z.string(),
-      color: z.string().optional().default('gold'), // emerald, blue, gold, purple
-    })).optional(),
   }),
 });
 
-// 2. Nueva Colección: Blog
+// 2. Colección: Blog
 const blogCollection = defineCollection({
   type: 'content',
   schema: z.object({

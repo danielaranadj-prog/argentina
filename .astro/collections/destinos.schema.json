@@ -16,6 +16,29 @@
         "historia": {
           "type": "string"
         },
+        "dashboard": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "label": {
+                "type": "string"
+              },
+              "value": {
+                "type": "string"
+              },
+              "icon": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "label",
+              "value",
+              "icon"
+            ],
+            "additionalProperties": false
+          }
+        },
         "secciones": {
           "type": "array",
           "items": {
@@ -35,6 +58,294 @@
               "icon",
               "label",
               "text"
+            ],
+            "additionalProperties": false
+          }
+        },
+        "actividades": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "nombre": {
+                "type": "string"
+              },
+              "icono": {
+                "type": "string"
+              },
+              "descripcion": {
+                "type": "string"
+              },
+              "link": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "nombre",
+              "icono",
+              "descripcion"
+            ],
+            "additionalProperties": false
+          }
+        },
+        "atracciones": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "nombre": {
+                "type": "string"
+              },
+              "zona": {
+                "type": "string"
+              },
+              "descripcion": {
+                "type": "string"
+              },
+              "imagen": {
+                "type": "string"
+              },
+              "gratis": {
+                "type": "boolean"
+              },
+              "precio": {
+                "type": "string"
+              },
+              "link": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "nombre",
+              "zona",
+              "descripcion"
+            ],
+            "additionalProperties": false
+          }
+        },
+        "barrios": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "nombre": {
+                "type": "string"
+              },
+              "tipo": {
+                "type": "string"
+              },
+              "descripcion": {
+                "type": "string"
+              },
+              "imperdible": {
+                "type": "string"
+              },
+              "imagen": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "nombre",
+              "tipo",
+              "descripcion",
+              "imperdible"
+            ],
+            "additionalProperties": false
+          }
+        },
+        "transporte": {
+          "type": "object",
+          "properties": {
+            "aeropuerto": {
+              "type": "object",
+              "properties": {
+                "nombre": {
+                  "type": "string"
+                },
+                "distancia": {
+                  "type": "string"
+                },
+                "opciones": {
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "metodo": {
+                        "type": "string"
+                      },
+                      "tiempo": {
+                        "type": "string"
+                      },
+                      "precio": {
+                        "type": "string"
+                      },
+                      "link": {
+                        "type": "string"
+                      }
+                    },
+                    "required": [
+                      "metodo",
+                      "tiempo",
+                      "precio"
+                    ],
+                    "additionalProperties": false
+                  }
+                }
+              },
+              "required": [
+                "nombre",
+                "distancia",
+                "opciones"
+              ],
+              "additionalProperties": false
+            }
+          },
+          "required": [
+            "aeropuerto"
+          ],
+          "additionalProperties": false
+        },
+        "escapadas": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "nombre": {
+                "type": "string"
+              },
+              "distancia": {
+                "type": "string"
+              },
+              "tiempo": {
+                "type": "string"
+              },
+              "descripcion": {
+                "type": "string"
+              },
+              "imagen": {
+                "type": "string"
+              },
+              "link": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "nombre",
+              "distancia",
+              "tiempo",
+              "descripcion"
+            ],
+            "additionalProperties": false
+          }
+        },
+        "gastronomia": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "categoria": {
+                "type": "string"
+              },
+              "lugares": {
+                "type": "array",
+                "items": {
+                  "type": "object",
+                  "properties": {
+                    "nombre": {
+                      "type": "string"
+                    },
+                    "zona": {
+                      "type": "string"
+                    },
+                    "precio": {
+                      "type": "string"
+                    },
+                    "link": {
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "nombre",
+                    "zona",
+                    "precio"
+                  ],
+                  "additionalProperties": false
+                }
+              }
+            },
+            "required": [
+              "categoria",
+              "lugares"
+            ],
+            "additionalProperties": false
+          }
+        },
+        "mapa": {
+          "type": "object",
+          "properties": {
+            "centro": {
+              "type": "string"
+            },
+            "zoom": {
+              "type": "number"
+            }
+          },
+          "required": [
+            "centro",
+            "zoom"
+          ],
+          "additionalProperties": false
+        },
+        "zonas": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "nombre": {
+                "type": "string"
+              },
+              "tipo": {
+                "type": "string"
+              },
+              "descripcion": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "nombre",
+              "tipo",
+              "descripcion"
+            ],
+            "additionalProperties": false
+          }
+        },
+        "ctas": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "titulo": {
+                "type": "string"
+              },
+              "descripcion": {
+                "type": "string"
+              },
+              "boton": {
+                "type": "string"
+              },
+              "link": {
+                "type": "string"
+              },
+              "color": {
+                "type": "string",
+                "default": "gold"
+              }
+            },
+            "required": [
+              "titulo",
+              "descripcion",
+              "boton",
+              "link"
             ],
             "additionalProperties": false
           }
@@ -118,83 +429,6 @@
             "archivo"
           ],
           "additionalProperties": false
-        },
-        "dashboard": {
-          "type": "array",
-          "items": {
-            "type": "object",
-            "properties": {
-              "label": {
-                "type": "string"
-              },
-              "value": {
-                "type": "string"
-              },
-              "icon": {
-                "type": "string"
-              }
-            },
-            "required": [
-              "label",
-              "value",
-              "icon"
-            ],
-            "additionalProperties": false
-          }
-        },
-        "zonas": {
-          "type": "array",
-          "items": {
-            "type": "object",
-            "properties": {
-              "nombre": {
-                "type": "string"
-              },
-              "tipo": {
-                "type": "string"
-              },
-              "descripcion": {
-                "type": "string"
-              }
-            },
-            "required": [
-              "nombre",
-              "tipo",
-              "descripcion"
-            ],
-            "additionalProperties": false
-          }
-        },
-        "ctas": {
-          "type": "array",
-          "items": {
-            "type": "object",
-            "properties": {
-              "titulo": {
-                "type": "string"
-              },
-              "descripcion": {
-                "type": "string"
-              },
-              "boton": {
-                "type": "string"
-              },
-              "link": {
-                "type": "string"
-              },
-              "color": {
-                "type": "string",
-                "default": "gold"
-              }
-            },
-            "required": [
-              "titulo",
-              "descripcion",
-              "boton",
-              "link"
-            ],
-            "additionalProperties": false
-          }
         },
         "$schema": {
           "type": "string"

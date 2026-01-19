@@ -2,9 +2,9 @@
 title: "Buenos Aires"
 img: "/argentina/uploads/buenosaires.jpg"
 desc: "La París de Sudamérica, con ese caos hermoso y pasional."
-historia: "¡Bienvenido a la Reina del Plata! Ponete cómodo y preparate unos mates, que te voy a contar la posta. Acá el tango no se baila, se siente; el fútbol es una religión y el asado es sagrado. Es la mezcla perfecta entre la elegancia europea y la pasión latina. Una ciudad que nunca duerme, donde las librerías abren de madrugada y los cafés son templos para arreglar el mundo."
+historia: "¡Bienvenido a la Reina del Plata! Buenos Aires es una ciudad que nunca duerme, donde el tango se siente en cada esquina, el fútbol es religión y la gastronomía te enamora. Prepárate para caminar por barrios con personalidad única, desde el colorido Caminito hasta la elegancia de Recoleta."
 
-# ========== NUEVO: DASHBOARD DE DATOS RÁPIDOS ==========
+# ========== DASHBOARD ==========
 dashboard:
   - label: "Días Sugeridos"
     value: "4-5"
@@ -19,107 +19,255 @@ dashboard:
     value: "GMT-3"
     icon: "fa-clock"
 
-# ========== NUEVO: ZONAS RECOMENDADAS ==========
-zonas:
-  - nombre: "Palermo"
-    tipo: "trendy"
-    descripcion: "Bares de moda, parques, vida nocturna. Ideal para hospedarse."
-  - nombre: "Recoleta"
-    tipo: "elegante"
-    descripcion: "Arquitectura francesa, cementerio histórico, museos."
-  - nombre: "San Telmo"
-    tipo: "bohemio"
-    descripcion: "Tango, antigüedades, mercado dominical. Precaución de noche."
+# ========== QUÉ HACER ==========
+actividades:
+  - nombre: "Ver un Show de Tango"
+    icono: "fa-music"
+    descripcion: "Espectáculo con cena en San Telmo o Palermo"
+    link: "https://www.civitatis.com/es/buenos-aires/cena-tango/?aid=1234"
+  - nombre: "Partido de Fútbol"
+    icono: "fa-futbol"
+    descripcion: "Boca vs River o cualquier clásico argentino"
+    link: "https://www.getyourguide.com/buenos-aires-l234"
+  - nombre: "Free Walking Tour"
+    icono: "fa-walking"
+    descripcion: "Recorrido gratuito por el centro histórico"
+    link: "#"
+  - nombre: "Clase de Tango"
+    icono: "fa-shoe-prints"
+    descripcion: "Aprende los pasos básicos en una milonga"
+    link: "https://www.civitatis.com/es/buenos-aires/clase-tango/?aid=1234"
+  - nombre: "Tour Gastronómico"
+    icono: "fa-utensils"
+    descripcion: "Probar empanadas, asado y helado artesanal"
+    link: "https://www.viator.com/buenos-aires-food"
+  - nombre: "Navegación por el Delta"
+    icono: "fa-ship"
+    descripcion: "Excursión de medio día al Tigre"
+    link: "https://www.civitatis.com/es/buenos-aires/excursion-tigre/?aid=1234"
+
+# ========== QUÉ VISITAR ==========
+atracciones:
+  - nombre: "Casa Rosada"
+    zona: "Centro"
+    descripcion: "Sede del gobierno argentino con su icónica fachada rosa. Museo gratis con reserva."
+    imagen: "https://images.unsplash.com/photo-1589909202802-8f4aadce1849?auto=format&fit=crop&w=600&q=80"
+    gratis: true
+  - nombre: "Teatro Colón"
+    zona: "Centro"
+    descripcion: "Uno de los 5 mejores teatros de ópera del mundo. Tours guiados disponibles."
+    imagen: "https://images.unsplash.com/photo-1551410224-699683e15636?auto=format&fit=crop&w=600&q=80"
+    precio: "$15 USD"
+    link: "https://teatrocolon.org.ar"
+  - nombre: "Cementerio de Recoleta"
+    zona: "Recoleta"
+    descripcion: "Donde descansa Evita. Arquitectura fúnebre impresionante, mausoleos históricos."
+    imagen: "https://images.unsplash.com/photo-1587577090959-86dadbfc9a9f?auto=format&fit=crop&w=600&q=80"
+    gratis: true
+  - nombre: "Caminito (La Boca)"
+    zona: "La Boca"
+    descripcion: "La calle más colorida de Argentina. Arte callejero, tango y artistas."
+    imagen: "https://images.unsplash.com/photo-1612294037637-ec328d0e075e?auto=format&fit=crop&w=600&q=80"
+    gratis: true
+  - nombre: "Plaza de Mayo"
+    zona: "Centro"
+    descripcion: "Corazón político e histórico. Catedral Metropolitana y Cabildo."
+    imagen: "https://images.unsplash.com/photo-1577452065835-2c70cecea2c2?auto=format&fit=crop&w=600&q=80"
+    gratis: true
+  - nombre: "La Bombonera"
+    zona: "La Boca"
+    descripcion: "Estadio de Boca Juniors. Tours del museo y la cancha."
+    imagen: "https://images.unsplash.com/photo-1626025437642-0b05076ca301?auto=format&fit=crop&w=600&q=80"
+    precio: "$20 USD"
+    link: "https://www.getyourguide.com/boca-juniors"
+  - nombre: "El Ateneo Grand Splendid"
+    zona: "Recoleta"
+    descripcion: "La librería más hermosa del mundo. Antiguo teatro convertido en librería."
+    imagen: "https://images.unsplash.com/photo-1573164713988-8665fc963095?auto=format&fit=crop&w=600&q=80"
+    gratis: true
   - nombre: "Puerto Madero"
-    tipo: "moderno"
-    descripcion: "Rascacielos, paseo costero, restaurantes premium."
+    zona: "Puerto Madero"
+    descripcion: "Zona moderna con rascacielos, paseo costero y Puente de la Mujer."
+    imagen: "https://images.unsplash.com/photo-1589909202802-8f4aadce1849?auto=format&fit=crop&w=600&q=80"
+    gratis: true
 
-# ========== NUEVO: CTAs DE AFILIADOS ==========
-ctas:
-  - titulo: "📶 Conectate desde el aeropuerto"
-    descripcion: "eSIM con datos ilimitados para todo tu viaje"
-    boton: "Comprar eSIM"
-    link: "https://www.holafly.com/?ref=TUAFILIADO"
-    color: "emerald"
-  - titulo: "💳 La mejor tarjeta para viajar"
-    descripcion: "Paga en pesos sin comisiones con tipo de cambio real"
-    boton: "Solicitar Wise"
-    link: "https://wise.com/invite/TUAFILIADO"
-    color: "blue"
+# ========== BARRIOS ==========
+barrios:
+  - nombre: "San Telmo"
+    tipo: "Bohemio"
+    descripcion: "El barrio más antiguo. Mercado de antigüedades, bares de tango, feria dominical en Plaza Dorrego."
+    imperdible: "Feria de San Telmo (domingos) y Mercado de San Telmo"
+    imagen: "https://images.unsplash.com/photo-1612294037637-ec328d0e075e?auto=format&fit=crop&w=600&q=80"
+  - nombre: "La Boca"
+    tipo: "Colorido"
+    descripcion: "Casas de colores, Caminito, La Bombonera. Barrio del fútbol y el arte."
+    imperdible: "Caminito y visita al estadio de Boca"
+    imagen: "https://images.unsplash.com/photo-1594749009893-555e8d91a0c5?auto=format&fit=crop&w=600&q=80"
+  - nombre: "Palermo"
+    tipo: "Trendy"
+    descripcion: "El barrio más grande y moderno. Se divide en Soho, Hollywood, Chico. Bares, restaurantes, parques."
+    imperdible: "Bosques de Palermo y Jardín Japonés"
+    imagen: "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?auto=format&fit=crop&w=600&q=80"
+  - nombre: "Recoleta"
+    tipo: "Elegante"
+    descripcion: "Arquitectura francesa, embajadas, el cementerio más famoso. Zona exclusiva y cultural."
+    imperdible: "Cementerio de Recoleta y Centro Cultural Recoleta"
+    imagen: "https://images.unsplash.com/photo-1587577090959-86dadbfc9a9f?auto=format&fit=crop&w=600&q=80"
+  - nombre: "Puerto Madero"
+    tipo: "Moderno"
+    descripcion: "Zona de rascacielos y diques renovados. Restaurantes premium y paseo costero."
+    imperdible: "Puente de la Mujer y Reserva Ecológica"
+    imagen: "https://images.unsplash.com/photo-1589909202802-8f4aadce1849?auto=format&fit=crop&w=600&q=80"
 
-# ========== SECCIONES ORIGINALES ==========
+# ========== TRANSPORTE ==========
+transporte:
+  aeropuerto:
+    nombre: "Aeropuerto Ezeiza (EZE)"
+    distancia: "35 km del centro"
+    opciones:
+      - metodo: "Transfer Privado"
+        tiempo: "45 min"
+        precio: "$45-60 USD"
+        link: "https://www.civitatis.com/es/buenos-aires/traslados/?aid=1234"
+      - metodo: "Tienda León (Bus)"
+        tiempo: "1 hora"
+        precio: "$15 USD"
+        link: "https://www.tiendaleon.com"
+      - metodo: "Taxi Oficial"
+        tiempo: "45 min"
+        precio: "$50-70 USD"
+      - metodo: "Uber/Cabify"
+        tiempo: "45 min"
+        precio: "$35-50 USD"
+
+# ========== ESCAPADAS ==========
+escapadas:
+  - nombre: "Tigre y Delta del Paraná"
+    distancia: "30 km"
+    tiempo: "Medio día o 1 día"
+    descripcion: "Navega por el delta, visita el Puerto de Frutos, almuerza en una isla."
+    imagen: "https://images.unsplash.com/photo-1534234828563-0aa7cbed99b9?auto=format&fit=crop&w=600&q=80"
+    link: "https://www.civitatis.com/es/buenos-aires/excursion-tigre/?aid=1234"
+  - nombre: "Colonia del Sacramento (Uruguay)"
+    distancia: "1h en ferry"
+    tiempo: "1 día"
+    descripcion: "Pueblo colonial Patrimonio UNESCO. Calles empedradas, faro, atardeceres increíbles."
+    imagen: "https://images.unsplash.com/photo-1591519844087-29a3c7f5e3f6?auto=format&fit=crop&w=600&q=80"
+    link: "https://www.buquebus.com"
+  - nombre: "San Antonio de Areco"
+    distancia: "110 km"
+    tiempo: "1 día"
+    descripcion: "Pueblo gaucho auténtico. Estancias, asado tradicional, campo argentino."
+    imagen: "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?auto=format&fit=crop&w=600&q=80"
+    link: "https://www.civitatis.com/es/buenos-aires/excursion-estancia/?aid=1234"
+  - nombre: "La Plata"
+    distancia: "60 km"
+    tiempo: "Medio día"
+    descripcion: "Catedral gótica impresionante, Museo de Ciencias Naturales, ciudad planificada."
+    imagen: "https://images.unsplash.com/photo-1588681664899-f142ff2dc9b1?auto=format&fit=crop&w=600&q=80"
+
+# ========== GASTRONOMÍA ==========
+gastronomia:
+  - categoria: "🥩 Parrillas (Asado)"
+    lugares:
+      - nombre: "Don Julio"
+        zona: "Palermo"
+        precio: "$$$$"
+      - nombre: "La Cabrera"
+        zona: "Palermo"
+        precio: "$$$"
+      - nombre: "El Desnivel"
+        zona: "San Telmo"
+        precio: "$$"
+  - categoria: "🍕 Pizza Porteña"
+    lugares:
+      - nombre: "Güerrin"
+        zona: "Centro"
+        precio: "$"
+      - nombre: "El Cuartito"
+        zona: "Centro"
+        precio: "$"
+      - nombre: "Banchero"
+        zona: "La Boca"
+        precio: "$"
+  - categoria: "☕ Cafés Notables"
+    lugares:
+      - nombre: "Café Tortoni"
+        zona: "Centro"
+        precio: "$$"
+      - nombre: "El Federal"
+        zona: "San Telmo"
+        precio: "$$"
+      - nombre: "Las Violetas"
+        zona: "Almagro"
+        precio: "$$"
+  - categoria: "🍦 Heladerías"
+    lugares:
+      - nombre: "Cadore"
+        zona: "Centro"
+        precio: "$"
+      - nombre: "Rapa Nui"
+        zona: "Palermo"
+        precio: "$$"
+
+# ========== MAPA ==========
+mapa:
+  centro: "-34.6037, -58.3816"
+  zoom: 12
+
+# ========== SECCIONES BÁSICAS ==========
 secciones:
   - icon: "fa-calendar-check"
     label: "Tiempo Sugerido"
-    text: "Mínimo 5 días. Ideal 7 para incluir una escapada al Tigre o una estancia."
+    text: "Mínimo 4 días. Ideal 6-7 para incluir escapadas a Tigre o Colonia."
   - icon: "fa-thermometer-half"
-    label: "Clima / Ropa"
-    text: "Húmedo. Verano (Dic-Mar) muy caluroso. Invierno (Jun-Ago) fresco pero no nieva."
+    label: "Clima"
+    text: "Subtropical húmedo. Verano (Dic-Mar) caluroso 30°C. Invierno (Jun-Ago) fresco 10°C."
   - icon: "fa-wallet"
     label: "Presupuesto"
-    text: "Medio/Bajo (con Dólar Blue). Se come excelente por 15-20 USD por persona."
+    text: "Muy accesible con dólar. Comida: $15-25 USD. Hotel 3★: $50-80 USD."
   - icon: "fa-plane-arrival"
-    label: "Llegada"
-    text: "EZE (Internacional) está a 45min del centro. AEP (Cabotaje) está dentro de la ciudad."
+    label: "Aeropuertos"
+    text: "EZE (internacional, 35km) y Aeroparque (doméstico, en la ciudad)."
 
+# ========== TOURS ==========
 tours:
   - titulo: "Tour de Tango & Cena Show"
     precio: "US$ 80"
     duracion: "4 horas"
-    link: "https://www.civitatis.com/es/buenos-aires/cena-tango/?aid=TUAFILIADO"
+    link: "https://www.civitatis.com/es/buenos-aires/cena-tango/?aid=1234"
     imagen: "https://images.unsplash.com/photo-1543167822-04c9955767f4?auto=format&fit=crop&w=600&q=80"
   - titulo: "Navegación Delta del Tigre"
     precio: "US$ 45"
     duracion: "Medio día"
-    link: "https://www.civitatis.com/es/buenos-aires/excursion-tigre/?aid=TUAFILIADO"
+    link: "https://www.civitatis.com/es/buenos-aires/excursion-tigre/?aid=1234"
     imagen: "https://images.unsplash.com/photo-1534234828563-0aa7cbed99b9?auto=format&fit=crop&w=600&q=80"
   - titulo: "Experiencia Boca Juniors"
     precio: "US$ 50"
     duracion: "3 horas"
-    link: "https://www.civitatis.com/es/buenos-aires/tour-boca/?aid=TUAFILIADO"
+    link: "https://www.getyourguide.com/boca-juniors"
     imagen: "https://images.unsplash.com/photo-1626025437642-0b05076ca301?auto=format&fit=crop&w=600&q=80"
+  - titulo: "Free Walking Tour Centro"
+    precio: "Propina"
+    duracion: "3 horas"
+    link: "https://www.guruwalk.com/buenos-aires"
+    imagen: "https://images.unsplash.com/photo-1577452065835-2c70cecea2c2?auto=format&fit=crop&w=600&q=80"
 
+# ========== FAQs ==========
 faqs:
-  - pregunta: "¿Cuántos días necesito para conocer Buenos Aires?"
-    respuesta: "Mínimo 5 días para ver lo esencial: San Telmo, La Boca, Palermo, Recoleta y Puerto Madero. Si querés hacer una escapada al Tigre o visitar una estancia, sumale 2 días más."
-  - pregunta: "¿Es seguro caminar de noche en Buenos Aires?"
-    respuesta: "En zonas como Palermo, Recoleta y Puerto Madero sí, están muy transitadas. En San Telmo y La Boca es mejor moverse en taxi o Uber después de las 22hs. Evitá zonas alejadas del centro turístico."
   - pregunta: "¿Cómo consigo pesos argentinos al mejor tipo de cambio?"
-    respuesta: "Llevá dólares o euros en efectivo (billetes de 100, nuevos y sin marcas) y cambialos en casas de cambio por Dólar Blue. También podés usar tarjetas extranjeras que ahora toman un cambio muy similar al blue."
-  - pregunta: "¿Dónde me conviene alojarme en mi primera visita?"
-    respuesta: "Palermo (Soho o Hollywood) es ideal: seguro, lleno de bares y restaurantes, bien conectado. Recoleta es más elegante y tranquilo. San Telmo es bohemio pero requiere más precaución de noche."
-  - pregunta: "¿Necesito visa para entrar a Argentina?"
-    respuesta: "Depende de tu nacionalidad. Si sos de España, México, Chile, Colombia o la mayoría de países latinoamericanos, NO necesitás visa para estancias turísticas de hasta 90 días."
+    respuesta: "Llevá dólares o euros en efectivo (billetes de 100, nuevos) y cambialos en casas de cambio por 'Dólar Blue'. También podés usar tarjetas extranjeras que ahora toman un cambio muy similar."
+  - pregunta: "¿Es seguro caminar de noche?"
+    respuesta: "En Palermo, Recoleta y Puerto Madero sí. En San Telmo y La Boca mejor taxi después de las 22hs."
+  - pregunta: "¿Necesito visa?"
+    respuesta: "Si sos de España, México, Chile, Colombia o la mayoría de LATAM, NO necesitás visa para estancias de hasta 90 días."
+  - pregunta: "¿Cómo me muevo por la ciudad?"
+    respuesta: "Necesitás la Tarjeta SUBE. Se compra en kioscos o estaciones de Subte. Sirve para buses, metro y trenes."
 
+# ========== LEAD MAGNET ==========
 leadMagnet:
-  titulo: "Checklist de Viaje a Buenos Aires"
-  descripcion: "Todo lo que necesitás preparar antes de tu viaje: documentos, apps, tarjeta SUBE, dinero y más. Imprimilo y llevalo en tu maleta."
-  archivo: "/downloads/checklist-buenos-aires.pdf"
+  titulo: "Guía de Supervivencia Porteña (PDF)"
+  descripcion: "Tips de dinero, seguridad, apps esenciales, frases en argentino y más. Descárgala gratis."
+  archivo: "/downloads/guia-supervivencia-buenos-aires.pdf"
   imagen: "https://images.unsplash.com/photo-1612294037637-ec328d0e075e?auto=format&fit=crop&w=600&q=80"
 ---
-### 🗺️ Guía de Supervivencia Porteña
-
-Buenos Aires es una ciudad que intimida si no sabés cómo moverte. No te preocupes, acá tenés la data que los guías turísticos tradicionales no te cuentan.
-
-#### 1. El misterio del Dinero (Cash is King)
-En Argentina existen distintos tipos de cambio. Como turista, tu mejor amigo es el **efectivo**.
-* **Cambio Blue:** Es el tipo de cambio informal (y el más conveniente). Llevá billetes de **100 USD/Euros** nuevos, sin marcas ni roturas.
-* **Tarjetas:** Ahora podés usar tarjeta extranjera y te toman un cambio cercano al blue (Dólar MEP), pero siempre es bueno tener pesos en el bolsillo para taxis, kioscos y propinas.
-
-#### 2. Cómo moverte: La tarjeta SUBE
-Olvidate de pagar el colectivo (bus) con monedas. Necesitás sí o sí la **Tarjeta SUBE**.
-* **¿Dónde se compra?** En estaciones de Subte (metro) o kioscos.
-* **¿Cómo funciona?** La cargás con pesos y te sirve para buses, subtes y trenes.
-* **Tip:** Descargate la app "BA Cómo Llego" o usá Google Maps, funcionan perfecto para saber qué bondi (bus) tomar.
-
-#### 3. Zonas y Seguridad: ¿Dónde alojarse?
-Buenos Aires es enorme. Para tu primera visita, te recomiendo moverte en este "triángulo de seguridad":
-* **Palermo Soho/Hollywood:** Lleno de bares, diseño, vida nocturna y muy seguro para caminar de noche.
-* **Recoleta:** Elegante, clásico, arquitectura francesa. Ideal si buscás tranquilidad y museos.
-* **San Telmo:** Bohemio y antiguo. Hermoso de día, pero **ojo de noche** (mejor moverse en taxi/Uber después de las 22hs).
-
-### 🍕 La Ruta Gastronómica (Más allá del Asado)
-Sí, la carne es increíble, pero Buenos Aires tiene otras dos religiones: la Pizza y el Café.
-
-1. **Pizza Porteña:** Es de masa gruesa y rebalsa de queso. Tenés que probar una porción "de parado" en **Güerrin** (Av. Corrientes). Pedí una de Muzza y un fainá.
-2. **Cafés Notables:** El **Café Tortoni** es el más famoso (y con más fila). Si no querés esperar, probá el **Bar Notable El Federal** en San Telmo.
