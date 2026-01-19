@@ -1,6 +1,6 @@
 ---
 title: "Buenos Aires"
-img: "/destinos_argentina/buenosaires.jpg"
+img: "/uploads/buenosaires.jpg"
 desc: "Guía Práctica: Logística, Mapas y Datos Reales 2026"
 historia: "Ya decidiste viajar. Ahora necesitás la información que importa: cómo no perder plata al cambio, dónde dormir sin sustos, y qué transporte usar. Sin poesía, sin adjetivos vacíos. Solo la data que un local te daría si te invitara un café."
 secciones:
@@ -49,7 +49,6 @@ leadMagnet:
   archivo: "/downloads/itinerario-buenos-aires-5-dias.pdf"
   imagen: "https://images.unsplash.com/photo-1612294037637-ec328d0e075e?auto=format&fit=crop&w=600&q=80"
 ---
-
 ## 🗺️ Cómo Está Organizada la Ciudad
 
 Buenos Aires es enorme pero turísticamente manejable. Dividila mentalmente en 3 zonas:
