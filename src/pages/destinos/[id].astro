@@ -48,43 +48,67 @@ const ctaColors = {
 <Layout title={`${title} | Destinos Argentinos`}>
   <Navbar />
   
+  <!-- 1. HERO RENOVADO -->
   <header class="dest-hero" style={`background-image: url(${img})`}>
     <div class="overlay"></div>
     <div class="hero-text">
       <h1>{title}</h1>
+      <p class="hero-subtitle">Tu Guía Completa para el Viaje Perfecto</p>
       <p class="slogan">{desc}</p>
+      <a href="#lead-magnet" class="hero-cta">
+        <i class="fas fa-download"></i> Descarga tu Itinerario GRATIS
+      </a>
     </div>
   </header>
 
   <main class="container">
-    <div class="nav-back">
-      <a href="/argentina/#destinos" class="back-link">
-        <i class="fas fa-chevron-left"></i> VOLVER A DESTINOS
-      </a>
-    </div>
+    <!-- Sin botón volver para evitar fricción -->
 
-    <!-- Dashboard eliminado por redundancia con secciones -->
-
-    <article class="main-info">
-      <div class="text-block">
-        <h2>La Experiencia</h2>
-        <p>{historia}</p>
+    <!-- 2. LEAD MAGNET (Above the Fold) -->
+    <section id="lead-magnet" class="lead-magnet-above">
+      <div class="lead-magnet-card">
+        <div class="lead-magnet-content">
+          <span class="tag-gratis">📅 GRATIS</span>
+          <h2>Itinerario de 3 Días en {title}</h2>
+          <p>Plan básico día a día con los imprescindibles. Ideal para organizar tu primera visita.</p>
+          <ul class="lead-benefits">
+            <li><i class="fas fa-check-circle"></i> Rutas por día optimizadas</li>
+            <li><i class="fas fa-check-circle"></i> Horarios sugeridos</li>
+            <li><i class="fas fa-check-circle"></i> Mapa incluido</li>
+          </ul>
+          <div class="lead-trust">
+            <span>🔒 Sin spam</span>
+            <span>⚡ Descarga instantánea</span>
+            <span>👥 +2,500 viajeros lo usaron</span>
+          </div>
+        </div>
+        <a href="/downloads/itinerario-3-dias-buenos-aires.pdf" class="lead-cta-btn">
+          <i class="fas fa-download"></i> Descargar Ahora
+        </a>
       </div>
+    </section>
 
-      <div class="icon-grid">
+    <!-- 3. CHECKLIST DE VIAJERO INTELIGENTE -->
+    <section class="checklist-section">
+      <h2>✅ Antes de Viajar: Lo Esencial</h2>
+      <p class="checklist-intro">Resolvé estas 4 cosas y estarás listo para disfrutar sin preocupaciones.</p>
+      <div class="checklist-grid">
         {secciones.map((sec) => (
-          <div class="icon-item">
-            <div class="icon-wrapper">
+          <div class="checklist-item">
+            <div class="checklist-icon">
               <i class={`fas ${sec.icon}`}></i>
             </div>
-            <div class="icon-content">
+            <div class="checklist-content">
               <h3>{sec.label}</h3>
               <p>{sec.text}</p>
+            </div>
+            <div class="checklist-status">
+              <span class="status-badge">✓ Listo</span>
             </div>
           </div>
         ))}
       </div>
-    </article>
+    </section>
 
     <!-- ========== NUEVO: ZONAS ========== -->
     {zonas && zonas.length > 0 && (
@@ -306,57 +330,41 @@ const ctaColors = {
       <FAQ faqs={faqs} destinoTitle={title} />
     )}
 
-    <!-- Tours/Experiencias Imperdibles eliminado -->
+    <!-- 11. MAPA (ya está arriba) -->
 
-    <!-- ========== PLANIFICA TU VIAJE (PREMIUM) ========== -->
+    <!-- 12. CIERRE PREMIUM (Final Upsell) -->
+    <section class="premium-close-section">
+      <div class="premium-close-card">
+        <div class="premium-badge">⭐ PREMIUM</div>
+        <h2>¿Querés el Viaje PERFECTO?</h2>
+        <p class="premium-subtitle">Llevate la Guía Completa de {title}</p>
+        <div class="premium-benefits">
+          <div class="benefit-item"><i class="fas fa-calendar-alt"></i> Itinerarios de 5 y 7 días detallados</div>
+          <div class="benefit-item"><i class="fas fa-map-marked-alt"></i> Mapas offline de cada barrio</div>
+          <div class="benefit-item"><i class="fas fa-route"></i> Rutas secretas de locales</div>
+          <div class="benefit-item"><i class="fas fa-utensils"></i> Restaurantes fuera del circuito turístico</div>
+          <div class="benefit-item"><i class="fas fa-coins"></i> Presupuesto detallado por día</div>
+        </div>
+        <div class="premium-price">
+          <span class="price-tag">Solo $9.99 USD</span>
+          <span class="price-note">Acceso de por vida • Actualizaciones gratis</span>
+        </div>
+        <a href="/planifica/?destino=buenos-aires" class="premium-final-btn">
+          <i class="fas fa-crown"></i> Ver Guía Premium
+        </a>
+      </div>
+    </section>
+
+    <!-- Vuelos y Hoteles -->
     <section class="travel-widgets-section">
       <div class="section-header">
-        <h2>✈️ Planifica tu Viaje</h2>
+        <h2>✈️ Reservá tu Viaje</h2>
         <span class="badge">Reservar</span>
       </div>
-      
-      <!-- Widgets de vuelos y hoteles -->
       <div class="travel-widgets">
         <FlightSearch defaultDestination={title} />
         <HotelWidget defaultDestination={title} />
       </div>
-
-      <!-- CTA GRATUITO: Itinerario 3 días -->
-      <div class="itinerario-cta free-cta">
-        <div class="itinerario-content">
-          <span class="cta-tag gratis">📅 GRATIS</span>
-          <h3>Itinerario de 3 días en {title}</h3>
-          <p>Plan básico día a día con los imprescindibles. Ideal para una primera visita rápida.</p>
-          <ul class="cta-benefits">
-            <li><i class="fas fa-check"></i> Rutas por día optimizadas</li>
-            <li><i class="fas fa-check"></i> Horarios sugeridos</li>
-            <li><i class="fas fa-check"></i> Descarga instantánea</li>
-          </ul>
-        </div>
-        <a href="/downloads/itinerario-3-dias-{title.toLowerCase().replace(/ /g, '-')}.pdf" class="cta-btn free">
-          <i class="fas fa-download"></i> Descargar Gratis
-        </a>
-      </div>
-
-      <!-- CTA PREMIUM: Guía Completa -->
-      <div class="itinerario-cta premium-cta">
-        <div class="itinerario-content">
-          <span class="cta-tag premium">⭐ PREMIUM</span>
-          <h3>Guía Completa de {title} (5-7 días)</h3>
-          <p>Todo lo que necesitas para un viaje perfecto. Contenido exclusivo de expertos locales.</p>
-          <ul class="cta-benefits">
-            <li><i class="fas fa-star"></i> Itinerarios detallados de 5 y 7 días</li>
-            <li><i class="fas fa-star"></i> Mapas offline de cada barrio</li>
-            <li><i class="fas fa-star"></i> Rutas secretas de locales</li>
-            <li><i class="fas fa-star"></i> Restaurantes fuera del circuito turístico</li>
-            <li><i class="fas fa-star"></i> Presupuesto detallado por día</li>
-          </ul>
-        </div>
-        <a href="/planifica/?destino={title.toLowerCase().replace(/ /g, '-')}" class="cta-btn premium">
-          <i class="fas fa-crown"></i> Ver Guía Premium
-        </a>
-      </div>
-      
       <AdsenseWidget slot="inline" className="mt-ads" />
     </section>
   </main>
@@ -1656,6 +1664,371 @@ const ctaColors = {
     }
     
     .opciones-transporte {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  /* ========== HERO CTA BUTTON ========== */
+  .hero-subtitle {
+    font-size: 1.1rem;
+    font-weight: 400;
+    margin-bottom: 5px;
+    opacity: 0.95;
+  }
+
+  .hero-cta {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    margin-top: 25px;
+    padding: 16px 32px;
+    background: linear-gradient(135deg, #10b981, #059669);
+    color: white;
+    border-radius: 50px;
+    font-size: 1rem;
+    font-weight: 700;
+    text-decoration: none;
+    box-shadow: 0 10px 30px rgba(16, 185, 129, 0.4);
+    transition: all 0.3s ease;
+  }
+
+  .hero-cta:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 15px 40px rgba(16, 185, 129, 0.5);
+  }
+
+  /* ========== LEAD MAGNET ABOVE FOLD ========== */
+  .lead-magnet-above {
+    margin: -30px 0 50px;
+    padding: 0 20px;
+  }
+
+  .lead-magnet-card {
+    background: linear-gradient(135deg, rgba(16, 185, 129, 0.1), rgba(16, 185, 129, 0.02));
+    border: 2px solid #10b981;
+    border-radius: 24px;
+    padding: 35px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 30px;
+    box-shadow: 0 15px 50px rgba(16, 185, 129, 0.15);
+  }
+
+  .lead-magnet-content {
+    flex: 1;
+  }
+
+  .lead-magnet-content .tag-gratis {
+    display: inline-block;
+    background: #10b981;
+    color: white;
+    padding: 6px 14px;
+    border-radius: 20px;
+    font-size: 0.75rem;
+    font-weight: 700;
+    margin-bottom: 12px;
+  }
+
+  .lead-magnet-content h2 {
+    font-size: 1.6rem;
+    font-weight: 700;
+    color: var(--title);
+    margin-bottom: 10px;
+    font-family: 'Montserrat', sans-serif;
+  }
+
+  .lead-magnet-content > p {
+    font-size: 0.95rem;
+    color: var(--text-secondary);
+    margin-bottom: 15px;
+  }
+
+  .lead-benefits {
+    list-style: none;
+    padding: 0;
+    margin: 0 0 15px;
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap;
+  }
+
+  .lead-benefits li {
+    font-size: 0.85rem;
+    color: var(--text);
+    display: flex;
+    align-items: center;
+    gap: 6px;
+  }
+
+  .lead-benefits li i {
+    color: #10b981;
+  }
+
+  .lead-trust {
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap;
+  }
+
+  .lead-trust span {
+    font-size: 0.75rem;
+    color: var(--text-secondary);
+  }
+
+  .lead-cta-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    padding: 18px 35px;
+    background: #10b981;
+    color: white;
+    border-radius: 50px;
+    font-size: 1rem;
+    font-weight: 700;
+    text-decoration: none;
+    white-space: nowrap;
+    box-shadow: 0 10px 30px rgba(16, 185, 129, 0.4);
+    transition: all 0.3s ease;
+  }
+
+  .lead-cta-btn:hover {
+    background: #059669;
+    transform: scale(1.05);
+  }
+
+  @media (max-width: 768px) {
+    .lead-magnet-card {
+      flex-direction: column;
+      text-align: center;
+    }
+    
+    .lead-benefits, .lead-trust {
+      justify-content: center;
+    }
+    
+    .lead-cta-btn {
+      width: 100%;
+      justify-content: center;
+    }
+  }
+
+  /* ========== CHECKLIST SECTION ========== */
+  .checklist-section {
+    margin: 50px 0;
+    padding-top: 40px;
+    border-top: 1px solid var(--border);
+  }
+
+  .checklist-section h2 {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 1.6rem;
+    font-weight: 700;
+    color: var(--title);
+    margin-bottom: 10px;
+  }
+
+  .checklist-intro {
+    font-size: 0.95rem;
+    color: var(--text-secondary);
+    margin-bottom: 25px;
+  }
+
+  .checklist-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 15px;
+  }
+
+  .checklist-item {
+    background: var(--card-bg);
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    padding: 20px;
+    display: flex;
+    align-items: flex-start;
+    gap: 15px;
+    transition: all 0.3s ease;
+  }
+
+  .checklist-item:hover {
+    border-color: #10b981;
+    box-shadow: 0 10px 30px rgba(16, 185, 129, 0.08);
+  }
+
+  .checklist-icon {
+    width: 45px;
+    height: 45px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(135deg, rgba(244, 185, 66, 0.15), rgba(117, 170, 219, 0.1));
+    border-radius: 12px;
+    flex-shrink: 0;
+  }
+
+  .checklist-icon i {
+    font-size: 1.2rem;
+    color: var(--gold);
+  }
+
+  .checklist-content {
+    flex: 1;
+  }
+
+  .checklist-content h3 {
+    font-size: 0.95rem;
+    font-weight: 700;
+    color: var(--title);
+    margin-bottom: 5px;
+  }
+
+  .checklist-content p {
+    font-size: 0.8rem;
+    color: var(--text-secondary);
+    line-height: 1.4;
+    margin: 0;
+  }
+
+  .checklist-status {
+    flex-shrink: 0;
+  }
+
+  .status-badge {
+    background: rgba(16, 185, 129, 0.1);
+    color: #10b981;
+    padding: 5px 12px;
+    border-radius: 20px;
+    font-size: 0.7rem;
+    font-weight: 700;
+  }
+
+  @media (max-width: 600px) {
+    .checklist-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  /* ========== PREMIUM CLOSE SECTION ========== */
+  .premium-close-section {
+    margin: 60px 0 40px;
+    padding-top: 40px;
+    border-top: 2px solid var(--gold);
+  }
+
+  .premium-close-card {
+    background: linear-gradient(135deg, rgba(244, 185, 66, 0.1), rgba(168, 85, 247, 0.05));
+    border: 2px solid var(--gold);
+    border-radius: 24px;
+    padding: 45px;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .premium-close-card::before {
+    content: '';
+    position: absolute;
+    top: -50px;
+    right: -50px;
+    width: 150px;
+    height: 150px;
+    background: linear-gradient(135deg, transparent 50%, rgba(244, 185, 66, 0.1) 50%);
+    transform: rotate(45deg);
+  }
+
+  .premium-badge {
+    display: inline-block;
+    background: linear-gradient(135deg, var(--gold), #d97706);
+    color: white;
+    padding: 8px 20px;
+    border-radius: 25px;
+    font-size: 0.8rem;
+    font-weight: 700;
+    margin-bottom: 20px;
+  }
+
+  .premium-close-card h2 {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 2rem;
+    font-weight: 800;
+    color: var(--title);
+    margin-bottom: 10px;
+  }
+
+  .premium-subtitle {
+    font-size: 1.1rem;
+    color: var(--text-secondary);
+    margin-bottom: 30px;
+  }
+
+  .premium-benefits {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 15px;
+    margin-bottom: 30px;
+    text-align: left;
+  }
+
+  .benefit-item {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 0.9rem;
+    color: var(--text);
+  }
+
+  .benefit-item i {
+    color: var(--gold);
+  }
+
+  .premium-price {
+    margin-bottom: 25px;
+  }
+
+  .price-tag {
+    display: block;
+    font-size: 1.8rem;
+    font-weight: 800;
+    color: var(--gold);
+    margin-bottom: 5px;
+  }
+
+  .price-note {
+    font-size: 0.85rem;
+    color: var(--text-secondary);
+  }
+
+  .premium-final-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    padding: 18px 40px;
+    background: linear-gradient(135deg, var(--gold), #d97706);
+    color: white;
+    border-radius: 50px;
+    font-size: 1.1rem;
+    font-weight: 700;
+    text-decoration: none;
+    box-shadow: 0 10px 40px rgba(244, 185, 66, 0.4);
+    transition: all 0.3s ease;
+  }
+
+  .premium-final-btn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 15px 50px rgba(244, 185, 66, 0.5);
+  }
+
+  @media (max-width: 600px) {
+    .premium-close-card {
+      padding: 30px 20px;
+    }
+    
+    .premium-close-card h2 {
+      font-size: 1.5rem;
+    }
+    
+    .premium-benefits {
       grid-template-columns: 1fr;
     }
   }
