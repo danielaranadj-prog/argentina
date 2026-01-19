@@ -22,10 +22,13 @@ export async function getStaticPaths() {
 const { destino } = Astro.props;
 const { Content } = await destino.render();
 const { 
-  title, img, desc, historia, secciones, tours, faqs, leadMagnet, 
-  dashboard, zonas, ctas,
-  // Nuevos campos
-  actividades, atracciones, barrios, transporte, escapadas, gastronomia, mapa
+  title, img, desc, historia, 
+  // V3 fields
+  checklist, barrios, experiencias, gastronomia, transporte, mapa,
+  leadMagnet, premiumGuide, faqs,
+  // Legacy fields
+  secciones, tours, dashboard, zonas, ctas,
+  actividades, atracciones, escapadas
 } = destino.data;
 
 // Colores para zonas
@@ -65,50 +68,57 @@ const ctaColors = {
     <!-- Sin botón volver para evitar fricción -->
 
     <!-- 2. LEAD MAGNET (Above the Fold) -->
-    <section id="lead-magnet" class="lead-magnet-above">
-      <div class="lead-magnet-card">
-        <div class="lead-magnet-content">
-          <span class="tag-gratis">📅 GRATIS</span>
-          <h2>Itinerario de 3 Días en {title}</h2>
-          <p>Plan básico día a día con los imprescindibles. Ideal para organizar tu primera visita.</p>
-          <ul class="lead-benefits">
-            <li><i class="fas fa-check-circle"></i> Rutas por día optimizadas</li>
-            <li><i class="fas fa-check-circle"></i> Horarios sugeridos</li>
-            <li><i class="fas fa-check-circle"></i> Mapa incluido</li>
-          </ul>
-          <div class="lead-trust">
-            <span>🔒 Sin spam</span>
-            <span>⚡ Descarga instantánea</span>
-            <span>👥 +2,500 viajeros lo usaron</span>
+    {leadMagnet && (
+      <section id="lead-magnet" class="lead-magnet-above">
+        <div class="lead-magnet-card">
+          <div class="lead-magnet-content">
+            <span class="tag-gratis">📅 GRATIS</span>
+            {leadMagnet.subtitulo && <p class="lead-subtitle">{leadMagnet.subtitulo}</p>}
+            <h2>{leadMagnet.titulo}</h2>
+            <p>{leadMagnet.descripcion}</p>
+            {leadMagnet.beneficios && (
+              <ul class="lead-benefits">
+                {leadMagnet.beneficios.map((b) => (
+                  <li><i class="fas fa-check-circle"></i> {b}</li>
+                ))}
+              </ul>
+            )}
+            <div class="lead-trust">
+              <span>🔒 Sin spam</span>
+              <span>⚡ Descarga instantánea</span>
+            </div>
           </div>
+          <a href={leadMagnet.archivo} class="lead-cta-btn">
+            <i class="fas fa-download"></i> Descargar Ahora
+          </a>
         </div>
-        <a href="/downloads/itinerario-3-dias-buenos-aires.pdf" class="lead-cta-btn">
-          <i class="fas fa-download"></i> Descargar Ahora
-        </a>
-      </div>
-    </section>
+      </section>
+    )}
 
-    <!-- 3. CHECKLIST DE VIAJERO INTELIGENTE -->
-    <section class="checklist-section">
-      <h2>✅ Antes de Viajar: Lo Esencial</h2>
-      <p class="checklist-intro">Resolvé estas 4 cosas y estarás listo para disfrutar sin preocupaciones.</p>
-      <div class="checklist-grid">
-        {secciones.map((sec) => (
-          <div class="checklist-item">
-            <div class="checklist-icon">
-              <i class={`fas ${sec.icon}`}></i>
+    <!-- 3. CHECKLIST DE SUPERVIVENCIA PORTEÑA -->
+    {checklist && checklist.length > 0 && (
+      <section class="checklist-section">
+        <h2>✅ Checklist de Supervivencia Porteña</h2>
+        <p class="checklist-intro">Resuelve estos {checklist.length} puntos y viaja tranquilo.</p>
+        <div class="checklist-grid">
+          {checklist.map((item) => (
+            <div class="checklist-item">
+              <div class="checklist-emoji">{item.emoji}</div>
+              <div class="checklist-content">
+                <h3>{item.titulo}</h3>
+                <p set:html={item.detalle.replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>')}></p>
+                {item.cta && item.ctaLink && (
+                  <a href={item.ctaLink} target="_blank" rel="noopener" class={`checklist-cta ${item.ctaRecomendado ? 'recomendado' : ''}`}>
+                    {item.ctaRecomendado && <span class="rec-badge">Recomendado</span>}
+                    {item.cta}
+                  </a>
+                )}
+              </div>
             </div>
-            <div class="checklist-content">
-              <h3>{sec.label}</h3>
-              <p>{sec.text}</p>
-            </div>
-            <div class="checklist-status">
-              <span class="status-badge">✓ Listo</span>
-            </div>
-          </div>
-        ))}
-      </div>
-    </section>
+          ))}
+        </div>
+      </section>
+    )}
 
     <!-- ========== NUEVO: ZONAS ========== -->
     {zonas && zonas.length > 0 && (
@@ -151,23 +161,35 @@ const ctaColors = {
       </section>
     )}
 
-    <!-- ========== QUÉ HACER ========== -->
-    {actividades && actividades.length > 0 && (
-      <section class="actividades-section">
-        <h2>🎯 Qué Hacer en {title}</h2>
-        <div class="actividades-grid">
-          {actividades.map((act) => (
-            <a href={act.link || '#'} target={act.link ? '_blank' : '_self'} rel="noopener" class="actividad-card">
-              <div class="actividad-icon">
-                <i class={`fas ${act.icono}`}></i>
+    <!-- ========== 6. TOP EXPERIENCIAS (V3) ========== -->
+    {experiencias && experiencias.length > 0 && (
+      <section class="experiencias-section">
+        <h2>🎯 Top {experiencias.length} Cosas que hacer en {title}</h2>
+        <div class="experiencias-list">
+          {experiencias.map((exp, index) => (
+            <div class="experiencia-item">
+              <div class="exp-number">{index + 1}</div>
+              <div class="exp-icon">{exp.icono}</div>
+              <div class="exp-content">
+                <div class="exp-header">
+                  <h3>{exp.titulo}</h3>
+                  <span class="exp-tag" style={`background: ${exp.tagColor}`}>{exp.tag}</span>
+                </div>
+                <p>{exp.descripcion}</p>
+                {exp.cta && exp.ctaLink && (
+                  <a href={exp.ctaLink} target="_blank" rel="noopener" class="exp-cta">
+                    👉 {exp.cta}
+                  </a>
+                )}
               </div>
-              <div class="actividad-content">
-                <h3>{act.nombre}</h3>
-                <p>{act.descripcion}</p>
-              </div>
-              {act.link && <i class="fas fa-chevron-right actividad-arrow"></i>}
-            </a>
+            </div>
           ))}
+        </div>
+        <div class="blog-link-box">
+          <p>🌟 ¿Quieres más consejos y experiencias?</p>
+          <a href="https://blog.instantetrips.com/argentina/buenos-aires" target="_blank" rel="noopener" class="blog-link">
+            Visita nuestro Blog <i class="fas fa-external-link-alt"></i>
+          </a>
         </div>
       </section>
     )}
@@ -201,24 +223,25 @@ const ctaColors = {
       </section>
     )}
 
-    <!-- ========== BARRIOS ========== -->
+    <!-- ========== 4. BARRIOS (V3) ========== -->
     {barrios && barrios.length > 0 && (
       <section class="barrios-section">
-        <h2>🏘️ Barrios para Explorar</h2>
+        <h2>🏘️ ¿Dónde alojarse y pasear? Entendiendo la ciudad</h2>
         <div class="barrios-grid">
           {barrios.map((barrio) => (
             <div class="barrio-card">
               {barrio.imagen && (
                 <div class="barrio-imagen" style={`background-image: url('${barrio.imagen}')`}>
-                  <span class="barrio-tipo">{barrio.tipo}</span>
+                  <span class="barrio-vibra" style={barrio.colorTag ? `background: ${barrio.colorTag}` : ''}>
+                    {barrio.vibra}
+                  </span>
                 </div>
               )}
               <div class="barrio-content">
                 <h3>{barrio.nombre}</h3>
-                <p>{barrio.descripcion}</p>
-                <div class="barrio-imperdible">
-                  <span>⭐ Imperdible:</span> {barrio.imperdible}
-                </div>
+                <p class="barrio-ideal">
+                  <strong>Ideal para:</strong> {barrio.idealPara}
+                </p>
               </div>
             </div>
           ))}
@@ -333,27 +356,28 @@ const ctaColors = {
     <!-- 11. MAPA (ya está arriba) -->
 
     <!-- 12. CIERRE PREMIUM (Final Upsell) -->
-    <section class="premium-close-section">
-      <div class="premium-close-card">
-        <div class="premium-badge">⭐ PREMIUM</div>
-        <h2>¿Querés el Viaje PERFECTO?</h2>
-        <p class="premium-subtitle">Llevate la Guía Completa de {title}</p>
-        <div class="premium-benefits">
-          <div class="benefit-item"><i class="fas fa-calendar-alt"></i> Itinerarios de 5 y 7 días detallados</div>
-          <div class="benefit-item"><i class="fas fa-map-marked-alt"></i> Mapas offline de cada barrio</div>
-          <div class="benefit-item"><i class="fas fa-route"></i> Rutas secretas de locales</div>
-          <div class="benefit-item"><i class="fas fa-utensils"></i> Restaurantes fuera del circuito turístico</div>
-          <div class="benefit-item"><i class="fas fa-coins"></i> Presupuesto detallado por día</div>
+    {premiumGuide && (
+      <section class="premium-close-section">
+        <div class="premium-close-card">
+          <div class="premium-badge">⭐ PREMIUM</div>
+          <h2>{premiumGuide.titulo}</h2>
+          <p class="premium-subtitle">{premiumGuide.subtitulo}</p>
+          <div class="premium-benefits">
+            {premiumGuide.beneficios.map((b) => (
+              <div class="benefit-item"><i class="fas fa-check-circle"></i> {b}</div>
+            ))}
+          </div>
+          <div class="premium-price">
+            <span class="price-original">~~{premiumGuide.precioOriginal} {premiumGuide.moneda}~~</span>
+            <span class="price-tag">${premiumGuide.precioOferta} {premiumGuide.moneda}</span>
+            <span class="price-note">Acceso de por vida • Actualizaciones gratis</span>
+          </div>
+          <a href={premiumGuide.link} class="premium-final-btn">
+            <i class="fas fa-unlock"></i> OBTENER GUÍA PREMIUM AHORA
+          </a>
         </div>
-        <div class="premium-price">
-          <span class="price-tag">Solo $9.99 USD</span>
-          <span class="price-note">Acceso de por vida • Actualizaciones gratis</span>
-        </div>
-        <a href="/planifica/?destino=buenos-aires" class="premium-final-btn">
-          <i class="fas fa-crown"></i> Ver Guía Premium
-        </a>
-      </div>
-    </section>
+      </section>
+    )}
 
     <!-- Vuelos y Hoteles -->
     <section class="travel-widgets-section">
@@ -2030,6 +2054,242 @@ const ctaColors = {
     
     .premium-benefits {
       grid-template-columns: 1fr;
+    }
+  }
+
+  /* ========== V3: CHECKLIST EMOJI ========== */
+  .checklist-emoji {
+    font-size: 2rem;
+    width: 55px;
+    height: 55px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--bg);
+    border-radius: 14px;
+    flex-shrink: 0;
+  }
+
+  .checklist-cta {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    margin-top: 12px;
+    padding: 10px 18px;
+    background: linear-gradient(135deg, #3b82f6, #2563eb);
+    color: white;
+    border-radius: 25px;
+    font-size: 0.8rem;
+    font-weight: 600;
+    text-decoration: none;
+    transition: all 0.3s ease;
+  }
+
+  .checklist-cta.recomendado {
+    background: linear-gradient(135deg, #10b981, #059669);
+    box-shadow: 0 5px 20px rgba(16, 185, 129, 0.3);
+  }
+
+  .checklist-cta:hover {
+    transform: translateY(-2px);
+  }
+
+  .rec-badge {
+    background: rgba(255,255,255,0.2);
+    padding: 2px 8px;
+    border-radius: 12px;
+    font-size: 0.65rem;
+    text-transform: uppercase;
+  }
+
+  .lead-subtitle {
+    font-size: 1.1rem;
+    color: var(--text-secondary);
+    margin-bottom: 8px;
+  }
+
+  /* ========== V3: BARRIO VIBRA ========== */
+  .barrio-vibra {
+    position: absolute;
+    bottom: 10px;
+    left: 10px;
+    background: rgba(0,0,0,0.75);
+    backdrop-filter: blur(10px);
+    color: white;
+    padding: 6px 14px;
+    border-radius: 20px;
+    font-size: 0.75rem;
+    font-weight: 600;
+  }
+
+  .barrio-ideal {
+    font-size: 0.85rem;
+    color: var(--text-secondary);
+    margin: 0;
+  }
+
+  .barrio-ideal strong {
+    color: var(--gold);
+  }
+
+  /* ========== V3: EXPERIENCIAS LIST ========== */
+  .experiencias-section {
+    margin: 50px 0;
+    padding-top: 40px;
+    border-top: 1px solid var(--border);
+  }
+
+  .experiencias-section h2 {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 1.6rem;
+    font-weight: 700;
+    color: var(--title);
+    margin-bottom: 25px;
+  }
+
+  .experiencias-list {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+  }
+
+  .experiencia-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 15px;
+    padding: 20px;
+    background: var(--card-bg);
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    transition: all 0.3s ease;
+  }
+
+  .experiencia-item:hover {
+    border-color: var(--gold);
+    box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+  }
+
+  .exp-number {
+    width: 32px;
+    height: 32px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--bg);
+    border-radius: 50%;
+    font-size: 0.85rem;
+    font-weight: 700;
+    color: var(--text-secondary);
+    flex-shrink: 0;
+  }
+
+  .exp-icon {
+    font-size: 1.5rem;
+    flex-shrink: 0;
+  }
+
+  .exp-content {
+    flex: 1;
+  }
+
+  .exp-header {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 8px;
+    flex-wrap: wrap;
+  }
+
+  .exp-header h3 {
+    font-size: 1rem;
+    font-weight: 700;
+    color: var(--title);
+    margin: 0;
+  }
+
+  .exp-tag {
+    padding: 4px 10px;
+    border-radius: 15px;
+    font-size: 0.65rem;
+    font-weight: 700;
+    color: white;
+    text-transform: uppercase;
+  }
+
+  .exp-content > p {
+    font-size: 0.85rem;
+    color: var(--text-secondary);
+    margin: 0 0 10px;
+    line-height: 1.5;
+  }
+
+  .exp-cta {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: var(--gold);
+    text-decoration: none;
+    transition: color 0.2s;
+  }
+
+  .exp-cta:hover {
+    color: #d97706;
+  }
+
+  /* Blog Link Box */
+  .blog-link-box {
+    margin-top: 25px;
+    padding: 20px;
+    background: var(--bg);
+    border-radius: 14px;
+    text-align: center;
+  }
+
+  .blog-link-box p {
+    margin: 0 0 12px;
+    font-size: 0.9rem;
+    color: var(--text-secondary);
+  }
+
+  .blog-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 10px 20px;
+    background: var(--card-bg);
+    border: 1px solid var(--border);
+    border-radius: 25px;
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: var(--title);
+    text-decoration: none;
+    transition: all 0.2s;
+  }
+
+  .blog-link:hover {
+    border-color: var(--gold);
+    color: var(--gold);
+  }
+
+  /* ========== V3: STRIKETHROUGH PRICE ========== */
+  .price-original {
+    font-size: 1rem;
+    color: var(--text-secondary);
+    text-decoration: line-through;
+    margin-right: 10px;
+  }
+
+  @media (max-width: 600px) {
+    .experiencia-item {
+      flex-direction: column;
+    }
+    
+    .exp-number {
+      width: 28px;
+      height: 28px;
+      font-size: 0.75rem;
     }
   }
 </style>

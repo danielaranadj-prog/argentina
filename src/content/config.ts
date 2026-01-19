@@ -1,6 +1,6 @@
 import { defineCollection, z } from 'astro:content';
 
-// 1. Colección: Destinos (Completa con todas las secciones)
+// 1. Colección: Destinos (V3 - Optimizado para CRO)
 const destinosCollection = defineCollection({
   type: 'content',
   schema: z.object({
@@ -9,21 +9,131 @@ const destinosCollection = defineCollection({
     desc: z.string(),
     historia: z.string(),
 
-    // Dashboard de datos rápidos
+    // ========== V3: CHECKLIST DE SUPERVIVENCIA ==========
+    checklist: z.array(z.object({
+      icono: z.string(),
+      titulo: z.string(),
+      emoji: z.string(),
+      detalle: z.string(),
+      cta: z.string().optional(),
+      ctaLink: z.string().optional(),
+      ctaRecomendado: z.boolean().optional(),
+    })).optional(),
+
+    // ========== V3: BARRIOS (con Vibra) ==========
+    barrios: z.array(z.object({
+      nombre: z.string(),
+      vibra: z.string(),
+      idealPara: z.string(),
+      imagen: z.string().optional(),
+      colorTag: z.string().optional(),
+    })).optional(),
+
+    // ========== V3: TOP EXPERIENCIAS (Fusionado) ==========
+    experiencias: z.array(z.object({
+      titulo: z.string(),
+      icono: z.string(),
+      tag: z.string(),
+      tagColor: z.string(),
+      descripcion: z.string(),
+      cta: z.string().optional(),
+      ctaLink: z.string().optional(),
+    })).optional(),
+
+    // ========== V3: GASTRONOMÍA ==========
+    gastronomia: z.array(z.object({
+      categoria: z.string(),
+      lugares: z.array(z.object({
+        nombre: z.string(),
+        nota: z.string().optional(),
+        precio: z.string(),
+        link: z.string().optional(),
+      })),
+    })).optional(),
+
+    // ========== V3: TRANSPORTE (mejorado) ==========
+    transporte: z.object({
+      aeropuerto: z.object({
+        nombre: z.string(),
+        distancia: z.string(),
+        opciones: z.array(z.object({
+          metodo: z.string(),
+          tiempo: z.string(),
+          precio: z.string(),
+          detalle: z.string().optional(),
+          link: z.string().optional(),
+        })),
+      }),
+    }).optional(),
+
+    // ========== V3: MAPA ==========
+    mapa: z.object({
+      centro: z.string(),
+      zoom: z.number(),
+    }).optional(),
+
+    // ========== V3: LEAD MAGNET (mejorado) ==========
+    leadMagnet: z.object({
+      titulo: z.string(),
+      subtitulo: z.string().optional(),
+      descripcion: z.string(),
+      archivo: z.string(),
+      beneficios: z.array(z.string()).optional(),
+      imagen: z.string().optional(),
+    }).optional(),
+
+    // ========== V3: PREMIUM GUIDE ==========
+    premiumGuide: z.object({
+      titulo: z.string(),
+      subtitulo: z.string(),
+      beneficios: z.array(z.string()),
+      precioOriginal: z.string(),
+      precioOferta: z.string(),
+      moneda: z.string(),
+      link: z.string(),
+    }).optional(),
+
+    // FAQs
+    faqs: z.array(z.object({
+      pregunta: z.string(),
+      respuesta: z.string(),
+    })).optional(),
+
+    // Legacy fields (para compatibilidad)
+    secciones: z.array(z.object({
+      icon: z.string(),
+      label: z.string(),
+      text: z.string(),
+    })).optional(),
+
     dashboard: z.array(z.object({
       label: z.string(),
       value: z.string(),
       icon: z.string(),
     })).optional(),
 
-    // Secciones básicas (iconos)
-    secciones: z.array(z.object({
-      icon: z.string(),
-      label: z.string(),
-      text: z.string(),
-    })),
+    zonas: z.array(z.object({
+      nombre: z.string(),
+      tipo: z.string(),
+      descripcion: z.string(),
+    })).optional(),
 
-    // ========== NUEVO: QUÉ HACER ==========
+    ctas: z.array(z.object({
+      titulo: z.string(),
+      descripcion: z.string(),
+      boton: z.string(),
+      link: z.string(),
+      color: z.string().optional().default('gold'),
+    })).optional(),
+
+    tours: z.array(z.object({
+      titulo: z.string(),
+      precio: z.string(),
+      duracion: z.string(),
+      link: z.string(),
+      imagen: z.string().optional(),
+    })).nullable().optional(),
+
     actividades: z.array(z.object({
       nombre: z.string(),
       icono: z.string(),
@@ -31,7 +141,6 @@ const destinosCollection = defineCollection({
       link: z.string().optional(),
     })).optional(),
 
-    // ========== NUEVO: QUÉ VISITAR ==========
     atracciones: z.array(z.object({
       nombre: z.string(),
       zona: z.string(),
@@ -42,30 +151,6 @@ const destinosCollection = defineCollection({
       link: z.string().optional(),
     })).optional(),
 
-    // ========== NUEVO: BARRIOS ==========
-    barrios: z.array(z.object({
-      nombre: z.string(),
-      tipo: z.string(),
-      descripcion: z.string(),
-      imperdible: z.string(),
-      imagen: z.string().optional(),
-    })).optional(),
-
-    // ========== NUEVO: TRANSPORTE ==========
-    transporte: z.object({
-      aeropuerto: z.object({
-        nombre: z.string(),
-        distancia: z.string(),
-        opciones: z.array(z.object({
-          metodo: z.string(),
-          tiempo: z.string(),
-          precio: z.string(),
-          link: z.string().optional(),
-        })),
-      }),
-    }).optional(),
-
-    // ========== NUEVO: ESCAPADAS ==========
     escapadas: z.array(z.object({
       nombre: z.string(),
       distancia: z.string(),
@@ -74,62 +159,6 @@ const destinosCollection = defineCollection({
       imagen: z.string().optional(),
       link: z.string().optional(),
     })).optional(),
-
-    // ========== NUEVO: GASTRONOMÍA ==========
-    gastronomia: z.array(z.object({
-      categoria: z.string(),
-      lugares: z.array(z.object({
-        nombre: z.string(),
-        zona: z.string(),
-        precio: z.string(),
-        link: z.string().optional(),
-      })),
-    })).optional(),
-
-    // ========== NUEVO: MAPA ==========
-    mapa: z.object({
-      centro: z.string(),
-      zoom: z.number(),
-    }).optional(),
-
-    // Zonas recomendadas (existente)
-    zonas: z.array(z.object({
-      nombre: z.string(),
-      tipo: z.string(),
-      descripcion: z.string(),
-    })).optional(),
-
-    // CTAs de afiliados (existente)
-    ctas: z.array(z.object({
-      titulo: z.string(),
-      descripcion: z.string(),
-      boton: z.string(),
-      link: z.string(),
-      color: z.string().optional().default('gold'),
-    })).optional(),
-
-    // Tours (existente)
-    tours: z.array(z.object({
-      titulo: z.string(),
-      precio: z.string(),
-      duracion: z.string(),
-      link: z.string(),
-      imagen: z.string().optional(),
-    })).nullable().optional().default([]),
-
-    // FAQs (existente)
-    faqs: z.array(z.object({
-      pregunta: z.string(),
-      respuesta: z.string(),
-    })).optional(),
-
-    // Lead Magnet (existente)
-    leadMagnet: z.object({
-      titulo: z.string(),
-      descripcion: z.string(),
-      archivo: z.string(),
-      imagen: z.string().optional(),
-    }).optional(),
   }),
 });
 

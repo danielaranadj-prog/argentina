@@ -16,109 +16,38 @@
         "historia": {
           "type": "string"
         },
-        "dashboard": {
+        "checklist": {
           "type": "array",
           "items": {
             "type": "object",
             "properties": {
-              "label": {
-                "type": "string"
-              },
-              "value": {
-                "type": "string"
-              },
-              "icon": {
-                "type": "string"
-              }
-            },
-            "required": [
-              "label",
-              "value",
-              "icon"
-            ],
-            "additionalProperties": false
-          }
-        },
-        "secciones": {
-          "type": "array",
-          "items": {
-            "type": "object",
-            "properties": {
-              "icon": {
-                "type": "string"
-              },
-              "label": {
-                "type": "string"
-              },
-              "text": {
-                "type": "string"
-              }
-            },
-            "required": [
-              "icon",
-              "label",
-              "text"
-            ],
-            "additionalProperties": false
-          }
-        },
-        "actividades": {
-          "type": "array",
-          "items": {
-            "type": "object",
-            "properties": {
-              "nombre": {
-                "type": "string"
-              },
               "icono": {
                 "type": "string"
               },
-              "descripcion": {
+              "titulo": {
                 "type": "string"
               },
-              "link": {
-                "type": "string"
-              }
-            },
-            "required": [
-              "nombre",
-              "icono",
-              "descripcion"
-            ],
-            "additionalProperties": false
-          }
-        },
-        "atracciones": {
-          "type": "array",
-          "items": {
-            "type": "object",
-            "properties": {
-              "nombre": {
+              "emoji": {
                 "type": "string"
               },
-              "zona": {
+              "detalle": {
                 "type": "string"
               },
-              "descripcion": {
+              "cta": {
                 "type": "string"
               },
-              "imagen": {
+              "ctaLink": {
                 "type": "string"
               },
-              "gratis": {
+              "ctaRecomendado": {
                 "type": "boolean"
-              },
-              "precio": {
-                "type": "string"
-              },
-              "link": {
-                "type": "string"
               }
             },
             "required": [
-              "nombre",
-              "zona",
-              "descripcion"
+              "icono",
+              "titulo",
+              "emoji",
+              "detalle"
             ],
             "additionalProperties": false
           }
@@ -131,24 +60,101 @@
               "nombre": {
                 "type": "string"
               },
-              "tipo": {
+              "vibra": {
                 "type": "string"
               },
-              "descripcion": {
-                "type": "string"
-              },
-              "imperdible": {
+              "idealPara": {
                 "type": "string"
               },
               "imagen": {
+                "type": "string"
+              },
+              "colorTag": {
                 "type": "string"
               }
             },
             "required": [
               "nombre",
-              "tipo",
-              "descripcion",
-              "imperdible"
+              "vibra",
+              "idealPara"
+            ],
+            "additionalProperties": false
+          }
+        },
+        "experiencias": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "titulo": {
+                "type": "string"
+              },
+              "icono": {
+                "type": "string"
+              },
+              "tag": {
+                "type": "string"
+              },
+              "tagColor": {
+                "type": "string"
+              },
+              "descripcion": {
+                "type": "string"
+              },
+              "cta": {
+                "type": "string"
+              },
+              "ctaLink": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "titulo",
+              "icono",
+              "tag",
+              "tagColor",
+              "descripcion"
+            ],
+            "additionalProperties": false
+          }
+        },
+        "gastronomia": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "categoria": {
+                "type": "string"
+              },
+              "lugares": {
+                "type": "array",
+                "items": {
+                  "type": "object",
+                  "properties": {
+                    "nombre": {
+                      "type": "string"
+                    },
+                    "nota": {
+                      "type": "string"
+                    },
+                    "precio": {
+                      "type": "string"
+                    },
+                    "link": {
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "nombre",
+                    "precio"
+                  ],
+                  "additionalProperties": false
+                }
+              }
+            },
+            "required": [
+              "categoria",
+              "lugares"
             ],
             "additionalProperties": false
           }
@@ -179,6 +185,9 @@
                       "precio": {
                         "type": "string"
                       },
+                      "detalle": {
+                        "type": "string"
+                      },
                       "link": {
                         "type": "string"
                       }
@@ -205,81 +214,6 @@
           ],
           "additionalProperties": false
         },
-        "escapadas": {
-          "type": "array",
-          "items": {
-            "type": "object",
-            "properties": {
-              "nombre": {
-                "type": "string"
-              },
-              "distancia": {
-                "type": "string"
-              },
-              "tiempo": {
-                "type": "string"
-              },
-              "descripcion": {
-                "type": "string"
-              },
-              "imagen": {
-                "type": "string"
-              },
-              "link": {
-                "type": "string"
-              }
-            },
-            "required": [
-              "nombre",
-              "distancia",
-              "tiempo",
-              "descripcion"
-            ],
-            "additionalProperties": false
-          }
-        },
-        "gastronomia": {
-          "type": "array",
-          "items": {
-            "type": "object",
-            "properties": {
-              "categoria": {
-                "type": "string"
-              },
-              "lugares": {
-                "type": "array",
-                "items": {
-                  "type": "object",
-                  "properties": {
-                    "nombre": {
-                      "type": "string"
-                    },
-                    "zona": {
-                      "type": "string"
-                    },
-                    "precio": {
-                      "type": "string"
-                    },
-                    "link": {
-                      "type": "string"
-                    }
-                  },
-                  "required": [
-                    "nombre",
-                    "zona",
-                    "precio"
-                  ],
-                  "additionalProperties": false
-                }
-              }
-            },
-            "required": [
-              "categoria",
-              "lugares"
-            ],
-            "additionalProperties": false
-          }
-        },
         "mapa": {
           "type": "object",
           "properties": {
@@ -295,6 +229,142 @@
             "zoom"
           ],
           "additionalProperties": false
+        },
+        "leadMagnet": {
+          "type": "object",
+          "properties": {
+            "titulo": {
+              "type": "string"
+            },
+            "subtitulo": {
+              "type": "string"
+            },
+            "descripcion": {
+              "type": "string"
+            },
+            "archivo": {
+              "type": "string"
+            },
+            "beneficios": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            },
+            "imagen": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "titulo",
+            "descripcion",
+            "archivo"
+          ],
+          "additionalProperties": false
+        },
+        "premiumGuide": {
+          "type": "object",
+          "properties": {
+            "titulo": {
+              "type": "string"
+            },
+            "subtitulo": {
+              "type": "string"
+            },
+            "beneficios": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            },
+            "precioOriginal": {
+              "type": "string"
+            },
+            "precioOferta": {
+              "type": "string"
+            },
+            "moneda": {
+              "type": "string"
+            },
+            "link": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "titulo",
+            "subtitulo",
+            "beneficios",
+            "precioOriginal",
+            "precioOferta",
+            "moneda",
+            "link"
+          ],
+          "additionalProperties": false
+        },
+        "faqs": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "pregunta": {
+                "type": "string"
+              },
+              "respuesta": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "pregunta",
+              "respuesta"
+            ],
+            "additionalProperties": false
+          }
+        },
+        "secciones": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "icon": {
+                "type": "string"
+              },
+              "label": {
+                "type": "string"
+              },
+              "text": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "icon",
+              "label",
+              "text"
+            ],
+            "additionalProperties": false
+          }
+        },
+        "dashboard": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "label": {
+                "type": "string"
+              },
+              "value": {
+                "type": "string"
+              },
+              "icon": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "label",
+              "value",
+              "icon"
+            ],
+            "additionalProperties": false
+          }
         },
         "zonas": {
           "type": "array",
@@ -385,50 +455,101 @@
             {
               "type": "null"
             }
-          ],
-          "default": []
+          ]
         },
-        "faqs": {
+        "actividades": {
           "type": "array",
           "items": {
             "type": "object",
             "properties": {
-              "pregunta": {
+              "nombre": {
                 "type": "string"
               },
-              "respuesta": {
+              "icono": {
+                "type": "string"
+              },
+              "descripcion": {
+                "type": "string"
+              },
+              "link": {
                 "type": "string"
               }
             },
             "required": [
-              "pregunta",
-              "respuesta"
+              "nombre",
+              "icono",
+              "descripcion"
             ],
             "additionalProperties": false
           }
         },
-        "leadMagnet": {
-          "type": "object",
-          "properties": {
-            "titulo": {
-              "type": "string"
+        "atracciones": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "nombre": {
+                "type": "string"
+              },
+              "zona": {
+                "type": "string"
+              },
+              "descripcion": {
+                "type": "string"
+              },
+              "imagen": {
+                "type": "string"
+              },
+              "gratis": {
+                "type": "boolean"
+              },
+              "precio": {
+                "type": "string"
+              },
+              "link": {
+                "type": "string"
+              }
             },
-            "descripcion": {
-              "type": "string"
+            "required": [
+              "nombre",
+              "zona",
+              "descripcion"
+            ],
+            "additionalProperties": false
+          }
+        },
+        "escapadas": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "nombre": {
+                "type": "string"
+              },
+              "distancia": {
+                "type": "string"
+              },
+              "tiempo": {
+                "type": "string"
+              },
+              "descripcion": {
+                "type": "string"
+              },
+              "imagen": {
+                "type": "string"
+              },
+              "link": {
+                "type": "string"
+              }
             },
-            "archivo": {
-              "type": "string"
-            },
-            "imagen": {
-              "type": "string"
-            }
-          },
-          "required": [
-            "titulo",
-            "descripcion",
-            "archivo"
-          ],
-          "additionalProperties": false
+            "required": [
+              "nombre",
+              "distancia",
+              "tiempo",
+              "descripcion"
+            ],
+            "additionalProperties": false
+          }
         },
         "$schema": {
           "type": "string"
@@ -438,8 +559,7 @@
         "title",
         "img",
         "desc",
-        "historia",
-        "secciones"
+        "historia"
       ],
       "additionalProperties": false
     }
