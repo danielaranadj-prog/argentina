@@ -1,6 +1,6 @@
 ---
 title: "El Calafate"
-img: "/destinos_argentina/calafate.jpg"
+img: "/uploads/calafate.jpg"
 desc: "Donde el hielo ruge y la naturaleza manda."
 historia: "Abrigate bien, che, porque estás entrando a una de las postales más imponentes del planeta. Aquí uno se siente chiquitito de verdad. Tener enfrente al Perito Moreno te cambia la perspectiva de la vida: una pared de 60 metros que avanza y se rompe frente a tus ojos con un ruido similar a un trueno. No venís solo a ver, venís a escuchar cómo cruje la tierra."
 secciones:
@@ -49,7 +49,6 @@ leadMagnet:
   archivo: "/downloads/checklist-patagonia-glaciar.pdf"
   imagen: "https://images.unsplash.com/photo-1518182170546-0766ce6fec56?auto=format&fit=crop&w=600&q=80"
 ---
-
 ### 🧊 Guía para Domar al Gigante de Hielo
 
 El Calafate es hermoso pero hostil si no vas preparado. Aquí los secretos para que no congeles tu presupuesto (ni tus dedos).
