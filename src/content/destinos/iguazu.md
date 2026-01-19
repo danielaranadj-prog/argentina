@@ -49,7 +49,6 @@ leadMagnet:
   archivo: "/downloads/mapa-cataratas-iguazu.pdf"
   imagen: "https://images.unsplash.com/photo-1582234032483-29479b18752c?auto=format&fit=crop&w=600&q=80"
 ---
-
 ### 🌿 Guía de las Cataratas: Los Dos Lados
 
 La eterna pelea: ¿Qué lado es mejor? La respuesta es que necesitás los dos.
