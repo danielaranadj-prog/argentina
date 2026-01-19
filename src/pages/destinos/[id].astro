@@ -556,58 +556,221 @@ const ctaColors = {
     .tour-card { flex: 0 0 280px; }
   }
 
-  /* --- DESTINATION CONTENT --- */
+  /* --- DESTINATION CONTENT (ENHANCED) --- */
   .destination-content {
     max-width: 800px;
     margin: 40px auto 80px auto;
-    font-size: 1.1rem;
+    font-size: 1.05rem;
     line-height: 1.8;
     color: var(--text);
+    background: var(--card-bg);
+    border-radius: 24px;
+    padding: 40px;
+    border: 1px solid var(--border);
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.05);
   }
 
-  .destination-content :global(h2), 
+  /* Títulos principales con icono decorativo */
+  .destination-content :global(h3:first-of-type) {
+    font-size: 1.6rem;
+    color: var(--title);
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 700;
+    margin-bottom: 20px;
+    padding-bottom: 15px;
+    border-bottom: 2px solid;
+    border-image: linear-gradient(90deg, var(--gold), var(--celeste)) 1;
+    margin-top: 0;
+  }
+
   .destination-content :global(h3) {
     color: var(--title);
     font-family: 'Montserrat', sans-serif;
-    margin-top: 40px;
-    margin-bottom: 20px;
-    font-weight: 600; 
+    margin-top: 35px;
+    margin-bottom: 15px;
+    font-weight: 700;
+    font-size: 1.3rem;
+    display: flex;
+    align-items: center;
+    gap: 10px;
   }
-  
-  .destination-content :global(h2) { font-size: 1.8rem; }
-  .destination-content :global(h3) { font-size: 1.4rem; }
 
-  .destination-content :global(ul), 
-  .destination-content :global(ol) {
-    padding-left: 20px;
-    margin-bottom: 25px;
+  /* Subtítulos (h4) como secciones */
+  .destination-content :global(h4) {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: var(--gold);
+    margin-top: 30px;
+    margin-bottom: 15px;
+    padding: 12px 18px;
+    background: linear-gradient(135deg, rgba(244, 185, 66, 0.1), rgba(117, 170, 219, 0.05));
+    border-left: 4px solid var(--gold);
+    border-radius: 0 12px 12px 0;
+  }
+
+  /* Párrafos */
+  .destination-content :global(p) {
+    margin-bottom: 18px;
+    text-align: justify;
     color: var(--text-secondary);
+  }
+
+  /* Listas estilizadas como cards */
+  .destination-content :global(ul) {
+    list-style: none;
+    padding: 0;
+    margin: 20px 0;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
   }
 
   .destination-content :global(li) {
-    margin-bottom: 10px;
-    text-align: justify;
-  }
-  
-  .destination-content :global(p) {
-    margin-bottom: 20px;
-    text-align: justify;
+    background: var(--bg);
+    padding: 16px 20px;
+    border-radius: 12px;
+    border: 1px solid var(--border);
+    position: relative;
+    padding-left: 45px;
+    transition: all 0.3s ease;
   }
 
+  .destination-content :global(li):hover {
+    border-color: var(--gold);
+    transform: translateX(5px);
+  }
+
+  .destination-content :global(li)::before {
+    content: '✓';
+    position: absolute;
+    left: 16px;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 22px;
+    height: 22px;
+    background: linear-gradient(135deg, var(--gold), #d97706);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.7rem;
+    color: white;
+    font-weight: bold;
+  }
+
+  /* Listas ordenadas */
+  .destination-content :global(ol) {
+    list-style: none;
+    padding: 0;
+    margin: 20px 0;
+    counter-reset: item;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+  }
+
+  .destination-content :global(ol li) {
+    counter-increment: item;
+    background: linear-gradient(135deg, var(--card-bg), var(--bg));
+    padding: 20px 25px;
+    padding-left: 65px;
+    border-radius: 16px;
+    border: 1px solid var(--border);
+    position: relative;
+  }
+
+  .destination-content :global(ol li)::before {
+    content: counter(item);
+    position: absolute;
+    left: 18px;
+    top: 18px;
+    width: 32px;
+    height: 32px;
+    background: linear-gradient(135deg, var(--gold), var(--celeste));
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 0.9rem;
+    color: white;
+    font-weight: 800;
+  }
+
+  /* Strong/Bold destacado */
   .destination-content :global(strong) {
     color: var(--title);
     font-weight: 700;
+    background: linear-gradient(180deg, transparent 60%, rgba(244, 185, 66, 0.2) 60%);
+    padding: 0 2px;
   }
-  
+
+  /* Blockquotes como tip boxes */
   .destination-content :global(blockquote) {
-    border-left: 4px solid var(--gold);
-    padding-left: 20px;
-    margin: 30px 0;
-    font-style: italic;
-    color: var(--text-secondary);
-    background: var(--bg-secondary);
-    padding: 15px 20px;
-    border-radius: 0 10px 10px 0;
+    background: linear-gradient(135deg, rgba(16, 185, 129, 0.08), rgba(16, 185, 129, 0.02));
+    border: 1px solid rgba(16, 185, 129, 0.2);
+    border-left: 4px solid #10b981;
+    border-radius: 0 16px 16px 0;
+    padding: 20px 25px;
+    margin: 25px 0;
+    position: relative;
+  }
+
+  .destination-content :global(blockquote)::before {
+    content: '💡';
+    position: absolute;
+    top: -12px;
+    left: 15px;
+    background: var(--card-bg);
+    padding: 0 8px;
+    font-size: 1.2rem;
+  }
+
+  .destination-content :global(blockquote p) {
+    margin: 0;
+    font-style: normal;
+    color: var(--text);
+  }
+
+  /* Links estilizados */
+  .destination-content :global(a) {
+    color: var(--gold);
+    text-decoration: none;
+    font-weight: 600;
+    border-bottom: 1px dashed var(--gold);
+    transition: all 0.2s;
+  }
+
+  .destination-content :global(a):hover {
+    color: var(--celeste);
+    border-color: var(--celeste);
+  }
+
+  /* Code inline */
+  .destination-content :global(code) {
+    background: var(--bg);
+    padding: 3px 8px;
+    border-radius: 6px;
+    font-size: 0.9em;
+    color: var(--gold);
+    font-family: 'Fira Code', monospace;
+  }
+
+  @media (max-width: 600px) {
+    .destination-content {
+      padding: 25px 20px;
+      border-radius: 16px;
+      margin: 20px 0 40px 0;
+    }
+    
+    .destination-content :global(li) {
+      padding: 14px 15px 14px 40px;
+    }
+    
+    .destination-content :global(ol li) {
+      padding-left: 55px;
+    }
   }
 
   /* --- TRAVEL WIDGETS SECTION --- */
