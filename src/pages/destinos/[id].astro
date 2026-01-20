@@ -2283,13 +2283,40 @@ const ctaColors = {
 
   @media (max-width: 600px) {
     .experiencia-item {
-      flex-direction: column;
+      flex-wrap: wrap;
     }
     
     .exp-number {
-      width: 28px;
-      height: 28px;
-      font-size: 0.75rem;
+      width: 26px;
+      height: 26px;
+      font-size: 0.7rem;
+    }
+
+    .exp-icon {
+      font-size: 1.2rem;
+    }
+
+    .exp-content {
+      flex: 1;
+      min-width: 0;
+    }
+
+    .exp-header {
+      flex-wrap: nowrap;
+      gap: 8px;
+    }
+
+    .exp-header h3 {
+      font-size: 0.9rem;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+
+    .exp-tag {
+      font-size: 0.55rem;
+      padding: 3px 6px;
+      flex-shrink: 0;
     }
   }
 </style>
