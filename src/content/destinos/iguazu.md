@@ -4,10 +4,10 @@ img: "/argentina/uploads/iguazu.jpg"
 desc: "Donde la tierra se abre y la naturaleza explota."
 historia: "Sacate el abrigo y ponete repelente, porque aterrizaste en el corazón de la selva. No te vendo humo: estas son una de las 7 Maravillas Naturales del Mundo. Acá la tierra se abre y el agua cae con una furia que te deja mudo. No es solo mirar, es sentir el rocío en la cara y escuchar el rugido constante. Es una película de aventuras en la vida real."
 secciones:
-  - icon: "fa-passport"
+  - icon: "fa-exclamation-triangle"
     label: "Documentos"
     text: "Llevá pasaporte/DNI siempre. Cruzarás frontera (Brasil) para ver el lado panorámico."
-  - icon: "fa-bug"
+  - icon: "fa-plane-arrival"
     label: "Salud"
     text: "Mucho repelente (Dengue) y ropa clara. Cuidado con los Coatíes (muerden)."
   - icon: "fa-clock"
@@ -55,6 +55,12 @@ checklist:
     detalle: "compralo aqui"
     cta: "compra tu tick de bus aqui"
     ctaLink: "www.google.com"
+  - icono: "fa-check"
+    titulo: "Seguros"
+    emoji: "🏨"
+    detalle: "vive la experiencia completa haciendo que este mas facil"
+    cta: "ohlaoal"
+    ctaLink: "iaskajskd"
 ---
 ### 🌿 Guía de las Cataratas: Los Dos Lados
 
