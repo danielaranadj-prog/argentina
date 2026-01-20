@@ -118,9 +118,13 @@ faqs:
   - pregunta: "¿Necesito guía para los senderos?"
     respuesta: "No, están bien señalizados. Pero un guía aporta contexto, seguridad y te marca el ritmo correcto. Para glaciares, sí es obligatorio."
   - pregunta: "¿Hay internet y señal de celular?"
-    respuesta: "Muy poca. El WiFi en alojamientos es lento y el 4G casi no existe. Descargá mapas offline (Maps.Me o AllTrails) antes de llegar."
+    respuesta: "Muy poca. El WiFi en alojamiento es lento y el 4G casi no existe. Descargá mapas offline ANTES de llegar."
   - pregunta: "¿Puedo tomar agua de los arroyos?"
-    respuesta: "¡Sí! El agua de deshielo de la montaña es pura y potable. Es uno de los lujos de este lugar. Llevá botella reutilizable."
+    respuesta: "¡Sí! El agua de deshielo de la montaña es pura y potable. Llevá botella reutilizable."
+  - pregunta: "¿Puedo llevar a niños?"
+    respuesta: "Hasta Laguna Capri o Chorrillo del Salto sí (caminatas cortas). Laguna de los Tres es demasiado exigente para menores de 10-12 años."
+  - pregunta: "¿Hay lugar donde cargar celular en la montaña?"
+    respuesta: "No. Llevá batería portátil cargada. Modo avión para conservar batería en senderos largos."
 
 # ========== LEAD MAGNET ==========
 leadMagnet:
