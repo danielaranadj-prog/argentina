@@ -48,6 +48,13 @@ leadMagnet:
   descripcion: "Descargá el mapa completo con tiempos de caminata, puntos de foto y consejos para cada sendero del lado argentino y brasileño."
   archivo: "/downloads/mapa-cataratas-iguazu.pdf"
   imagen: "https://images.unsplash.com/photo-1582234032483-29479b18752c?auto=format&fit=crop&w=600&q=80"
+checklist:
+  - icono: "fa-check"
+    titulo: "Autbus"
+    emoji: "🚌"
+    detalle: "compralo aqui"
+    cta: "compra tu tick de bus aqui"
+    ctaLink: "www.google.com"
 ---
 ### 🌿 Guía de las Cataratas: Los Dos Lados
 
