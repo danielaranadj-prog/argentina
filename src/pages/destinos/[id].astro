@@ -46,6 +46,25 @@ const ctaColors = {
   gold: { bg: 'linear-gradient(135deg, #F4B942, #d97706)', hover: '#b45309' },
   purple: { bg: 'linear-gradient(135deg, #8b5cf6, #7c3aed)', hover: '#6d28d9' },
 };
+
+// Mapa de Gentilicios/Regiones para el Checklist
+const checklistMap = {
+  'buenos-aires': 'Porteña',
+  'el-calafate': 'Patagónica',
+  'el-chalten': 'Patagónica',
+  'ushuaia': 'Patagónica',
+  'bariloche': 'Patagónica',
+  'villa-la-angostura': 'Patagónica',
+  'san-martin-de-los-andes': 'Patagónica',
+  'mendoza': 'Mendocina',
+  'rosario': 'Rosarina',
+  'iguazu': 'de la Selva',
+  'cordoba': 'Cordobesa',
+  'salta': 'Norteña',
+  'jujuy': 'Norteña'
+};
+
+const checklistTitle = checklistMap[destino.slug] || 'Viajera';
 ---
 
 <Layout title={`${title} | Destinos Argentinos`}>
@@ -95,10 +114,10 @@ const ctaColors = {
       </section>
     )}
 
-    <!-- 3. CHECKLIST DE SUPERVIVENCIA PORTEÑA -->
+    <!-- 3. CHECKLIST DE SUPERVIVENCIA (DINÁMICO) -->
     {checklist && checklist.length > 0 && (
       <section class="checklist-section">
-        <h2>✅ Checklist de Supervivencia Porteña</h2>
+        <h2>✅ Checklist de Supervivencia {checklistTitle}</h2>
         <p class="checklist-intro">Resuelve estos {checklist.length} puntos y viaja tranquilo.</p>
         <div class="checklist-grid">
           {checklist.map((item) => (
@@ -187,7 +206,7 @@ const ctaColors = {
         </div>
         <div class="blog-link-box">
           <p>🌟 ¿Quieres más consejos y experiencias?</p>
-          <a href="https://blog.instantetrips.com/argentina/buenos-aires" target="_blank" rel="noopener" class="blog-link">
+          <a href="https://blog.instantetrips.com/?tag=Argentina" target="_blank" rel="noopener" class="blog-link">
             Visita nuestro Blog <i class="fas fa-external-link-alt"></i>
           </a>
         </div>
